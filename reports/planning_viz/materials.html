@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8"/>
+  <title>物料与库存</title>
+  <style>
+    :root {
+      --bg: #f4f8fb;
+      --card: #ffffff;
+      --text: #0f172a;
+      --muted: #475569;
+      --line: #cbd5e1;
+      --head: #e6edf4;
+      --accent: #0ea5e9;
+    }
+    * { box-sizing: border-box; }
+    body { margin: 0; font-family: "Segoe UI", Arial, sans-serif; color: var(--text); background: var(--bg); }
+    .wrap { max-width: 1280px; margin: 0 auto; padding: 18px; }
+    .top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; }
+    .back { color: #0369a1; text-decoration: none; font-weight: 600; }
+    .card { border: 1px solid var(--line); border-radius: 12px; background: var(--card); padding: 14px; margin-bottom: 14px; }
+    h1 { margin: 0; font-size: 24px; }
+    h2 { margin: 0 0 8px 0; font-size: 18px; }
+    h3 { margin: 12px 0 6px 0; font-size: 15px; color: #1e293b; }
+    .meta { color: var(--muted); font-size: 13px; margin-top: 4px; }
+    table { width: 100%; border-collapse: collapse; margin-top: 8px; }
+    th, td { border: 1px solid var(--line); padding: 6px 8px; text-align: left; font-size: 13px; vertical-align: top; }
+    th { background: var(--head); }
+    .grid4 { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 10px; }
+    .stat { border: 1px solid var(--line); border-radius: 10px; background: #f8fcff; padding: 10px; }
+    .stat .k { font-size: 12px; color: var(--muted); }
+    .stat .v { font-size: 22px; font-weight: 700; margin-top: 4px; }
+    .navcards { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
+    .navcard { border: 1px solid var(--line); border-radius: 12px; padding: 12px; background: #fff; }
+    .navcard a { font-size: 16px; font-weight: 700; color: #075985; text-decoration: none; }
+    .hint { font-size: 12px; color: var(--muted); }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="top">
+      <h1>物料与库存</h1>
+      <a class="back" href="./index.html">返回首页</a>
+    </div>
+    <div class='card'><h2>物料汇总</h2><table><thead><tr><th>类型</th><th>数量</th></tr></thead><tbody><tr><td>原材料</td><td>27</td></tr><tr><td>辅料</td><td>8</td></tr><tr><td>中间产品</td><td>278</td></tr><tr><td>产品</td><td>20</td></tr></tbody></table><div class='meta'>可采购原材料数=27</div></div><div class='card'><h2>原材料库存</h2><table><thead><tr><th>编码</th><th>名称</th><th>单位</th><th>可用数量</th></tr></thead><tbody><tr><td>adc12_al_ingot</td><td>ADC12铝合金锭</td><td>kg</td><td>170.0000</td></tr><tr><td>brass_bar_d18</td><td>黄铜棒料 φ18</td><td>kg</td><td>190.0000</td></tr><tr><td>brass_bar_d32</td><td>黄铜棒料 φ32</td><td>kg</td><td>50.0000</td></tr><tr><td>brass_hex_d12</td><td>黄铜六角棒料 φ12</td><td>kg</td><td>150.0000</td></tr><tr><td>brass_lock_nut</td><td>黄铜锁紧螺母</td><td>pcs</td><td>130.0000</td></tr><tr><td>carbon_coil_2mm</td><td>碳钢板卷 2.0mm</td><td>kg</td><td>190.0000</td></tr><tr><td>carbon_coil_3mm</td><td>碳钢板卷 3.0mm</td><td>kg</td><td>160.0000</td></tr><tr><td>casting_wax</td><td>精铸蜡料</td><td>kg</td><td>70.0000</td></tr><tr><td>filter_element_5u</td><td>滤芯总成 5μm</td><td>pcs</td><td>100.0000</td></tr><tr><td>h62_brass_ingot</td><td>H62黄铜锭</td><td>kg</td><td>200.0000</td></tr><tr><td>manual_handle</td><td>手动换向手柄</td><td>pcs</td><td>190.0000</td></tr><tr><td>nbr_o_ring</td><td>丁腈橡胶O形圈</td><td>pcs</td><td>200.0000</td></tr><tr><td>oil_mist_core</td><td>油雾芯组件</td><td>pcs</td><td>170.0000</td></tr><tr><td>pc_filter_cup</td><td>透明聚碳酸酯滤杯</td><td>pcs</td><td>110.0000</td></tr><tr><td>ptfe_seal_ring</td><td>PTFE密封圈</td><td>pcs</td><td>160.0000</td></tr><tr><td>pushin_collet</td><td>快插卡套</td><td>pcs</td><td>50.0000</td></tr><tr><td>quick_exhaust_diaphragm</td><td>快排阀膜片</td><td>pcs</td><td>120.0000</td></tr><tr><td>regulator_knob</td><td>调压旋钮</td><td>pcs</td><td>160.0000</td></tr><tr><td>rust_prevent_oil</td><td>防锈油</td><td>kg</td><td>160.0000</td></tr><tr><td>screw_m4</td><td>碳钢螺钉 M4×12</td><td>pcs</td><td>150.0000</td></tr><tr><td>sintered_bronze_core</td><td>烧结铜消音芯</td><td>pcs</td><td>110.0000</td></tr><tr><td>solenoid_coil_24v</td><td>24V电磁线圈</td><td>pcs</td><td>80.0000</td></tr><tr><td>ss_bar_d10</td><td>不锈钢棒料 φ10</td><td>kg</td><td>100.0000</td></tr><tr><td>ss_bar_d16</td><td>不锈钢棒料 φ16</td><td>kg</td><td>90.0000</td></tr><tr><td>ss_clamp_ring</td><td>不锈钢卡簧</td><td>pcs</td><td>80.0000</td></tr><tr><td>ss_sheet_15mm</td><td>不锈钢板 1.5mm</td><td>kg</td><td>100.0000</td></tr><tr><td>ss_spring_small</td><td>不锈钢弹簧</td><td>pcs</td><td>170.0000</td></tr></tbody></table><div class='meta'>原材料库存合计=3610.0000</div></div><div class='card'><h2>辅料库存</h2><div class='hint'>辅料只允许作为工序输入，不作为工艺路线输出。</div><table><thead><tr><th>编码</th><th>名称</th><th>单位</th><th>可用数量</th></tr></thead><tbody><tr><td>certificate_card</td><td>合格证</td><td>sheet</td><td>100.0000</td></tr><tr><td>cleaner_liquid</td><td>工业清洗剂</td><td>kg</td><td>170.0000</td></tr><tr><td>color_box</td><td>彩盒</td><td>pcs</td><td>110.0000</td></tr><tr><td>label_paper</td><td>标签纸</td><td>sheet</td><td>60.0000</td></tr><tr><td>manual_booklet</td><td>说明书</td><td>sheet</td><td>170.0000</td></tr><tr><td>pearl_cotton</td><td>珍珠棉内衬</td><td>pcs</td><td>150.0000</td></tr><tr><td>silica_sol</td><td>硅溶胶</td><td>kg</td><td>160.0000</td></tr><tr><td>zircon_sand</td><td>氧化锆耐火砂</td><td>kg</td><td>140.0000</td></tr></tbody></table><div class='meta'>辅料库存合计=1060.0000</div></div><div class='card'><h2>成品库存</h2><table><thead><tr><th>编码</th><th>名称</th><th>单位</th><th>可用数量</th></tr></thead><tbody><tr><td>air_filter_regulator</td><td>空气过滤调压器</td><td>pcs</td><td>50.0000</td></tr><tr><td>al_3_2_solenoid_valve</td><td>铝合金两位三通电磁阀</td><td>pcs</td><td>190.0000</td></tr><tr><td>al_5_2_solenoid_valve</td><td>铝合金五口二位电磁阀</td><td>pcs</td><td>70.0000</td></tr><tr><td>al_manual_directional_valve</td><td>铝合金手动换向阀</td><td>pcs</td><td>150.0000</td></tr><tr><td>al_quick_exhaust_valve</td><td>铝合金快排阀</td><td>pcs</td><td>50.0000</td></tr><tr><td>al_throttle_valve</td><td>铝合金节流阀</td><td>pcs</td><td>200.0000</td></tr><tr><td>brass_air_release_valve</td><td>黄铜排气阀</td><td>pcs</td><td>100.0000</td></tr><tr><td>brass_check_valve</td><td>黄铜止回阀</td><td>pcs</td><td>80.0000</td></tr><tr><td>brass_female_elbow_pushin</td><td>黄铜内螺纹快插弯头</td><td>pcs</td><td>110.0000</td></tr><tr><td>brass_male_pushin_fitting</td><td>黄铜外螺纹快插接头</td><td>pcs</td><td>120.0000</td></tr><tr><td>brass_pressure_regulator</td><td>黄铜减压阀</td><td>pcs</td><td>190.0000</td></tr><tr><td>brass_stabilizer_valve</td><td>黄铜稳压阀</td><td>pcs</td><td>80.0000</td></tr><tr><td>brass_straight_ball_valve</td><td>黄铜直通球阀</td><td>pcs</td><td>140.0000</td></tr><tr><td>brass_tee_ball_valve</td><td>黄铜三通球阀</td><td>pcs</td><td>80.0000</td></tr><tr><td>frl_duo_unit</td><td>二联件气源处理器</td><td>pcs</td><td>100.0000</td></tr><tr><td>frl_trio_unit</td><td>三联件气源处理器</td><td>pcs</td><td>150.0000</td></tr><tr><td>oil_mist_lubricator</td><td>油雾器总成</td><td>pcs</td><td>170.0000</td></tr><tr><td>silencer_fitting_assy</td><td>消声器接头总成</td><td>pcs</td><td>190.0000</td></tr><tr><td>stainless_pushin_straight</td><td>不锈钢快插直通接头</td><td>pcs</td><td>90.0000</td></tr><tr><td>welded_mounting_bracket_assy</td><td>焊接安装支架总成</td><td>pcs</td><td>140.0000</td></tr></tbody></table><div class='meta'>产品库存合计=2450.0000</div></div>
+  </div>
+</body>
+</html>

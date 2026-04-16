@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8"/>
+  <title>工艺路线页面</title>
+  <style>
+    :root {
+      --bg: #f4f8fb;
+      --card: #ffffff;
+      --text: #0f172a;
+      --muted: #475569;
+      --line: #cbd5e1;
+      --head: #e6edf4;
+      --accent: #0ea5e9;
+    }
+    * { box-sizing: border-box; }
+    body { margin: 0; font-family: "Segoe UI", Arial, sans-serif; color: var(--text); background: var(--bg); }
+    .wrap { max-width: 1280px; margin: 0 auto; padding: 18px; }
+    .top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; }
+    .back { color: #0369a1; text-decoration: none; font-weight: 600; }
+    .card { border: 1px solid var(--line); border-radius: 12px; background: var(--card); padding: 14px; margin-bottom: 14px; }
+    h1 { margin: 0; font-size: 24px; }
+    h2 { margin: 0 0 8px 0; font-size: 18px; }
+    h3 { margin: 12px 0 6px 0; font-size: 15px; color: #1e293b; }
+    .meta { color: var(--muted); font-size: 13px; margin-top: 4px; }
+    table { width: 100%; border-collapse: collapse; margin-top: 8px; }
+    th, td { border: 1px solid var(--line); padding: 6px 8px; text-align: left; font-size: 13px; vertical-align: top; }
+    th { background: var(--head); }
+    .grid4 { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 10px; }
+    .stat { border: 1px solid var(--line); border-radius: 10px; background: #f8fcff; padding: 10px; }
+    .stat .k { font-size: 12px; color: var(--muted); }
+    .stat .v { font-size: 22px; font-weight: 700; margin-top: 4px; }
+    .navcards { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
+    .navcard { border: 1px solid var(--line); border-radius: 12px; padding: 12px; background: #fff; }
+    .navcard a { font-size: 16px; font-weight: 700; color: #075985; text-decoration: none; }
+    .hint { font-size: 12px; color: var(--muted); }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="top">
+      <h1>工艺路线页面</h1>
+      <a class="back" href="./index.html">返回首页</a>
+    </div>
+    <div class='card'><div class='meta'>每一行可进入对应路线 DAG 页面，查看步骤主体信息。</div><table><thead><tr><th>路线编码</th><th>路线名称</th><th>目标物料</th><th>步骤数</th><th>依赖边</th><th>查看</th></tr></thead><tbody><tr><td>air_filter_regulator_route</td><td>空气过滤调压器标准工艺路线</td><td>空气过滤调压器</td><td>16</td><td>15</td><td><a href='./route_1.html'>打开</a></td></tr><tr><td>al_3_2_solenoid_valve_route</td><td>铝合金两位三通电磁阀标准工艺路线</td><td>铝合金两位三通电磁阀</td><td>14</td><td>13</td><td><a href='./route_2.html'>打开</a></td></tr><tr><td>al_5_2_solenoid_valve_route_v1</td><td>铝合金五口二位电磁阀标准工艺路线</td><td>铝合金五口二位电磁阀</td><td>14</td><td>13</td><td><a href='./route_3.html'>打开</a></td></tr><tr><td>al_5_2_solenoid_valve_route_v2</td><td>铝合金五口二位电磁阀快速工艺路线</td><td>铝合金五口二位电磁阀</td><td>14</td><td>13</td><td><a href='./route_4.html'>打开</a></td></tr><tr><td>al_manual_directional_valve_route</td><td>铝合金手动换向阀标准工艺路线</td><td>铝合金手动换向阀</td><td>14</td><td>13</td><td><a href='./route_5.html'>打开</a></td></tr><tr><td>al_quick_exhaust_valve_route</td><td>铝合金快排阀标准工艺路线</td><td>铝合金快排阀</td><td>14</td><td>13</td><td><a href='./route_6.html'>打开</a></td></tr><tr><td>al_throttle_valve_route</td><td>铝合金节流阀标准工艺路线</td><td>铝合金节流阀</td><td>14</td><td>13</td><td><a href='./route_7.html'>打开</a></td></tr><tr><td>brass_air_release_valve_route</td><td>黄铜排气阀标准工艺路线</td><td>黄铜排气阀</td><td>19</td><td>18</td><td><a href='./route_8.html'>打开</a></td></tr><tr><td>brass_check_valve_route</td><td>黄铜止回阀标准工艺路线</td><td>黄铜止回阀</td><td>19</td><td>18</td><td><a href='./route_9.html'>打开</a></td></tr><tr><td>brass_female_elbow_pushin_route</td><td>黄铜内螺纹快插弯头标准工艺路线</td><td>黄铜内螺纹快插弯头</td><td>10</td><td>9</td><td><a href='./route_10.html'>打开</a></td></tr><tr><td>brass_male_pushin_fitting_route_v1</td><td>黄铜外螺纹快插接头标准工艺路线</td><td>黄铜外螺纹快插接头</td><td>10</td><td>9</td><td><a href='./route_11.html'>打开</a></td></tr><tr><td>brass_male_pushin_fitting_route_v2</td><td>黄铜外螺纹快插接头高速路线</td><td>黄铜外螺纹快插接头</td><td>10</td><td>9</td><td><a href='./route_12.html'>打开</a></td></tr><tr><td>brass_pressure_regulator_route_v1</td><td>黄铜减压阀标准工艺路线</td><td>黄铜减压阀</td><td>19</td><td>18</td><td><a href='./route_13.html'>打开</a></td></tr><tr><td>brass_pressure_regulator_route_v2</td><td>黄铜减压阀精密工艺路线</td><td>黄铜减压阀</td><td>19</td><td>18</td><td><a href='./route_14.html'>打开</a></td></tr><tr><td>brass_stabilizer_valve_route</td><td>黄铜稳压阀标准工艺路线</td><td>黄铜稳压阀</td><td>19</td><td>18</td><td><a href='./route_15.html'>打开</a></td></tr><tr><td>brass_straight_ball_valve_route</td><td>黄铜直通球阀标准工艺路线</td><td>黄铜直通球阀</td><td>19</td><td>18</td><td><a href='./route_16.html'>打开</a></td></tr><tr><td>brass_tee_ball_valve_route</td><td>黄铜三通球阀标准工艺路线</td><td>黄铜三通球阀</td><td>19</td><td>18</td><td><a href='./route_17.html'>打开</a></td></tr><tr><td>frl_duo_unit_route</td><td>二联件气源处理器标准工艺路线</td><td>二联件气源处理器</td><td>16</td><td>15</td><td><a href='./route_18.html'>打开</a></td></tr><tr><td>frl_trio_unit_route_v1</td><td>三联件气源处理器标准工艺路线</td><td>三联件气源处理器</td><td>16</td><td>15</td><td><a href='./route_19.html'>打开</a></td></tr><tr><td>frl_trio_unit_route_v2</td><td>三联件气源处理器装配强化路线</td><td>三联件气源处理器</td><td>16</td><td>15</td><td><a href='./route_20.html'>打开</a></td></tr><tr><td>oil_mist_lubricator_route</td><td>油雾器总成标准工艺路线</td><td>油雾器总成</td><td>16</td><td>15</td><td><a href='./route_21.html'>打开</a></td></tr><tr><td>silencer_fitting_assy_route</td><td>消声器接头总成标准工艺路线</td><td>消声器接头总成</td><td>10</td><td>9</td><td><a href='./route_22.html'>打开</a></td></tr><tr><td>stainless_pushin_straight_route</td><td>不锈钢快插直通接头标准工艺路线</td><td>不锈钢快插直通接头</td><td>10</td><td>9</td><td><a href='./route_23.html'>打开</a></td></tr><tr><td>welded_mounting_bracket_assy_route</td><td>焊接安装支架总成标准工艺路线</td><td>焊接安装支架总成</td><td>10</td><td>9</td><td><a href='./route_24.html'>打开</a></td></tr></tbody></table></div>
+  </div>
+</body>
+</html>

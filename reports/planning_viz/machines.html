@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8"/>
+  <title>设备与维护</title>
+  <style>
+    :root {
+      --bg: #f4f8fb;
+      --card: #ffffff;
+      --text: #0f172a;
+      --muted: #475569;
+      --line: #cbd5e1;
+      --head: #e6edf4;
+      --accent: #0ea5e9;
+    }
+    * { box-sizing: border-box; }
+    body { margin: 0; font-family: "Segoe UI", Arial, sans-serif; color: var(--text); background: var(--bg); }
+    .wrap { max-width: 1280px; margin: 0 auto; padding: 18px; }
+    .top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; }
+    .back { color: #0369a1; text-decoration: none; font-weight: 600; }
+    .card { border: 1px solid var(--line); border-radius: 12px; background: var(--card); padding: 14px; margin-bottom: 14px; }
+    h1 { margin: 0; font-size: 24px; }
+    h2 { margin: 0 0 8px 0; font-size: 18px; }
+    h3 { margin: 12px 0 6px 0; font-size: 15px; color: #1e293b; }
+    .meta { color: var(--muted); font-size: 13px; margin-top: 4px; }
+    table { width: 100%; border-collapse: collapse; margin-top: 8px; }
+    th, td { border: 1px solid var(--line); padding: 6px 8px; text-align: left; font-size: 13px; vertical-align: top; }
+    th { background: var(--head); }
+    .grid4 { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 10px; }
+    .stat { border: 1px solid var(--line); border-radius: 10px; background: #f8fcff; padding: 10px; }
+    .stat .k { font-size: 12px; color: var(--muted); }
+    .stat .v { font-size: 22px; font-weight: 700; margin-top: 4px; }
+    .navcards { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
+    .navcard { border: 1px solid var(--line); border-radius: 12px; padding: 12px; background: #fff; }
+    .navcard a { font-size: 16px; font-weight: 700; color: #075985; text-decoration: none; }
+    .hint { font-size: 12px; color: var(--muted); }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="top">
+      <h1>设备与维护</h1>
+      <a class="back" href="./index.html">返回首页</a>
+    </div>
+    <div class='card'><h2>设备维护覆盖情况</h2><div class='hint'>维护事件数 = machine_calendars 中该设备的非工作记录数量。</div><table><thead><tr><th>设备编码</th><th>设备名称</th><th>设备类型</th><th>车间</th><th>维护事件数</th></tr></thead><tbody><tr><td>mt_assembly_auto_kg_machine_01</td><td>assembly_auto_kg_1</td><td>mt_assembly_auto_kg</td><td>utility_ws</td><td>1</td></tr><tr><td>mt_assembly_auto_machine_01</td><td>assembly_auto_1</td><td>mt_assembly_auto</td><td>assembly_ws</td><td>1</td></tr><tr><td>mt_assembly_auto_pcs_machine_01</td><td>assembly_auto_pcs_1</td><td>mt_assembly_auto_pcs</td><td>utility_ws</td><td>1</td></tr><tr><td>mt_assembly_manual_machine_01</td><td>assembly_manual_1</td><td>mt_assembly_manual</td><td>assembly_ws</td><td>2</td></tr><tr><td>mt_assembly_manual_machine_02</td><td>assembly_manual_2</td><td>mt_assembly_manual</td><td>assembly_ws</td><td>1</td></tr><tr><td>mt_assembly_manual_machine_03</td><td>assembly_manual_3</td><td>mt_assembly_manual</td><td>assembly_ws</td><td>1</td></tr><tr><td>mt_casting_machine_01</td><td>casting_1</td><td>mt_casting</td><td>smelting_casting_ws</td><td>1</td></tr><tr><td>mt_casting_machine_02</td><td>casting_2</td><td>mt_casting</td><td>smelting_casting_ws</td><td>1</td></tr><tr><td>mt_cleaning_machine_01</td><td>cleaning_1</td><td>mt_cleaning</td><td>cleaning_deburr_ws</td><td>2</td></tr><tr><td>mt_cleaning_machine_02</td><td>cleaning_2</td><td>mt_cleaning</td><td>cleaning_deburr_ws</td><td>1</td></tr><tr><td>mt_cutting_machine_01</td><td>cutting_1</td><td>mt_cutting</td><td>forming_cutting_ws</td><td>1</td></tr><tr><td>mt_cutting_machine_02</td><td>cutting_2</td><td>mt_cutting</td><td>forming_cutting_ws</td><td>2</td></tr><tr><td>mt_deburr_machine_01</td><td>deburr_1</td><td>mt_deburr</td><td>cleaning_deburr_ws</td><td>1</td></tr><tr><td>mt_drilling_machine_01</td><td>drilling_1</td><td>mt_drilling</td><td>machining_ws</td><td>2</td></tr><tr><td>mt_drilling_machine_02</td><td>drilling_2</td><td>mt_drilling</td><td>machining_ws</td><td>1</td></tr><tr><td>mt_forming_machine_01</td><td>forming_1</td><td>mt_forming</td><td>forming_cutting_ws</td><td>1</td></tr><tr><td>mt_grinding_cap1_pcs_machine_01</td><td>grinding_cap1_pcs_1</td><td>mt_grinding_cap1_pcs</td><td>utility_ws</td><td>1</td></tr><tr><td>mt_grinding_cap50_pcs_machine_01</td><td>grinding_cap50_pcs_1</td><td>mt_grinding_cap50_pcs</td><td>utility_ws</td><td>1</td></tr><tr><td>mt_grinding_machine_01</td><td>grinding_1</td><td>mt_grinding</td><td>cleaning_deburr_ws</td><td>1</td></tr><tr><td>mt_heat_treat_machine_01</td><td>heat_treat_1</td><td>mt_heat_treat</td><td>heat_treat_ws</td><td>1</td></tr><tr><td>mt_heat_treat_machine_02</td><td>heat_treat_2</td><td>mt_heat_treat</td><td>heat_treat_ws</td><td>1</td></tr><tr><td>mt_heat_treat_machine_03</td><td>heat_treat_3</td><td>mt_heat_treat</td><td>heat_treat_ws</td><td>1</td></tr><tr><td>mt_leak_test_machine_01</td><td>leak_test_1</td><td>mt_leak_test</td><td>utility_ws</td><td>2</td></tr><tr><td>mt_leak_test_machine_02</td><td>leak_test_2</td><td>mt_leak_test</td><td>utility_ws</td><td>1</td></tr><tr><td>mt_marking_machine_01</td><td>marking_1</td><td>mt_marking</td><td>quality_marking_ws</td><td>1</td></tr><tr><td>mt_melting_machine_01</td><td>melting_1</td><td>mt_melting</td><td>smelting_casting_ws</td><td>2</td></tr><tr><td>mt_milling_machine_01</td><td>milling_1</td><td>mt_milling</td><td>machining_ws</td><td>1</td></tr><tr><td>mt_milling_machine_02</td><td>milling_2</td><td>mt_milling</td><td>machining_ws</td><td>2</td></tr><tr><td>mt_pack_heavy_machine_01</td><td>pack_heavy_1</td><td>mt_pack_heavy</td><td>packaging_ws</td><td>1</td></tr><tr><td>mt_pack_small_machine_01</td><td>pack_small_1</td><td>mt_pack_small</td><td>packaging_ws</td><td>2</td></tr><tr><td>mt_quality_machine_01</td><td>quality_1</td><td>mt_quality</td><td>quality_marking_ws</td><td>1</td></tr><tr><td>mt_threading_machine_01</td><td>threading_1</td><td>mt_threading</td><td>machining_ws</td><td>2</td></tr><tr><td>mt_turning_kg_machine_01</td><td>turning_kg_1</td><td>mt_turning_kg</td><td>utility_ws</td><td>1</td></tr><tr><td>mt_turning_machine_01</td><td>turning_1</td><td>mt_turning</td><td>machining_ws</td><td>1</td></tr><tr><td>mt_turning_pcs_machine_01</td><td>turning_pcs_1</td><td>mt_turning_pcs</td><td>utility_ws</td><td>1</td></tr><tr><td>mt_utility_machine_01</td><td>utility_1</td><td>mt_utility</td><td>utility_ws</td><td>2</td></tr><tr><td>mt_utility_machine_02</td><td>utility_2</td><td>mt_utility</td><td>utility_ws</td><td>2</td></tr></tbody></table></div>
+  </div>
+</body>
+</html>

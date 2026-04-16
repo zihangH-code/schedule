@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8"/>
+  <title>计划数据可视化</title>
+  <style>
+    :root {
+      --bg: #f4f8fb;
+      --card: #ffffff;
+      --text: #0f172a;
+      --muted: #475569;
+      --line: #cbd5e1;
+      --head: #e6edf4;
+      --accent: #0ea5e9;
+    }
+    * { box-sizing: border-box; }
+    body { margin: 0; font-family: "Segoe UI", Arial, sans-serif; color: var(--text); background: var(--bg); }
+    .wrap { max-width: 1280px; margin: 0 auto; padding: 18px; }
+    .top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; }
+    .back { color: #0369a1; text-decoration: none; font-weight: 600; }
+    .card { border: 1px solid var(--line); border-radius: 12px; background: var(--card); padding: 14px; margin-bottom: 14px; }
+    h1 { margin: 0; font-size: 24px; }
+    h2 { margin: 0 0 8px 0; font-size: 18px; }
+    h3 { margin: 12px 0 6px 0; font-size: 15px; color: #1e293b; }
+    .meta { color: var(--muted); font-size: 13px; margin-top: 4px; }
+    table { width: 100%; border-collapse: collapse; margin-top: 8px; }
+    th, td { border: 1px solid var(--line); padding: 6px 8px; text-align: left; font-size: 13px; vertical-align: top; }
+    th { background: var(--head); }
+    .grid4 { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 10px; }
+    .stat { border: 1px solid var(--line); border-radius: 10px; background: #f8fcff; padding: 10px; }
+    .stat .k { font-size: 12px; color: var(--muted); }
+    .stat .v { font-size: 22px; font-weight: 700; margin-top: 4px; }
+    .navcards { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
+    .navcard { border: 1px solid var(--line); border-radius: 12px; padding: 12px; background: #fff; }
+    .navcard a { font-size: 16px; font-weight: 700; color: #075985; text-decoration: none; }
+    .hint { font-size: 12px; color: var(--muted); }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="top">
+      <h1>计划数据可视化</h1>
+      <a class="back" href="./index.html">返回首页</a>
+    </div>
+    <div class='card'><div class='grid4'><div class='stat'><div class='k'>车间数</div><div class='v'>9</div></div><div class='stat'><div class='k'>设备类型数</div><div class='v'>26</div></div><div class='stat'><div class='k'>设备数</div><div class='v'>37</div></div><div class='stat'><div class='k'>员工数</div><div class='v'>44</div></div><div class='stat'><div class='k'>工艺路线数</div><div class='v'>24</div></div><div class='stat'><div class='k'>物料数</div><div class='v'>333</div></div><div class='stat'><div class='k'>订单数</div><div class='v'>25</div></div><div class='stat'><div class='k'>可采购原材料数</div><div class='v'>27</div></div></div></div><div class='card'><h2>导航</h2><div class='navcards'><div class='navcard'><a href='./routes.html'>工艺路线页面</a><div class='meta'>工艺路线列表 + route_<id>.html DAG 页面。</div></div><div class='navcard'><a href='./workshops.html'>车间总览</a><div class='meta'>车间与设备类型、员工的拓扑关系。</div></div><div class='navcard'><a href='./employees.html'>员工与班次</a><div class='meta'>班次模板可读性与覆盖情况。</div></div><div class='navcard'><a href='./machines.html'>设备与维护</a><div class='meta'>按设备查看维护覆盖情况。</div></div><div class='navcard'><a href='./materials.html'>物料与库存</a><div class='meta'>物料类型统计与原材料可采购情况。</div></div><div class='navcard'><a href='./orders.html'>订单</a><div class='meta'>交期、优先级、需求产品与数量。</div></div><div class='navcard'><a href='./process_audit.html'>工序审计</a><div class='meta'>输入、产能、输出与执行方式分类。</div></div></div></div><div class='card'><div class='meta'>数据库路径=D:\A_sch\db\planning_demo.sqlite</div></div>
+  </div>
+</body>
+</html>

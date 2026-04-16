@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8"/>
+  <title>车间总览</title>
+  <style>
+    :root {
+      --bg: #f4f8fb;
+      --card: #ffffff;
+      --text: #0f172a;
+      --muted: #475569;
+      --line: #cbd5e1;
+      --head: #e6edf4;
+      --accent: #0ea5e9;
+    }
+    * { box-sizing: border-box; }
+    body { margin: 0; font-family: "Segoe UI", Arial, sans-serif; color: var(--text); background: var(--bg); }
+    .wrap { max-width: 1280px; margin: 0 auto; padding: 18px; }
+    .top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; }
+    .back { color: #0369a1; text-decoration: none; font-weight: 600; }
+    .card { border: 1px solid var(--line); border-radius: 12px; background: var(--card); padding: 14px; margin-bottom: 14px; }
+    h1 { margin: 0; font-size: 24px; }
+    h2 { margin: 0 0 8px 0; font-size: 18px; }
+    h3 { margin: 12px 0 6px 0; font-size: 15px; color: #1e293b; }
+    .meta { color: var(--muted); font-size: 13px; margin-top: 4px; }
+    table { width: 100%; border-collapse: collapse; margin-top: 8px; }
+    th, td { border: 1px solid var(--line); padding: 6px 8px; text-align: left; font-size: 13px; vertical-align: top; }
+    th { background: var(--head); }
+    .grid4 { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 10px; }
+    .stat { border: 1px solid var(--line); border-radius: 10px; background: #f8fcff; padding: 10px; }
+    .stat .k { font-size: 12px; color: var(--muted); }
+    .stat .v { font-size: 22px; font-weight: 700; margin-top: 4px; }
+    .navcards { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
+    .navcard { border: 1px solid var(--line); border-radius: 12px; padding: 12px; background: #fff; }
+    .navcard a { font-size: 16px; font-weight: 700; color: #075985; text-decoration: none; }
+    .hint { font-size: 12px; color: var(--muted); }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="top">
+      <h1>车间总览</h1>
+      <a class="back" href="./index.html">返回首页</a>
+    </div>
+    <div class='card'><h2>车间-资源映射</h2><table><thead><tr><th>车间编码</th><th>车间名称</th><th>设备类型数</th><th>设备数</th><th>员工数</th><th>维护事件数</th><th>设备类型列表</th></tr></thead><tbody><tr><td>assembly_ws</td><td>Assembly</td><td>2</td><td>4</td><td>4</td><td>5</td><td>mt_assembly_auto, mt_assembly_manual</td></tr><tr><td>cleaning_deburr_ws</td><td>Cleaning &amp; Deburr</td><td>3</td><td>4</td><td>4</td><td>5</td><td>mt_cleaning, mt_deburr, mt_grinding</td></tr><tr><td>forming_cutting_ws</td><td>Forming &amp; Cutting</td><td>2</td><td>3</td><td>4</td><td>4</td><td>mt_cutting, mt_forming</td></tr><tr><td>heat_treat_ws</td><td>Heat Treat</td><td>1</td><td>3</td><td>8</td><td>3</td><td>mt_heat_treat</td></tr><tr><td>machining_ws</td><td>Machining</td><td>4</td><td>6</td><td>4</td><td>9</td><td>mt_drilling, mt_milling, mt_threading, mt_turning</td></tr><tr><td>packaging_ws</td><td>Packaging</td><td>2</td><td>2</td><td>4</td><td>3</td><td>mt_pack_heavy, mt_pack_small</td></tr><tr><td>quality_marking_ws</td><td>Quality &amp; Marking</td><td>2</td><td>2</td><td>4</td><td>2</td><td>mt_marking, mt_quality</td></tr><tr><td>smelting_casting_ws</td><td>Smelting &amp; Casting</td><td>2</td><td>3</td><td>8</td><td>4</td><td>mt_casting, mt_melting</td></tr><tr><td>utility_ws</td><td>Utility</td><td>8</td><td>10</td><td>4</td><td>13</td><td>mt_assembly_auto_kg, mt_assembly_auto_pcs, mt_grinding_cap1_pcs, mt_grinding_cap50_pcs, mt_leak_test, mt_turning_kg, mt_turning_pcs, mt_utility</td></tr></tbody></table></div>
+  </div>
+</body>
+</html>

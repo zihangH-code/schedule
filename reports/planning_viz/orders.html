@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8"/>
+  <title>订单</title>
+  <style>
+    :root {
+      --bg: #f4f8fb;
+      --card: #ffffff;
+      --text: #0f172a;
+      --muted: #475569;
+      --line: #cbd5e1;
+      --head: #e6edf4;
+      --accent: #0ea5e9;
+    }
+    * { box-sizing: border-box; }
+    body { margin: 0; font-family: "Segoe UI", Arial, sans-serif; color: var(--text); background: var(--bg); }
+    .wrap { max-width: 1280px; margin: 0 auto; padding: 18px; }
+    .top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; }
+    .back { color: #0369a1; text-decoration: none; font-weight: 600; }
+    .card { border: 1px solid var(--line); border-radius: 12px; background: var(--card); padding: 14px; margin-bottom: 14px; }
+    h1 { margin: 0; font-size: 24px; }
+    h2 { margin: 0 0 8px 0; font-size: 18px; }
+    h3 { margin: 12px 0 6px 0; font-size: 15px; color: #1e293b; }
+    .meta { color: var(--muted); font-size: 13px; margin-top: 4px; }
+    table { width: 100%; border-collapse: collapse; margin-top: 8px; }
+    th, td { border: 1px solid var(--line); padding: 6px 8px; text-align: left; font-size: 13px; vertical-align: top; }
+    th { background: var(--head); }
+    .grid4 { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 10px; }
+    .stat { border: 1px solid var(--line); border-radius: 10px; background: #f8fcff; padding: 10px; }
+    .stat .k { font-size: 12px; color: var(--muted); }
+    .stat .v { font-size: 22px; font-weight: 700; margin-top: 4px; }
+    .navcards { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
+    .navcard { border: 1px solid var(--line); border-radius: 12px; padding: 12px; background: #fff; }
+    .navcard a { font-size: 16px; font-weight: 700; color: #075985; text-decoration: none; }
+    .hint { font-size: 12px; color: var(--muted); }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="top">
+      <h1>订单</h1>
+      <a class="back" href="./index.html">返回首页</a>
+    </div>
+    <div class='card'><h2>订单明细</h2><table><thead><tr><th>订单编码</th><th>交期</th><th>优先级</th><th>需求产品</th><th>需求数量</th><th>状态</th></tr></thead><tbody><tr><td>sales_order_007</td><td>2026-06-06 00:00</td><td>10</td><td>oil_mist_lubricator</td><td>800</td><td>PENDING</td></tr><tr><td>sales_order_002</td><td>2026-06-17 00:00</td><td>10</td><td>brass_tee_ball_valve</td><td>600</td><td>PENDING</td></tr><tr><td>sales_order_021</td><td>2026-06-19 00:00</td><td>10</td><td>brass_pressure_regulator</td><td>800</td><td>PENDING</td></tr><tr><td>sales_order_020</td><td>2026-06-26 00:00</td><td>10</td><td>stainless_pushin_straight</td><td>700</td><td>PENDING</td></tr><tr><td>sales_order_018</td><td>2026-06-27 00:00</td><td>10</td><td>brass_tee_ball_valve</td><td>700</td><td>PENDING</td></tr><tr><td>sales_order_023</td><td>2026-07-07 00:00</td><td>10</td><td>al_3_2_solenoid_valve</td><td>600</td><td>PENDING</td></tr><tr><td>sales_order_005</td><td>2026-07-09 00:00</td><td>10</td><td>frl_trio_unit</td><td>900</td><td>PENDING</td></tr><tr><td>sales_order_013</td><td>2026-06-02 00:00</td><td>20</td><td>welded_mounting_bracket_assy</td><td>400</td><td>PENDING</td></tr><tr><td>sales_order_008</td><td>2026-06-05 00:00</td><td>20</td><td>frl_duo_unit</td><td>300</td><td>PENDING</td></tr><tr><td>sales_order_016</td><td>2026-06-07 00:00</td><td>20</td><td>frl_trio_unit</td><td>400</td><td>PENDING</td></tr><tr><td>sales_order_001</td><td>2026-06-11 00:00</td><td>20</td><td>al_5_2_solenoid_valve</td><td>500</td><td>PENDING</td></tr><tr><td>sales_order_014</td><td>2026-06-12 00:00</td><td>20</td><td>silencer_fitting_assy</td><td>400</td><td>PENDING</td></tr><tr><td>sales_order_024</td><td>2026-06-13 00:00</td><td>20</td><td>silencer_fitting_assy</td><td>300</td><td>PENDING</td></tr><tr><td>sales_order_017</td><td>2026-06-15 00:00</td><td>20</td><td>silencer_fitting_assy</td><td>900</td><td>PENDING</td></tr><tr><td>sales_order_010</td><td>2026-06-16 00:00</td><td>20</td><td>brass_check_valve</td><td>500</td><td>PENDING</td></tr><tr><td>sales_order_015</td><td>2026-06-16 00:00</td><td>20</td><td>brass_pressure_regulator</td><td>500</td><td>PENDING</td></tr><tr><td>sales_order_006</td><td>2026-06-19 00:00</td><td>20</td><td>brass_male_pushin_fitting</td><td>900</td><td>PENDING</td></tr><tr><td>sales_order_025</td><td>2026-06-19 00:00</td><td>20</td><td>welded_mounting_bracket_assy</td><td>900</td><td>PENDING</td></tr><tr><td>sales_order_011</td><td>2026-06-22 00:00</td><td>20</td><td>al_throttle_valve</td><td>600</td><td>PENDING</td></tr><tr><td>sales_order_009</td><td>2026-06-25 00:00</td><td>20</td><td>brass_female_elbow_pushin</td><td>900</td><td>PENDING</td></tr><tr><td>sales_order_022</td><td>2026-07-04 00:00</td><td>20</td><td>frl_duo_unit</td><td>500</td><td>PENDING</td></tr><tr><td>sales_order_003</td><td>2026-07-12 00:00</td><td>20</td><td>al_throttle_valve</td><td>700</td><td>PENDING</td></tr><tr><td>sales_order_012</td><td>2026-06-11 00:00</td><td>30</td><td>brass_air_release_valve</td><td>500</td><td>PENDING</td></tr><tr><td>sales_order_004</td><td>2026-07-03 00:00</td><td>30</td><td>brass_female_elbow_pushin</td><td>800</td><td>PENDING</td></tr><tr><td>sales_order_019</td><td>2026-07-15 00:00</td><td>30</td><td>al_quick_exhaust_valve</td><td>500</td><td>PENDING</td></tr></tbody></table></div><div class='card'><h2>订单状态汇总</h2><table><thead><tr><th>状态</th><th>数量</th></tr></thead><tbody><tr><td>PENDING</td><td>25</td></tr></tbody></table></div>
+  </div>
+</body>
+</html>

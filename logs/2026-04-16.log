@@ -1,0 +1,731 @@
+2026-04-16 08:30:53.240 | INFO    | script start | output=D:\A_sch\reports\schedule | log_dir=D:\A_sch\logs | verbose=False
+2026-04-16 08:30:53.576 | INFO    | 阶段开始 | 1/6 | 名称=read db
+2026-04-16 08:30:53.674 | SUCCESS | 阶段完成 | 1/6 | 名称=read db | 阶段耗时=0.0m | 累计=0.0m | 说明=orders=30
+2026-04-16 08:30:53.675 | INFO    | 阶段开始 | 2/6 | 名称=solve
+2026-04-16 08:30:53.677 | INFO    | 订单开始 | 序号=1/30 | 订单=sales_order_026 | 优先级=10 | 数量=600 | 交期=06-03 00:00
+2026-04-16 08:30:54.516 | INFO    | 订单完成 | 订单=sales_order_026 | 结果=planned | 延迟=0.0m | 任务=43 | 合并=45 | 耗时=0.0m
+2026-04-16 08:30:54.516 | INFO    | 订单开始 | 序号=2/30 | 订单=sales_order_013 | 优先级=20 | 数量=300 | 交期=06-02 00:00
+2026-04-16 08:30:54.741 | INFO    | 订单完成 | 订单=sales_order_013 | 结果=planned | 延迟=0.0m | 任务=68 | 合并=39 | 耗时=0.0m
+2026-04-16 08:30:54.741 | INFO    | 订单开始 | 序号=3/30 | 订单=sales_order_007 | 优先级=10 | 数量=300 | 交期=06-06 00:00
+2026-04-16 08:30:55.717 | INFO    | 订单完成 | 订单=sales_order_007 | 结果=planned | 延迟=0.0m | 任务=109 | 合并=46 | 耗时=0.0m
+2026-04-16 08:30:55.718 | INFO    | 订单开始 | 序号=4/30 | 订单=sales_order_008 | 优先级=20 | 数量=300 | 交期=06-05 00:00
+2026-04-16 08:30:56.060 | INFO    | 订单完成 | 订单=sales_order_008 | 结果=planned | 延迟=0.0m | 任务=150 | 合并=41 | 耗时=0.0m
+2026-04-16 08:30:56.060 | INFO    | 订单开始 | 序号=5/30 | 订单=sales_order_016 | 优先级=20 | 数量=300 | 交期=06-07 00:00
+2026-04-16 08:30:57.832 | INFO    | 订单完成 | 订单=sales_order_016 | 结果=planned | 延迟=0.0m | 任务=191 | 合并=41 | 耗时=0.0m
+2026-04-16 08:30:57.833 | INFO    | 订单开始 | 序号=6/30 | 订单=sales_order_027 | 优先级=20 | 数量=300 | 交期=06-07 00:00
+2026-04-16 08:30:58.203 | INFO    | 订单完成 | 订单=sales_order_027 | 结果=planned | 延迟=0.0m | 任务=221 | 合并=59 | 耗时=0.0m
+2026-04-16 08:30:58.204 | INFO    | 订单开始 | 序号=7/30 | 订单=sales_order_001 | 优先级=20 | 数量=300 | 交期=06-11 00:00
+2026-04-16 08:30:58.645 | INFO    | 订单完成 | 订单=sales_order_001 | 结果=planned | 延迟=0.0m | 任务=252 | 合并=56 | 耗时=0.0m
+2026-04-16 08:30:58.646 | INFO    | 订单开始 | 序号=8/30 | 订单=sales_order_014 | 优先级=20 | 数量=300 | 交期=06-12 00:00
+2026-04-16 08:30:58.804 | INFO    | 订单完成 | 订单=sales_order_014 | 结果=planned | 延迟=0.0m | 任务=275 | 合并=22 | 耗时=0.0m
+2026-04-16 08:30:58.804 | INFO    | 订单开始 | 序号=9/30 | 订单=sales_order_012 | 优先级=30 | 数量=300 | 交期=06-11 00:00
+2026-04-16 08:31:00.273 | INFO    | 订单完成 | 订单=sales_order_012 | 结果=planned | 延迟=0.0m | 任务=334 | 合并=80 | 耗时=0.0m
+2026-04-16 08:31:00.274 | INFO    | 订单开始 | 序号=10/30 | 订单=sales_order_024 | 优先级=20 | 数量=300 | 交期=06-13 00:00
+2026-04-16 08:31:00.619 | INFO    | 订单完成 | 订单=sales_order_024 | 结果=planned | 延迟=0.0m | 任务=357 | 合并=22 | 耗时=0.0m
+2026-04-16 08:31:00.620 | INFO    | 订单开始 | 序号=11/30 | 订单=sales_order_017 | 优先级=20 | 数量=600 | 交期=06-15 00:00
+2026-04-16 08:31:01.440 | INFO    | 订单完成 | 订单=sales_order_017 | 结果=planned | 延迟=0.0m | 任务=400 | 合并=45 | 耗时=0.0m
+2026-04-16 08:31:01.441 | INFO    | 订单开始 | 序号=12/30 | 订单=sales_order_002 | 优先级=10 | 数量=600 | 交期=06-17 00:00
+2026-04-16 08:31:03.183 | INFO    | 订单完成 | 订单=sales_order_002 | 结果=planned | 延迟=0.0m | 任务=508 | 合并=165 | 耗时=0.0m
+2026-04-16 08:31:03.183 | INFO    | 订单开始 | 序号=13/30 | 订单=sales_order_010 | 优先级=20 | 数量=300 | 交期=06-16 00:00
+2026-04-16 08:31:03.942 | INFO    | 订单完成 | 订单=sales_order_010 | 结果=planned | 延迟=0.0m | 任务=562 | 合并=78 | 耗时=0.0m
+2026-04-16 08:31:03.943 | INFO    | 订单开始 | 序号=14/30 | 订单=sales_order_015 | 优先级=20 | 数量=300 | 交期=06-16 00:00
+2026-04-16 08:31:05.769 | INFO    | 订单完成 | 订单=sales_order_015 | 结果=planned | 延迟=0.0m | 任务=623 | 合并=77 | 耗时=0.0m
+2026-04-16 08:31:05.769 | INFO    | 订单开始 | 序号=15/30 | 订单=sales_order_021 | 优先级=10 | 数量=300 | 交期=06-19 00:00
+2026-04-16 08:31:06.966 | INFO    | 订单完成 | 订单=sales_order_021 | 结果=planned | 延迟=0.0m | 任务=678 | 合并=83 | 耗时=0.0m
+2026-04-16 08:31:06.966 | INFO    | 订单开始 | 序号=16/30 | 订单=sales_order_006 | 优先级=20 | 数量=300 | 交期=06-19 00:00
+2026-04-16 08:31:07.029 | INFO    | 订单完成 | 订单=sales_order_006 | 结果=planned | 延迟=0.0m | 任务=700 | 合并=20 | 耗时=0.0m
+2026-04-16 08:31:07.029 | INFO    | 订单开始 | 序号=17/30 | 订单=sales_order_025 | 优先级=20 | 数量=600 | 交期=06-19 00:00
+2026-04-16 08:31:07.892 | INFO    | 订单完成 | 订单=sales_order_025 | 结果=planned | 延迟=0.0m | 任务=749 | 合并=75 | 耗时=0.0m
+2026-04-16 08:31:07.892 | INFO    | 订单开始 | 序号=18/30 | 订单=sales_order_011 | 优先级=20 | 数量=300 | 交期=06-22 00:00
+2026-04-16 08:31:08.296 | INFO    | 订单完成 | 订单=sales_order_011 | 结果=planned | 延迟=0.0m | 任务=780 | 合并=66 | 耗时=0.0m
+2026-04-16 08:31:08.296 | INFO    | 订单开始 | 序号=19/30 | 订单=sales_order_020 | 优先级=10 | 数量=300 | 交期=06-26 00:00
+2026-04-16 08:31:08.385 | INFO    | 订单完成 | 订单=sales_order_020 | 结果=planned | 延迟=0.0m | 任务=803 | 合并=27 | 耗时=0.0m
+2026-04-16 08:31:08.385 | INFO    | 订单开始 | 序号=20/30 | 订单=sales_order_009 | 优先级=20 | 数量=300 | 交期=06-25 00:00
+2026-04-16 08:31:08.459 | INFO    | 订单完成 | 订单=sales_order_009 | 结果=planned | 延迟=0.0m | 任务=826 | 合并=22 | 耗时=0.0m
+2026-04-16 08:31:08.459 | INFO    | 订单开始 | 序号=21/30 | 订单=sales_order_018 | 优先级=10 | 数量=600 | 交期=06-27 00:00
+2026-04-16 08:31:15.464 | INFO    | 订单完成 | 订单=sales_order_018 | 结果=planned | 延迟=0.0m | 任务=934 | 合并=165 | 耗时=0.1m
+2026-04-16 08:31:15.465 | INFO    | 订单开始 | 序号=22/30 | 订单=sales_order_029 | 优先级=20 | 数量=900 | 交期=07-01 00:00
+2026-04-16 08:31:16.631 | INFO    | 订单完成 | 订单=sales_order_029 | 结果=planned | 延迟=0.0m | 任务=991 | 合并=68 | 耗时=0.0m
+2026-04-16 08:31:16.631 | INFO    | 订单开始 | 序号=23/30 | 订单=sales_order_030 | 优先级=10 | 数量=600 | 交期=07-04 00:00
+2026-04-16 08:31:18.052 | INFO    | 订单完成 | 订单=sales_order_030 | 结果=planned | 延迟=0.0m | 任务=1048 | 合并=109 | 耗时=0.0m
+2026-04-16 08:31:18.052 | INFO    | 订单开始 | 序号=24/30 | 订单=sales_order_023 | 优先级=10 | 数量=900 | 交期=07-07 00:00
+2026-04-16 08:31:23.195 | INFO    | 订单完成 | 订单=sales_order_023 | 结果=planned | 延迟=0.0m | 任务=1128 | 合并=160 | 耗时=0.1m
+2026-04-16 08:31:23.195 | INFO    | 订单开始 | 序号=25/30 | 订单=sales_order_022 | 优先级=20 | 数量=600 | 交期=07-04 00:00
+2026-04-16 08:31:26.386 | INFO    | 订单完成 | 订单=sales_order_022 | 结果=planned | 延迟=0.0m | 任务=1205 | 合并=85 | 耗时=0.1m
+2026-04-16 08:31:26.386 | INFO    | 订单开始 | 序号=26/30 | 订单=sales_order_005 | 优先级=10 | 数量=300 | 交期=07-09 00:00
+2026-04-16 08:31:26.660 | INFO    | 订单完成 | 订单=sales_order_005 | 结果=planned | 延迟=0.0m | 任务=1246 | 合并=41 | 耗时=0.0m
+2026-04-16 08:31:26.660 | INFO    | 订单开始 | 序号=27/30 | 订单=sales_order_004 | 优先级=30 | 数量=600 | 交期=07-03 00:00
+2026-04-16 08:31:28.819 | INFO    | 订单完成 | 订单=sales_order_004 | 结果=planned | 延迟=0.0m | 任务=1291 | 合并=43 | 耗时=0.0m
+2026-04-16 08:31:28.820 | INFO    | 订单开始 | 序号=28/30 | 订单=sales_order_003 | 优先级=20 | 数量=900 | 交期=07-12 00:00
+2026-04-16 08:31:52.364 | INFO    | 订单完成 | 订单=sales_order_003 | 结果=planned | 延迟=0.0m | 任务=1373 | 合并=200 | 耗时=0.4m
+2026-04-16 08:31:52.364 | INFO    | 订单开始 | 序号=29/30 | 订单=sales_order_028 | 优先级=20 | 数量=600 | 交期=07-15 00:00
+2026-04-16 08:31:54.728 | INFO    | 订单完成 | 订单=sales_order_028 | 结果=planned | 延迟=0.0m | 任务=1418 | 合并=43 | 耗时=0.0m
+2026-04-16 08:31:54.728 | INFO    | 订单开始 | 序号=30/30 | 订单=sales_order_019 | 优先级=30 | 数量=600 | 交期=07-15 00:00
+2026-04-16 08:32:09.598 | INFO    | 订单完成 | 订单=sales_order_019 | 结果=planned | 延迟=0.0m | 任务=1478 | 合并=109 | 耗时=0.2m
+2026-04-16 08:32:09.599 | SUCCESS | 阶段完成 | 2/6 | 名称=solve | 阶段耗时=1.3m | 累计=1.3m | 说明=outcomes=30 tasks=1478
+2026-04-16 08:32:09.599 | INFO    | 阶段开始 | 3/6 | 名称=prepare output | 说明=cleanup legacy files
+2026-04-16 08:32:09.600 | SUCCESS | 阶段完成 | 3/6 | 名称=prepare output | 阶段耗时=0.0m | 累计=1.3m
+2026-04-16 08:32:09.600 | INFO    | 阶段开始 | 4/6 | 名称=post process
+2026-04-16 08:32:09.793 | SUCCESS | 阶段完成 | 4/6 | 名称=post process | 阶段耗时=0.0m | 累计=1.3m | 说明=merged_rows=2132 execution_blocks=953
+2026-04-16 08:32:09.793 | INFO    | 阶段开始 | 5/6 | 名称=sync db | 说明=write schedule_tasks
+2026-04-16 08:32:10.078 | SUCCESS | 阶段完成 | 5/6 | 名称=sync db | 阶段耗时=0.0m | 累计=1.3m | 说明=rows=1478
+2026-04-16 08:32:10.078 | INFO    | 阶段开始 | 6/6 | 名称=write html
+2026-04-16 08:32:10.079 | SUCCESS | db sync done | rows=1478
+2026-04-16 08:32:10.079 | INFO    | execution blocks | merged_rows=2132 | execution_blocks=953
+2026-04-16 08:32:10.938 | SUCCESS | 阶段完成 | 6/6 | 名称=write html | 阶段耗时=0.0m | 累计=1.3m
+2026-04-16 08:32:10.939 | SUCCESS | schedule done | output=D:\A_sch\reports\schedule | orders=30 | tasks=1478
+2026-04-16 08:32:10.940 | SUCCESS | summary | problems=0 | score=85.83 | purchases=28 | failed=0
+2026-04-16 10:13:28.382 | INFO    | [daily] script start | output=D:\A_sch\reports\schedule_daily | db=D:\A_sch\db\planning_demo_daily.sqlite | log_dir=D:\A_sch\logs | verbose=False
+2026-04-16 10:13:28.382 | INFO    | 阶段开始 | 1/6 | 名称=read db daily
+2026-04-16 10:13:28.462 | SUCCESS | 阶段完成 | 1/6 | 名称=read db daily | 阶段耗时=0.0m | 累计=0.0m | 说明=orders=50
+2026-04-16 10:13:28.463 | INFO    | 阶段开始 | 2/6 | 名称=solve daily
+2026-04-16 10:13:28.463 | INFO    | 订单开始 | 序号=1/50 | 订单=sales_order_026 | 优先级=10 | 数量=54000 | 交期=06-03 00:00
+2026-04-16 10:13:28.842 | INFO    | 订单完成 | 订单=sales_order_026 | 结果=planned | 延迟=122040.0m | 任务=1009 | 合并=0 | 耗时=0.0m
+2026-04-16 10:13:28.842 | INFO    | 订单开始 | 序号=2/50 | 订单=sales_order_007 | 优先级=10 | 数量=18000 | 交期=06-06 00:00
+2026-04-16 10:13:29.136 | INFO    | 订单完成 | 订单=sales_order_007 | 结果=planned | 延迟=39960.0m | 任务=1628 | 合并=0 | 耗时=0.0m
+2026-04-16 10:13:29.137 | INFO    | 订单开始 | 序号=3/50 | 订单=sales_order_044 | 优先级=10 | 数量=81000 | 交期=06-06 00:00
+2026-04-16 10:13:29.779 | WARNING | 失败定位 | 订单=sales_order_044 | 工序=al_3_2_solenoid_valve_route.pack | 类型=allocation_failed_daily | 窗口=08-13 08:00~06-06 23:59 | 到料= | 截止= | 资源=mt_pack_small@packaging_ws(m=3,e=18,dur=2,cap=1.0000pcs)
+2026-04-16 10:13:29.780 | INFO    | 订单完成 | 订单=sales_order_044 | 结果=failed | 延迟=0.0m | 任务=3500 | 合并=0 | 耗时=0.0m
+2026-04-16 10:13:29.780 | INFO    | 订单开始 | 序号=4/50 | 订单=sales_order_049 | 优先级=10 | 数量=21000 | 交期=06-10 00:00
+2026-04-16 10:13:30.251 | INFO    | 订单完成 | 订单=sales_order_049 | 结果=planned | 延迟=83160.0m | 任务=4498 | 合并=0 | 耗时=0.0m
+2026-04-16 10:13:30.252 | INFO    | 订单开始 | 序号=5/50 | 订单=sales_order_002 | 优先级=10 | 数量=54000 | 交期=06-17 00:00
+2026-04-16 10:13:33.445 | WARNING | 失败定位 | 订单=sales_order_002 | 工序=brass_tee_ball_valve_route.core_deburr | 类型=allocation_failed_daily | 窗口=09-04 08:00~06-17 23:59 | 到料= | 截止= | 资源=mt_deburr@cleaning_deburr_ws(m=5,e=12,dur=1,cap=1.0000pcs)
+2026-04-16 10:13:33.446 | INFO    | 订单完成 | 订单=sales_order_002 | 结果=failed | 延迟=0.0m | 任务=5115 | 合并=0 | 耗时=0.1m
+2026-04-16 10:13:33.446 | INFO    | 订单开始 | 序号=6/50 | 订单=sales_order_021 | 优先级=10 | 数量=15000 | 交期=06-19 00:00
+2026-04-16 10:13:33.960 | WARNING | 失败定位 | 订单=sales_order_021 | 工序=brass_pressure_regulator_route_v1.stem_turning | 类型=allocation_failed_daily | 窗口=04-18 08:00~06-19 23:59 | 到料= | 截止= | 资源=mt_turning_kg@utility_ws(m=3,e=14,dur=10,cap=1.0000kg)
+2026-04-16 10:13:33.961 | INFO    | 订单完成 | 订单=sales_order_021 | 结果=failed | 延迟=0.0m | 任务=5158 | 合并=0 | 耗时=0.0m
+2026-04-16 10:13:33.962 | INFO    | 订单开始 | 序号=7/50 | 订单=sales_order_047 | 优先级=10 | 数量=21000 | 交期=06-20 00:00
+2026-04-16 10:13:34.117 | WARNING | 失败定位 | 订单=sales_order_047 | 工序=air_filter_regulator_route.trim_gate | 类型=allocation_failed_daily | 窗口=06-09 08:00~06-20 23:59 | 到料= | 截止= | 资源=mt_deburr@cleaning_deburr_ws(m=5,e=12,dur=1,cap=1.0000pcs)
+2026-04-16 10:13:34.118 | INFO    | 订单完成 | 订单=sales_order_047 | 结果=failed | 延迟=0.0m | 任务=5271 | 合并=0 | 耗时=0.0m
+2026-04-16 10:13:34.118 | INFO    | 订单开始 | 序号=8/50 | 订单=sales_order_038 | 优先级=10 | 数量=90000 | 交期=06-21 00:00
+2026-04-16 10:13:34.218 | WARNING | 失败定位 | 订单=sales_order_038 | 工序=al_3_2_solenoid_valve_route.spool_turn | 类型=allocation_failed_daily | 窗口=04-20 08:00~06-21 23:59 | 到料= | 截止= | 资源=mt_turning_kg@utility_ws(m=3,e=14,dur=10,cap=1.0000kg)
+2026-04-16 10:13:34.218 | INFO    | 订单完成 | 订单=sales_order_038 | 结果=failed | 延迟=0.0m | 任务=5353 | 合并=0 | 耗时=0.0m
+2026-04-16 10:13:34.219 | INFO    | 订单开始 | 序号=9/50 | 订单=sales_order_020 | 优先级=10 | 数量=30000 | 交期=06-26 00:00
+2026-04-16 10:13:34.340 | WARNING | 失败定位 | 订单=sales_order_020 | 工序=stainless_pushin_straight_route.deburr | 类型=allocation_failed_daily | 窗口=10-05 08:00~06-26 23:59 | 到料= | 截止= | 资源=mt_deburr@cleaning_deburr_ws(m=5,e=12,dur=1,cap=1.0000pcs)
+2026-04-16 10:13:34.341 | INFO    | 订单完成 | 订单=sales_order_020 | 结果=failed | 延迟=0.0m | 任务=5545 | 合并=0 | 耗时=0.0m
+2026-04-16 10:13:34.341 | INFO    | 订单开始 | 序号=10/50 | 订单=sales_order_018 | 优先级=10 | 数量=42000 | 交期=06-27 00:00
+2026-04-16 10:13:34.380 | WARNING | 失败定位 | 订单=sales_order_018 | 工序=brass_tee_ball_valve_route.core_turning | 类型=allocation_failed_daily | 窗口=04-20 08:00~06-27 23:59 | 到料= | 截止= | 资源=mt_turning_kg@utility_ws(m=3,e=14,dur=10,cap=1.0000kg)
+2026-04-16 10:13:34.380 | INFO    | 订单完成 | 订单=sales_order_018 | 结果=failed | 延迟=0.0m | 任务=5592 | 合并=0 | 耗时=0.0m
+2026-04-16 10:13:34.380 | INFO    | 订单开始 | 序号=11/50 | 订单=sales_order_042 | 优先级=10 | 数量=60000 | 交期=07-01 00:00
+2026-04-16 10:13:34.445 | WARNING | 失败定位 | 订单=sales_order_042 | 工序=al_throttle_valve_route.spool_turn | 类型=allocation_failed_daily | 窗口=04-20 08:00~07-01 23:59 | 到料= | 截止= | 资源=mt_turning_kg@utility_ws(m=3,e=14,dur=10,cap=1.0000kg)
+2026-04-16 10:13:34.445 | INFO    | 订单完成 | 订单=sales_order_042 | 结果=failed | 延迟=0.0m | 任务=5659 | 合并=0 | 耗时=0.0m
+2026-04-16 10:13:34.445 | INFO    | 订单开始 | 序号=12/50 | 订单=sales_order_030 | 优先级=10 | 数量=30000 | 交期=07-04 00:00
+2026-04-16 10:13:34.468 | WARNING | 失败定位 | 订单=sales_order_030 | 工序=al_3_2_solenoid_valve_route.spool_turn | 类型=allocation_failed_daily | 窗口=04-20 08:00~07-04 23:59 | 到料= | 截止= | 资源=mt_turning_kg@utility_ws(m=3,e=14,dur=10,cap=1.0000kg)
+2026-04-16 10:13:34.469 | INFO    | 订单完成 | 订单=sales_order_030 | 结果=failed | 延迟=0.0m | 任务=5687 | 合并=0 | 耗时=0.0m
+2026-04-16 10:13:34.471 | INFO    | 订单开始 | 序号=13/50 | 订单=sales_order_046 | 优先级=10 | 数量=21000 | 交期=07-06 00:00
+2026-04-16 10:13:34.508 | WARNING | 失败定位 | 订单=sales_order_046 | 工序=stainless_pushin_straight_route.thread | 类型=allocation_failed_daily | 窗口=08-04 08:00~07-06 23:59 | 到料= | 截止= | 资源=mt_threading@machining_ws(m=4,e=12,dur=1,cap=1.0000pcs)
+2026-04-16 10:13:34.509 | INFO    | 订单完成 | 订单=sales_order_046 | 结果=failed | 延迟=0.0m | 任务=5814 | 合并=0 | 耗时=0.0m
+2026-04-16 10:13:34.509 | INFO    | 订单开始 | 序号=14/50 | 订单=sales_order_023 | 优先级=10 | 数量=81000 | 交期=07-07 00:00
+2026-04-16 10:13:34.553 | WARNING | 失败定位 | 订单=sales_order_023 | 工序=al_3_2_solenoid_valve_route.spool_turn | 类型=allocation_failed_daily | 窗口=04-20 08:00~07-07 23:59 | 到料= | 截止= | 资源=mt_turning_kg@utility_ws(m=3,e=14,dur=10,cap=1.0000kg)
+2026-04-16 10:13:34.554 | INFO    | 订单完成 | 订单=sales_order_023 | 结果=failed | 延迟=0.0m | 任务=5888 | 合并=0 | 耗时=0.0m
+2026-04-16 10:13:34.555 | INFO    | 订单开始 | 序号=15/50 | 订单=sales_order_005 | 优先级=10 | 数量=27000 | 交期=07-09 00:00
+2026-04-16 10:13:34.682 | WARNING | 失败定位 | 订单=sales_order_005 | 工序=frl_trio_unit_route_v1.trim_gate | 类型=allocation_failed_daily | 窗口=07-16 08:00~07-09 23:59 | 到料= | 截止= | 资源=mt_deburr@cleaning_deburr_ws(m=5,e=12,dur=1,cap=1.0000pcs)
+2026-04-16 10:13:34.682 | INFO    | 订单完成 | 订单=sales_order_005 | 结果=failed | 延迟=0.0m | 任务=6040 | 合并=0 | 耗时=0.0m
+2026-04-16 10:13:34.684 | INFO    | 订单开始 | 序号=16/50 | 订单=sales_order_045 | 优先级=10 | 数量=18000 | 交期=07-13 00:00
+2026-04-16 10:13:34.748 | WARNING | 失败定位 | 订单=sales_order_045 | 工序=air_filter_regulator_route.trim_gate | 类型=allocation_failed_daily | 窗口=07-20 08:00~07-13 23:59 | 到料= | 截止= | 资源=mt_deburr@cleaning_deburr_ws(m=5,e=12,dur=1,cap=1.0000pcs)
+2026-04-16 10:13:34.748 | INFO    | 订单完成 | 订单=sales_order_045 | 结果=failed | 延迟=0.0m | 任务=6136 | 合并=0 | 耗时=0.0m
+2026-04-16 10:13:34.748 | INFO    | 订单开始 | 序号=17/50 | 订单=sales_order_036 | 优先级=10 | 数量=21000 | 交期=07-17 00:00
+2026-04-16 10:13:34.819 | WARNING | 失败定位 | 订单=sales_order_036 | 工序=brass_stabilizer_valve_route.core_turning | 类型=allocation_failed_daily | 窗口=04-20 08:00~07-17 23:59 | 到料= | 截止= | 资源=mt_turning_kg@utility_ws(m=3,e=14,dur=10,cap=1.0000kg)
+2026-04-16 10:13:34.820 | INFO    | 订单完成 | 订单=sales_order_036 | 结果=failed | 延迟=0.0m | 任务=6171 | 合并=0 | 耗时=0.0m
+2026-04-16 10:13:34.820 | INFO    | 订单开始 | 序号=18/50 | 订单=sales_order_031 | 优先级=10 | 数量=24000 | 交期=07-18 00:00
+2026-04-16 10:13:34.881 | WARNING | 失败定位 | 订单=sales_order_031 | 工序=brass_female_elbow_pushin_route.thread | 类型=allocation_failed_daily | 窗口=08-11 08:00~07-18 23:59 | 到料= | 截止= | 资源=mt_threading@machining_ws(m=4,e=12,dur=1,cap=1.0000pcs)
+2026-04-16 10:13:34.881 | INFO    | 订单完成 | 订单=sales_order_031 | 结果=failed | 延迟=0.0m | 任务=6278 | 合并=0 | 耗时=0.0m
+2026-04-16 10:13:34.881 | INFO    | 订单开始 | 序号=19/50 | 订单=sales_order_013 | 优先级=20 | 数量=21000 | 交期=06-02 00:00
+2026-04-16 10:13:35.273 | INFO    | 订单完成 | 订单=sales_order_013 | 结果=planned | 延迟=135000.0m | 任务=6710 | 合并=0 | 耗时=0.0m
+2026-04-16 10:13:35.273 | INFO    | 订单开始 | 序号=20/50 | 订单=sales_order_008 | 优先级=20 | 数量=24000 | 交期=06-05 00:00
+2026-04-16 10:13:35.383 | WARNING | 失败定位 | 订单=sales_order_008 | 工序=frl_duo_unit_route.trim_gate | 类型=allocation_failed_daily | 窗口=06-19 08:00~06-05 23:59 | 到料= | 截止= | 资源=mt_deburr@cleaning_deburr_ws(m=5,e=12,dur=1,cap=1.0000pcs)
+2026-04-16 10:13:35.383 | INFO    | 订单完成 | 订单=sales_order_008 | 结果=failed | 延迟=0.0m | 任务=6840 | 合并=0 | 耗时=0.0m
+2026-04-16 10:13:35.383 | INFO    | 订单开始 | 序号=21/50 | 订单=sales_order_016 | 优先级=20 | 数量=18000 | 交期=06-07 00:00
+2026-04-16 10:13:35.445 | WARNING | 失败定位 | 订单=sales_order_016 | 工序=frl_trio_unit_route_v1.trim_gate | 类型=allocation_failed_daily | 窗口=06-23 08:00~06-07 23:59 | 到料= | 截止= | 资源=mt_deburr@cleaning_deburr_ws(m=5,e=12,dur=1,cap=1.0000pcs)
+2026-04-16 10:13:35.445 | INFO    | 订单完成 | 订单=sales_order_016 | 结果=failed | 延迟=0.0m | 任务=6941 | 合并=0 | 耗时=0.0m
+2026-04-16 10:13:35.445 | INFO    | 订单开始 | 序号=22/50 | 订单=sales_order_027 | 优先级=20 | 数量=15000 | 交期=06-07 00:00
+2026-04-16 10:13:35.497 | WARNING | 失败定位 | 订单=sales_order_027 | 工序=al_manual_directional_valve_route.spool_turn | 类型=allocation_failed_daily | 窗口=04-20 08:00~06-07 23:59 | 到料= | 截止= | 资源=mt_turning_kg@utility_ws(m=3,e=14,dur=10,cap=1.0000kg)
+2026-04-16 10:13:35.497 | INFO    | 订单完成 | 订单=sales_order_027 | 结果=failed | 延迟=0.0m | 任务=6958 | 合并=0 | 耗时=0.0m
+2026-04-16 10:13:35.497 | INFO    | 订单开始 | 序号=23/50 | 订单=sales_order_001 | 优先级=20 | 数量=21000 | 交期=06-11 00:00
+2026-04-16 10:13:35.547 | WARNING | 失败定位 | 订单=sales_order_001 | 工序=al_5_2_solenoid_valve_route_v1.spool_turn | 类型=allocation_failed_daily | 窗口=04-20 08:00~06-11 23:59 | 到料= | 截止= | 资源=mt_turning_kg@utility_ws(m=3,e=14,dur=10,cap=1.0000kg)
+2026-04-16 10:13:35.548 | INFO    | 订单完成 | 订单=sales_order_001 | 结果=failed | 延迟=0.0m | 任务=6976 | 合并=0 | 耗时=0.0m
+2026-04-16 10:13:35.548 | INFO    | 订单开始 | 序号=24/50 | 订单=sales_order_014 | 优先级=20 | 数量=15000 | 交期=06-12 00:00
+2026-04-16 10:13:35.621 | WARNING | 失败定位 | 订单=sales_order_014 | 工序=silencer_fitting_assy_route.thread | 类型=allocation_failed_daily | 窗口=08-14 08:00~06-12 23:59 | 到料= | 截止= | 资源=mt_threading@machining_ws(m=4,e=12,dur=1,cap=1.0000pcs)
+2026-04-16 10:13:35.623 | INFO    | 订单完成 | 订单=sales_order_014 | 结果=failed | 延迟=0.0m | 任务=7043 | 合并=0 | 耗时=0.0m
+2026-04-16 10:13:35.624 | INFO    | 订单开始 | 序号=25/50 | 订单=sales_order_040 | 优先级=20 | 数量=15000 | 交期=06-12 00:00
+2026-04-16 10:13:35.644 | WARNING | 失败定位 | 订单=sales_order_040 | 工序=brass_pressure_regulator_route_v1.core_turning | 类型=allocation_failed_daily | 窗口=04-20 08:00~06-12 23:59 | 到料= | 截止= | 资源=mt_turning_kg@utility_ws(m=3,e=14,dur=10,cap=1.0000kg)
+2026-04-16 10:13:35.645 | INFO    | 订单完成 | 订单=sales_order_040 | 结果=failed | 延迟=0.0m | 任务=7063 | 合并=0 | 耗时=0.0m
+2026-04-16 10:13:35.645 | INFO    | 订单开始 | 序号=26/50 | 订单=sales_order_024 | 优先级=20 | 数量=15000 | 交期=06-13 00:00
+2026-04-16 10:13:35.670 | WARNING | 失败定位 | 订单=sales_order_024 | 工序=silencer_fitting_assy_route.thread | 类型=allocation_failed_daily | 窗口=08-19 08:00~06-13 23:59 | 到料= | 截止= | 资源=mt_threading@machining_ws(m=4,e=12,dur=1,cap=1.0000pcs)
+2026-04-16 10:13:35.671 | INFO    | 订单完成 | 订单=sales_order_024 | 结果=failed | 延迟=0.0m | 任务=7130 | 合并=0 | 耗时=0.0m
+2026-04-16 10:13:35.671 | INFO    | 订单开始 | 序号=27/50 | 订单=sales_order_017 | 优先级=20 | 数量=48000 | 交期=06-15 00:00
+2026-04-16 10:13:35.705 | WARNING | 失败定位 | 订单=sales_order_017 | 工序=silencer_fitting_assy_route.turn_od | 类型=allocation_failed_daily | 窗口=07-29 08:00~06-15 23:59 | 到料= | 截止= | 资源=mt_turning_pcs@utility_ws(m=5,e=14,dur=1,cap=1.0000pcs)
+2026-04-16 10:13:35.706 | INFO    | 订单完成 | 订单=sales_order_017 | 结果=failed | 延迟=0.0m | 任务=7223 | 合并=0 | 耗时=0.0m
+2026-04-16 10:13:35.706 | INFO    | 订单开始 | 序号=28/50 | 订单=sales_order_010 | 优先级=20 | 数量=27000 | 交期=06-16 00:00
+2026-04-16 10:13:35.759 | WARNING | 失败定位 | 订单=sales_order_010 | 工序=brass_check_valve_route.core_turning | 类型=allocation_failed_daily | 窗口=04-20 08:00~06-16 23:59 | 到料= | 截止= | 资源=mt_turning_kg@utility_ws(m=3,e=14,dur=10,cap=1.0000kg)
+2026-04-16 10:13:35.760 | INFO    | 订单完成 | 订单=sales_order_010 | 结果=failed | 延迟=0.0m | 任务=7253 | 合并=0 | 耗时=0.0m
+2026-04-16 10:13:35.760 | INFO    | 订单开始 | 序号=29/50 | 订单=sales_order_015 | 优先级=20 | 数量=15000 | 交期=06-16 00:00
+2026-04-16 10:13:35.773 | WARNING | 失败定位 | 订单=sales_order_015 | 工序=brass_pressure_regulator_route_v1.wax_injection | 类型=allocation_failed_daily | 窗口=04-20 08:00~06-16 23:59 | 到料= | 截止= | 资源=mt_assembly_auto_kg@utility_ws(m=5,e=14,dur=60,cap=5.0000kg)
+2026-04-16 10:13:35.773 | INFO    | 订单完成 | 订单=sales_order_015 | 结果=failed | 延迟=0.0m | 任务=7272 | 合并=0 | 耗时=0.0m
+2026-04-16 10:13:35.773 | INFO    | 订单开始 | 序号=30/50 | 订单=sales_order_006 | 优先级=20 | 数量=27000 | 交期=06-19 00:00
+2026-04-16 10:13:35.822 | WARNING | 失败定位 | 订单=sales_order_006 | 工序=brass_male_pushin_fitting_route_v1.turn_od | 类型=allocation_failed_daily | 窗口=08-04 08:00~06-19 23:59 | 到料= | 截止= | 资源=mt_turning_pcs@utility_ws(m=5,e=14,dur=1,cap=1.0000pcs)
+2026-04-16 10:13:35.822 | INFO    | 订单完成 | 订单=sales_order_006 | 结果=failed | 延迟=0.0m | 任务=7297 | 合并=0 | 耗时=0.0m
+2026-04-16 10:13:35.824 | INFO    | 订单开始 | 序号=31/50 | 订单=sales_order_025 | 优先级=20 | 数量=42000 | 交期=06-19 00:00
+2026-04-16 10:13:35.912 | WARNING | 失败定位 | 订单=sales_order_025 | 工序=welded_mounting_bracket_assy_route.spot | 类型=allocation_failed_daily | 窗口=08-21 08:00~06-19 23:59 | 到料= | 截止= | 资源=mt_utility@utility_ws(m=10,e=14,dur=2,cap=1.0000pcs)
+2026-04-16 10:13:35.912 | INFO    | 订单完成 | 订单=sales_order_025 | 结果=failed | 延迟=0.0m | 任务=7454 | 合并=0 | 耗时=0.0m
+2026-04-16 10:13:35.912 | INFO    | 订单开始 | 序号=32/50 | 订单=sales_order_011 | 优先级=20 | 数量=18000 | 交期=06-22 00:00
+2026-04-16 10:13:35.938 | WARNING | 失败定位 | 订单=sales_order_011 | 工序=al_throttle_valve_route.spool_turn | 类型=allocation_failed_daily | 窗口=04-20 08:00~06-22 23:59 | 到料= | 截止= | 资源=mt_turning_kg@utility_ws(m=3,e=14,dur=10,cap=1.0000kg)
+2026-04-16 10:13:35.938 | INFO    | 订单完成 | 订单=sales_order_011 | 结果=failed | 延迟=0.0m | 任务=7474 | 合并=0 | 耗时=0.0m
+2026-04-16 10:13:35.939 | INFO    | 订单开始 | 序号=33/50 | 订单=sales_order_035 | 优先级=20 | 数量=54000 | 交期=06-22 00:00
+2026-04-16 10:13:35.972 | WARNING | 失败定位 | 订单=sales_order_035 | 工序=brass_straight_ball_valve_route.wax_injection | 类型=allocation_failed_daily | 窗口=04-20 08:00~06-22 23:59 | 到料= | 截止= | 资源=mt_assembly_auto_kg@utility_ws(m=5,e=14,dur=60,cap=5.0000kg)
+2026-04-16 10:13:35.973 | INFO    | 订单完成 | 订单=sales_order_035 | 结果=failed | 延迟=0.0m | 任务=7474 | 合并=0 | 耗时=0.0m
+2026-04-16 10:13:35.974 | INFO    | 订单开始 | 序号=34/50 | 订单=sales_order_009 | 优先级=20 | 数量=30000 | 交期=06-25 00:00
+2026-04-16 10:13:36.010 | WARNING | 失败定位 | 订单=sales_order_009 | 工序=brass_female_elbow_pushin_route.turn_od | 类型=allocation_failed_daily | 窗口=08-31 08:00~06-25 23:59 | 到料= | 截止= | 资源=mt_turning_pcs@utility_ws(m=5,e=14,dur=1,cap=1.0000pcs)
+2026-04-16 10:13:36.010 | INFO    | 订单完成 | 订单=sales_order_009 | 结果=failed | 延迟=0.0m | 任务=7508 | 合并=0 | 耗时=0.0m
+2026-04-16 10:13:36.011 | INFO    | 订单开始 | 序号=35/50 | 订单=sales_order_043 | 优先级=20 | 数量=54000 | 交期=06-28 00:00
+2026-04-16 10:13:36.037 | WARNING | 失败定位 | 订单=sales_order_043 | 工序=brass_male_pushin_fitting_route_v1.turn_od | 类型=allocation_failed_daily | 窗口=09-10 08:00~06-28 23:59 | 到料= | 截止= | 资源=mt_turning_pcs@utility_ws(m=5,e=14,dur=1,cap=1.0000pcs)
+2026-04-16 10:13:36.038 | INFO    | 订单完成 | 订单=sales_order_043 | 结果=failed | 延迟=0.0m | 任务=7558 | 合并=0 | 耗时=0.0m
+2026-04-16 10:13:36.038 | INFO    | 订单开始 | 序号=36/50 | 订单=sales_order_041 | 优先级=20 | 数量=63000 | 交期=06-30 00:00
+2026-04-16 10:13:36.083 | WARNING | 失败定位 | 订单=sales_order_041 | 工序=al_3_2_solenoid_valve_route.spool_turn | 类型=allocation_failed_daily | 窗口=04-20 08:00~06-30 23:59 | 到料= | 截止= | 资源=mt_turning_kg@utility_ws(m=3,e=14,dur=10,cap=1.0000kg)
+2026-04-16 10:13:36.083 | INFO    | 订单完成 | 订单=sales_order_041 | 结果=failed | 延迟=0.0m | 任务=7617 | 合并=0 | 耗时=0.0m
+2026-04-16 10:13:36.084 | INFO    | 订单开始 | 序号=37/50 | 订单=sales_order_029 | 优先级=20 | 数量=54000 | 交期=07-01 00:00
+2026-04-16 10:13:36.112 | WARNING | 失败定位 | 订单=sales_order_029 | 工序=brass_female_elbow_pushin_route.turn_od | 类型=allocation_failed_daily | 窗口=09-24 08:00~07-01 23:59 | 到料= | 截止= | 资源=mt_turning_pcs@utility_ws(m=5,e=14,dur=1,cap=1.0000pcs)
+2026-04-16 10:13:36.112 | INFO    | 订单完成 | 订单=sales_order_029 | 结果=failed | 延迟=0.0m | 任务=7677 | 合并=0 | 耗时=0.0m
+2026-04-16 10:13:36.113 | INFO    | 订单开始 | 序号=38/50 | 订单=sales_order_022 | 优先级=20 | 数量=36000 | 交期=07-04 00:00
+2026-04-16 10:13:36.124 | WARNING | 失败定位 | 订单=sales_order_022 | 工序=frl_duo_unit_route.melt_refine | 类型=allocation_failed_daily | 窗口=04-20 08:00~07-04 23:59 | 到料= | 截止= | 资源=mt_melting@smelting_casting_ws(m=4,e=28,dur=45,cap=5.0000kg)
+2026-04-16 10:13:36.125 | INFO    | 订单完成 | 订单=sales_order_022 | 结果=failed | 延迟=0.0m | 任务=7682 | 合并=0 | 耗时=0.0m
+2026-04-16 10:13:36.126 | INFO    | 订单开始 | 序号=39/50 | 订单=sales_order_003 | 优先级=20 | 数量=90000 | 交期=07-12 00:00
+2026-04-16 10:13:36.133 | WARNING | 失败定位 | 订单=sales_order_003 | 工序=al_throttle_valve_route.melt_refine | 类型=allocation_failed_daily | 窗口=04-20 08:00~07-12 23:59 | 到料= | 截止= | 资源=mt_melting@smelting_casting_ws(m=4,e=28,dur=45,cap=5.0000kg)
+2026-04-16 10:13:36.133 | INFO    | 订单完成 | 订单=sales_order_003 | 结果=failed | 延迟=0.0m | 任务=7682 | 合并=0 | 耗时=0.0m
+2026-04-16 10:13:36.134 | INFO    | 订单开始 | 序号=40/50 | 订单=sales_order_032 | 优先级=20 | 数量=42000 | 交期=07-13 00:00
+2026-04-16 10:13:36.141 | WARNING | 失败定位 | 订单=sales_order_032 | 工序=brass_pressure_regulator_route_v1.wax_injection | 类型=allocation_failed_daily | 窗口=04-20 08:00~07-13 23:59 | 到料= | 截止= | 资源=mt_assembly_auto_kg@utility_ws(m=5,e=14,dur=60,cap=5.0000kg)
+2026-04-16 10:13:36.142 | INFO    | 订单完成 | 订单=sales_order_032 | 结果=failed | 延迟=0.0m | 任务=7682 | 合并=0 | 耗时=0.0m
+2026-04-16 10:13:36.143 | INFO    | 订单开始 | 序号=41/50 | 订单=sales_order_028 | 优先级=20 | 数量=48000 | 交期=07-15 00:00
+2026-04-16 10:13:36.166 | WARNING | 失败定位 | 订单=sales_order_028 | 工序=brass_female_elbow_pushin_route.turn_od | 类型=allocation_failed_daily | 窗口=10-07 08:00~07-15 23:59 | 到料= | 截止= | 资源=mt_turning_pcs@utility_ws(m=5,e=14,dur=1,cap=1.0000pcs)
+2026-04-16 10:13:36.166 | INFO    | 订单完成 | 订单=sales_order_028 | 结果=failed | 延迟=0.0m | 任务=7736 | 合并=0 | 耗时=0.0m
+2026-04-16 10:13:36.166 | INFO    | 订单开始 | 序号=42/50 | 订单=sales_order_048 | 优先级=20 | 数量=15000 | 交期=07-15 00:00
+2026-04-16 10:13:36.198 | WARNING | 失败定位 | 订单=sales_order_048 | 工序=brass_air_release_valve_route.wax_injection | 类型=allocation_failed_daily | 窗口=04-20 08:00~07-15 23:59 | 到料= | 截止= | 资源=mt_assembly_auto_kg@utility_ws(m=5,e=14,dur=60,cap=5.0000kg)
+2026-04-16 10:13:36.199 | INFO    | 订单完成 | 订单=sales_order_048 | 结果=failed | 延迟=0.0m | 任务=7736 | 合并=0 | 耗时=0.0m
+2026-04-16 10:13:36.200 | INFO    | 订单开始 | 序号=43/50 | 订单=sales_order_039 | 优先级=30 | 数量=18000 | 交期=06-01 00:00
+2026-04-16 10:13:36.209 | WARNING | 失败定位 | 订单=sales_order_039 | 工序=frl_trio_unit_route_v1.melt_refine | 类型=allocation_failed_daily | 窗口=04-20 08:00~06-01 23:59 | 到料= | 截止= | 资源=mt_melting@smelting_casting_ws(m=4,e=28,dur=45,cap=5.0000kg)
+2026-04-16 10:13:36.210 | INFO    | 订单完成 | 订单=sales_order_039 | 结果=failed | 延迟=0.0m | 任务=7736 | 合并=0 | 耗时=0.0m
+2026-04-16 10:13:36.211 | INFO    | 订单开始 | 序号=44/50 | 订单=sales_order_012 | 优先级=30 | 数量=15000 | 交期=06-11 00:00
+2026-04-16 10:13:36.217 | WARNING | 失败定位 | 订单=sales_order_012 | 工序=brass_air_release_valve_route.wax_injection | 类型=allocation_failed_daily | 窗口=04-20 08:00~06-11 23:59 | 到料= | 截止= | 资源=mt_assembly_auto_kg@utility_ws(m=5,e=14,dur=60,cap=5.0000kg)
+2026-04-16 10:13:36.218 | INFO    | 订单完成 | 订单=sales_order_012 | 结果=failed | 延迟=0.0m | 任务=7736 | 合并=0 | 耗时=0.0m
+2026-04-16 10:13:36.220 | INFO    | 订单开始 | 序号=45/50 | 订单=sales_order_004 | 优先级=30 | 数量=60000 | 交期=07-03 00:00
+2026-04-16 10:13:36.235 | WARNING | 失败定位 | 订单=sales_order_004 | 工序=brass_female_elbow_pushin_route.blank | 类型=allocation_failed_daily | 窗口=04-20 08:00~07-03 23:59 | 到料= | 截止= | 资源=mt_cutting@forming_cutting_ws(m=6,e=14,dur=10,cap=1.0000kg)
+2026-04-16 10:13:36.237 | INFO    | 订单完成 | 订单=sales_order_004 | 结果=failed | 延迟=0.0m | 任务=7762 | 合并=0 | 耗时=0.0m
+2026-04-16 10:13:36.238 | INFO    | 订单开始 | 序号=46/50 | 订单=sales_order_033 | 优先级=30 | 数量=48000 | 交期=07-05 00:00
+2026-04-16 10:13:36.265 | WARNING | 失败定位 | 订单=sales_order_033 | 工序=air_filter_regulator_route.melt_refine | 类型=allocation_failed_daily | 窗口=04-20 08:00~07-05 23:59 | 到料= | 截止= | 资源=mt_melting@smelting_casting_ws(m=4,e=28,dur=45,cap=5.0000kg)
+2026-04-16 10:13:36.266 | INFO    | 订单完成 | 订单=sales_order_033 | 结果=failed | 延迟=0.0m | 任务=7762 | 合并=0 | 耗时=0.0m
+2026-04-16 10:13:36.267 | INFO    | 订单开始 | 序号=47/50 | 订单=sales_order_037 | 优先级=30 | 数量=18000 | 交期=07-07 00:00
+2026-04-16 10:13:36.279 | WARNING | 失败定位 | 订单=sales_order_037 | 工序=frl_duo_unit_route.melt_refine | 类型=allocation_failed_daily | 窗口=04-20 08:00~07-07 23:59 | 到料= | 截止= | 资源=mt_melting@smelting_casting_ws(m=4,e=28,dur=45,cap=5.0000kg)
+2026-04-16 10:13:36.280 | INFO    | 订单完成 | 订单=sales_order_037 | 结果=failed | 延迟=0.0m | 任务=7762 | 合并=0 | 耗时=0.0m
+2026-04-16 10:13:36.281 | INFO    | 订单开始 | 序号=48/50 | 订单=sales_order_019 | 优先级=30 | 数量=48000 | 交期=07-15 00:00
+2026-04-16 10:13:36.359 | WARNING | 失败定位 | 订单=sales_order_019 | 工序=al_quick_exhaust_valve_route.melt_refine | 类型=allocation_failed_daily | 窗口=04-20 08:00~07-15 23:59 | 到料= | 截止= | 资源=mt_melting@smelting_casting_ws(m=4,e=28,dur=45,cap=5.0000kg)
+2026-04-16 10:13:36.360 | INFO    | 订单完成 | 订单=sales_order_019 | 结果=failed | 延迟=0.0m | 任务=7762 | 合并=0 | 耗时=0.0m
+2026-04-16 10:13:36.360 | INFO    | 订单开始 | 序号=49/50 | 订单=sales_order_034 | 优先级=30 | 数量=54000 | 交期=07-16 00:00
+2026-04-16 10:13:36.386 | WARNING | 失败定位 | 订单=sales_order_034 | 工序=brass_air_release_valve_route.wax_injection | 类型=allocation_failed_daily | 窗口=04-20 08:00~07-16 23:59 | 到料= | 截止= | 资源=mt_assembly_auto_kg@utility_ws(m=5,e=14,dur=60,cap=5.0000kg)
+2026-04-16 10:13:36.386 | INFO    | 订单完成 | 订单=sales_order_034 | 结果=failed | 延迟=0.0m | 任务=7762 | 合并=0 | 耗时=0.0m
+2026-04-16 10:13:36.387 | INFO    | 订单开始 | 序号=50/50 | 订单=sales_order_050 | 优先级=30 | 数量=27000 | 交期=07-17 00:00
+2026-04-16 10:13:36.401 | WARNING | 失败定位 | 订单=sales_order_050 | 工序=brass_female_elbow_pushin_route.blank | 类型=allocation_failed_daily | 窗口=04-20 08:00~07-17 23:59 | 到料= | 截止= | 资源=mt_cutting@forming_cutting_ws(m=6,e=14,dur=10,cap=1.0000kg)
+2026-04-16 10:13:36.402 | INFO    | 订单完成 | 订单=sales_order_050 | 结果=failed | 延迟=0.0m | 任务=7762 | 合并=0 | 耗时=0.0m
+2026-04-16 10:13:36.425 | SUCCESS | 阶段完成 | 2/6 | 名称=solve daily | 阶段耗时=0.1m | 累计=0.1m | 说明=outcomes=50 tasks=7762
+2026-04-16 10:13:36.427 | INFO    | 阶段开始 | 3/6 | 名称=build blocks
+2026-04-16 10:13:37.263 | SUCCESS | 阶段完成 | 3/6 | 名称=build blocks | 阶段耗时=0.0m | 累计=0.1m | 说明=execution_blocks=7762
+2026-04-16 10:13:37.263 | INFO    | 阶段开始 | 4/6 | 名称=sync db
+2026-04-16 10:13:38.050 | SUCCESS | 阶段完成 | 4/6 | 名称=sync db | 阶段耗时=0.0m | 累计=0.2m | 说明=rows=7762
+2026-04-16 10:13:38.050 | INFO    | 阶段开始 | 5/6 | 名称=write html
+2026-04-16 10:13:38.051 | SUCCESS | [daily] db sync done | rows=7762
+2026-04-16 10:13:39.756 | SUCCESS | 阶段完成 | 5/6 | 名称=write html | 阶段耗时=0.0m | 累计=0.2m
+2026-04-16 10:13:39.756 | SUCCESS | [daily] done | output=D:\A_sch\reports\schedule_daily | orders=50 | tasks=7762
+2026-04-16 10:13:39.757 | SUCCESS | [daily] summary | problems=46 | score=3.04 | purchases=31 | failed=46
+2026-04-16 10:16:52.342 | INFO    | [daily] script start | output=D:\A_sch\reports\schedule_daily | db=D:\A_sch\db\planning_demo_daily.sqlite | log_dir=D:\A_sch\logs | verbose=False
+2026-04-16 10:16:52.342 | INFO    | 阶段开始 | 1/6 | 名称=read db daily
+2026-04-16 10:16:52.464 | SUCCESS | 阶段完成 | 1/6 | 名称=read db daily | 阶段耗时=0.0m | 累计=0.0m | 说明=orders=50
+2026-04-16 10:16:52.464 | INFO    | 阶段开始 | 2/6 | 名称=solve daily
+2026-04-16 10:16:52.465 | INFO    | 订单开始 | 序号=1/50 | 订单=sales_order_026 | 优先级=10 | 数量=54000 | 交期=06-03 00:00
+2026-04-16 10:16:52.998 | INFO    | 订单完成 | 订单=sales_order_026 | 结果=planned | 延迟=122040.0m | 任务=1016 | 合并=0 | 耗时=0.0m
+2026-04-16 10:16:52.998 | INFO    | 订单开始 | 序号=2/50 | 订单=sales_order_007 | 优先级=10 | 数量=18000 | 交期=06-06 00:00
+2026-04-16 10:16:53.274 | INFO    | 订单完成 | 订单=sales_order_007 | 结果=planned | 延迟=29880.0m | 任务=1634 | 合并=0 | 耗时=0.0m
+2026-04-16 10:16:53.274 | INFO    | 订单开始 | 序号=3/50 | 订单=sales_order_044 | 优先级=10 | 数量=81000 | 交期=06-06 00:00
+2026-04-16 10:16:53.987 | WARNING | 失败定位 | 订单=sales_order_044 | 工序=al_3_2_solenoid_valve_route.pack | 类型=allocation_failed_daily | 窗口=09-30 08:00~06-06 23:59 | 到料= | 截止= | 资源=mt_pack_small@packaging_ws(m=3,e=14,dur=2,cap=1.0000pcs)
+2026-04-16 10:16:53.988 | INFO    | 订单完成 | 订单=sales_order_044 | 结果=failed | 延迟=0.0m | 任务=3503 | 合并=0 | 耗时=0.0m
+2026-04-16 10:16:53.988 | INFO    | 订单开始 | 序号=4/50 | 订单=sales_order_049 | 优先级=10 | 数量=21000 | 交期=06-10 00:00
+2026-04-16 10:16:54.082 | WARNING | 失败定位 | 订单=sales_order_049 | 工序=brass_pressure_regulator_route_v1.core_deburr | 类型=allocation_failed_daily | 窗口=07-09 08:00~06-10 23:59 | 到料= | 截止= | 资源=mt_deburr@cleaning_deburr_ws(m=4,e=20,dur=1,cap=1.0000pcs)
+2026-04-16 10:16:54.082 | INFO    | 订单完成 | 订单=sales_order_049 | 结果=failed | 延迟=0.0m | 任务=3687 | 合并=0 | 耗时=0.0m
+2026-04-16 10:16:54.082 | INFO    | 订单开始 | 序号=5/50 | 订单=sales_order_002 | 优先级=10 | 数量=54000 | 交期=06-17 00:00
+2026-04-16 10:16:54.332 | WARNING | 失败定位 | 订单=sales_order_002 | 工序=brass_tee_ball_valve_route.core_deburr | 类型=allocation_failed_daily | 窗口=07-31 08:00~06-17 23:59 | 到料= | 截止= | 资源=mt_deburr@cleaning_deburr_ws(m=4,e=20,dur=1,cap=1.0000pcs)
+2026-04-16 10:16:54.332 | INFO    | 订单完成 | 订单=sales_order_002 | 结果=failed | 延迟=0.0m | 任务=4229 | 合并=0 | 耗时=0.0m
+2026-04-16 10:16:54.332 | INFO    | 订单开始 | 序号=6/50 | 订单=sales_order_021 | 优先级=10 | 数量=15000 | 交期=06-19 00:00
+2026-04-16 10:16:54.438 | WARNING | 失败定位 | 订单=sales_order_021 | 工序=brass_pressure_regulator_route_v1.core_deburr | 类型=allocation_failed_daily | 窗口=08-25 08:00~06-19 23:59 | 到料= | 截止= | 资源=mt_deburr@cleaning_deburr_ws(m=4,e=20,dur=1,cap=1.0000pcs)
+2026-04-16 10:16:54.439 | INFO    | 订单完成 | 订单=sales_order_021 | 结果=failed | 延迟=0.0m | 任务=4334 | 合并=0 | 耗时=0.0m
+2026-04-16 10:16:54.439 | INFO    | 订单开始 | 序号=7/50 | 订单=sales_order_047 | 优先级=10 | 数量=21000 | 交期=06-20 00:00
+2026-04-16 10:16:54.526 | WARNING | 失败定位 | 订单=sales_order_047 | 工序=air_filter_regulator_route.trim_gate | 类型=allocation_failed_daily | 窗口=06-03 08:00~06-20 23:59 | 到料= | 截止= | 资源=mt_deburr@cleaning_deburr_ws(m=4,e=20,dur=1,cap=1.0000pcs)
+2026-04-16 10:16:54.527 | INFO    | 订单完成 | 订单=sales_order_047 | 结果=failed | 延迟=0.0m | 任务=4447 | 合并=0 | 耗时=0.0m
+2026-04-16 10:16:54.527 | INFO    | 订单开始 | 序号=8/50 | 订单=sales_order_038 | 优先级=10 | 数量=90000 | 交期=06-21 00:00
+2026-04-16 10:16:54.662 | WARNING | 失败定位 | 订单=sales_order_038 | 工序=al_3_2_solenoid_valve_route.stem_turn | 类型=allocation_failed_daily | 窗口=04-20 08:00~06-21 23:59 | 到料= | 截止= | 资源=mt_turning_kg@utility_ws(m=5,e=14,dur=10,cap=1.0000kg)
+2026-04-16 10:16:54.663 | INFO    | 订单完成 | 订单=sales_order_038 | 结果=failed | 延迟=0.0m | 任务=4693 | 合并=0 | 耗时=0.0m
+2026-04-16 10:16:54.663 | INFO    | 订单开始 | 序号=9/50 | 订单=sales_order_020 | 优先级=10 | 数量=30000 | 交期=06-26 00:00
+2026-04-16 10:16:54.775 | WARNING | 失败定位 | 订单=sales_order_020 | 工序=stainless_pushin_straight_route.deburr | 类型=allocation_failed_daily | 窗口=10-09 08:00~06-26 23:59 | 到料= | 截止= | 资源=mt_deburr@cleaning_deburr_ws(m=4,e=20,dur=1,cap=1.0000pcs)
+2026-04-16 10:16:54.775 | INFO    | 订单完成 | 订单=sales_order_020 | 结果=failed | 延迟=0.0m | 任务=4885 | 合并=0 | 耗时=0.0m
+2026-04-16 10:16:54.775 | INFO    | 订单开始 | 序号=10/50 | 订单=sales_order_018 | 优先级=10 | 数量=42000 | 交期=06-27 00:00
+2026-04-16 10:16:54.811 | WARNING | 失败定位 | 订单=sales_order_018 | 工序=brass_tee_ball_valve_route.core_turning | 类型=allocation_failed_daily | 窗口=04-20 08:00~06-27 23:59 | 到料= | 截止= | 资源=mt_turning_kg@utility_ws(m=5,e=14,dur=10,cap=1.0000kg)
+2026-04-16 10:16:54.811 | INFO    | 订单完成 | 订单=sales_order_018 | 结果=failed | 延迟=0.0m | 任务=4932 | 合并=0 | 耗时=0.0m
+2026-04-16 10:16:54.811 | INFO    | 订单开始 | 序号=11/50 | 订单=sales_order_042 | 优先级=10 | 数量=60000 | 交期=07-01 00:00
+2026-04-16 10:16:54.905 | WARNING | 失败定位 | 订单=sales_order_042 | 工序=al_throttle_valve_route.spool_turn | 类型=allocation_failed_daily | 窗口=04-20 08:00~07-01 23:59 | 到料= | 截止= | 资源=mt_turning_kg@utility_ws(m=5,e=14,dur=10,cap=1.0000kg)
+2026-04-16 10:16:54.905 | INFO    | 订单完成 | 订单=sales_order_042 | 结果=failed | 延迟=0.0m | 任务=4999 | 合并=0 | 耗时=0.0m
+2026-04-16 10:16:54.905 | INFO    | 订单开始 | 序号=12/50 | 订单=sales_order_030 | 优先级=10 | 数量=30000 | 交期=07-04 00:00
+2026-04-16 10:16:54.938 | WARNING | 失败定位 | 订单=sales_order_030 | 工序=al_3_2_solenoid_valve_route.spool_turn | 类型=allocation_failed_daily | 窗口=04-20 08:00~07-04 23:59 | 到料= | 截止= | 资源=mt_turning_kg@utility_ws(m=5,e=14,dur=10,cap=1.0000kg)
+2026-04-16 10:16:54.940 | INFO    | 订单完成 | 订单=sales_order_030 | 结果=failed | 延迟=0.0m | 任务=5026 | 合并=0 | 耗时=0.0m
+2026-04-16 10:16:54.940 | INFO    | 订单开始 | 序号=13/50 | 订单=sales_order_046 | 优先级=10 | 数量=21000 | 交期=07-06 00:00
+2026-04-16 10:16:54.970 | WARNING | 失败定位 | 订单=sales_order_046 | 工序=stainless_pushin_straight_route.thread | 类型=allocation_failed_daily | 窗口=07-22 08:00~07-06 23:59 | 到料= | 截止= | 资源=mt_threading@machining_ws(m=3,e=14,dur=1,cap=1.0000pcs)
+2026-04-16 10:16:54.970 | INFO    | 订单完成 | 订单=sales_order_046 | 结果=failed | 延迟=0.0m | 任务=5133 | 合并=0 | 耗时=0.0m
+2026-04-16 10:16:54.970 | INFO    | 订单开始 | 序号=14/50 | 订单=sales_order_023 | 优先级=10 | 数量=81000 | 交期=07-07 00:00
+2026-04-16 10:16:55.025 | WARNING | 失败定位 | 订单=sales_order_023 | 工序=al_3_2_solenoid_valve_route.spool_turn | 类型=allocation_failed_daily | 窗口=04-20 08:00~07-07 23:59 | 到料= | 截止= | 资源=mt_turning_kg@utility_ws(m=5,e=14,dur=10,cap=1.0000kg)
+2026-04-16 10:16:55.026 | INFO    | 订单完成 | 订单=sales_order_023 | 结果=failed | 延迟=0.0m | 任务=5208 | 合并=0 | 耗时=0.0m
+2026-04-16 10:16:55.027 | INFO    | 订单开始 | 序号=15/50 | 订单=sales_order_005 | 优先级=10 | 数量=27000 | 交期=07-09 00:00
+2026-04-16 10:16:55.141 | WARNING | 失败定位 | 订单=sales_order_005 | 工序=frl_trio_unit_route_v1.trim_gate | 类型=allocation_failed_daily | 窗口=07-16 08:00~07-09 23:59 | 到料= | 截止= | 资源=mt_deburr@cleaning_deburr_ws(m=4,e=20,dur=1,cap=1.0000pcs)
+2026-04-16 10:16:55.141 | INFO    | 订单完成 | 订单=sales_order_005 | 结果=failed | 延迟=0.0m | 任务=5357 | 合并=0 | 耗时=0.0m
+2026-04-16 10:16:55.142 | INFO    | 订单开始 | 序号=16/50 | 订单=sales_order_045 | 优先级=10 | 数量=18000 | 交期=07-13 00:00
+2026-04-16 10:16:55.210 | WARNING | 失败定位 | 订单=sales_order_045 | 工序=air_filter_regulator_route.trim_gate | 类型=allocation_failed_daily | 窗口=07-20 08:00~07-13 23:59 | 到料= | 截止= | 资源=mt_deburr@cleaning_deburr_ws(m=4,e=20,dur=1,cap=1.0000pcs)
+2026-04-16 10:16:55.210 | INFO    | 订单完成 | 订单=sales_order_045 | 结果=failed | 延迟=0.0m | 任务=5454 | 合并=0 | 耗时=0.0m
+2026-04-16 10:16:55.210 | INFO    | 订单开始 | 序号=17/50 | 订单=sales_order_036 | 优先级=10 | 数量=21000 | 交期=07-17 00:00
+2026-04-16 10:16:55.268 | WARNING | 失败定位 | 订单=sales_order_036 | 工序=brass_stabilizer_valve_route.core_turning | 类型=allocation_failed_daily | 窗口=04-20 08:00~07-17 23:59 | 到料= | 截止= | 资源=mt_turning_kg@utility_ws(m=5,e=14,dur=10,cap=1.0000kg)
+2026-04-16 10:16:55.269 | INFO    | 订单完成 | 订单=sales_order_036 | 结果=failed | 延迟=0.0m | 任务=5489 | 合并=0 | 耗时=0.0m
+2026-04-16 10:16:55.269 | INFO    | 订单开始 | 序号=18/50 | 订单=sales_order_031 | 优先级=10 | 数量=24000 | 交期=07-18 00:00
+2026-04-16 10:16:55.327 | WARNING | 失败定位 | 订单=sales_order_031 | 工序=brass_female_elbow_pushin_route.thread | 类型=allocation_failed_daily | 窗口=07-29 08:00~07-18 23:59 | 到料= | 截止= | 资源=mt_threading@machining_ws(m=3,e=14,dur=1,cap=1.0000pcs)
+2026-04-16 10:16:55.328 | INFO    | 订单完成 | 订单=sales_order_031 | 结果=failed | 延迟=0.0m | 任务=5596 | 合并=0 | 耗时=0.0m
+2026-04-16 10:16:55.328 | INFO    | 订单开始 | 序号=19/50 | 订单=sales_order_013 | 优先级=20 | 数量=21000 | 交期=06-02 00:00
+2026-04-16 10:16:55.581 | INFO    | 订单完成 | 订单=sales_order_013 | 结果=planned | 延迟=65880.0m | 任务=6029 | 合并=0 | 耗时=0.0m
+2026-04-16 10:16:55.581 | INFO    | 订单开始 | 序号=20/50 | 订单=sales_order_008 | 优先级=20 | 数量=24000 | 交期=06-05 00:00
+2026-04-16 10:16:55.713 | WARNING | 失败定位 | 订单=sales_order_008 | 工序=frl_duo_unit_route.trim_gate | 类型=allocation_failed_daily | 窗口=06-11 08:00~06-05 23:59 | 到料= | 截止= | 资源=mt_deburr@cleaning_deburr_ws(m=4,e=20,dur=1,cap=1.0000pcs)
+2026-04-16 10:16:55.713 | INFO    | 订单完成 | 订单=sales_order_008 | 结果=failed | 延迟=0.0m | 任务=6162 | 合并=0 | 耗时=0.0m
+2026-04-16 10:16:55.713 | INFO    | 订单开始 | 序号=21/50 | 订单=sales_order_016 | 优先级=20 | 数量=18000 | 交期=06-07 00:00
+2026-04-16 10:16:55.791 | WARNING | 失败定位 | 订单=sales_order_016 | 工序=frl_trio_unit_route_v1.trim_gate | 类型=allocation_failed_daily | 窗口=06-16 08:00~06-07 23:59 | 到料= | 截止= | 资源=mt_deburr@cleaning_deburr_ws(m=4,e=20,dur=1,cap=1.0000pcs)
+2026-04-16 10:16:55.793 | INFO    | 订单完成 | 订单=sales_order_016 | 结果=failed | 延迟=0.0m | 任务=6263 | 合并=0 | 耗时=0.0m
+2026-04-16 10:16:55.793 | INFO    | 订单开始 | 序号=22/50 | 订单=sales_order_027 | 优先级=20 | 数量=15000 | 交期=06-07 00:00
+2026-04-16 10:16:55.859 | WARNING | 失败定位 | 订单=sales_order_027 | 工序=al_manual_directional_valve_route.spool_turn | 类型=allocation_failed_daily | 窗口=04-20 08:00~06-07 23:59 | 到料= | 截止= | 资源=mt_turning_kg@utility_ws(m=5,e=14,dur=10,cap=1.0000kg)
+2026-04-16 10:16:55.859 | INFO    | 订单完成 | 订单=sales_order_027 | 结果=failed | 延迟=0.0m | 任务=6279 | 合并=0 | 耗时=0.0m
+2026-04-16 10:16:55.859 | INFO    | 订单开始 | 序号=23/50 | 订单=sales_order_001 | 优先级=20 | 数量=21000 | 交期=06-11 00:00
+2026-04-16 10:16:55.942 | WARNING | 失败定位 | 订单=sales_order_001 | 工序=al_5_2_solenoid_valve_route_v1.spool_turn | 类型=allocation_failed_daily | 窗口=04-20 08:00~06-11 23:59 | 到料= | 截止= | 资源=mt_turning_kg@utility_ws(m=5,e=14,dur=10,cap=1.0000kg)
+2026-04-16 10:16:55.943 | INFO    | 订单完成 | 订单=sales_order_001 | 结果=failed | 延迟=0.0m | 任务=6299 | 合并=0 | 耗时=0.0m
+2026-04-16 10:16:55.943 | INFO    | 订单开始 | 序号=24/50 | 订单=sales_order_014 | 优先级=20 | 数量=15000 | 交期=06-12 00:00
+2026-04-16 10:16:56.030 | WARNING | 失败定位 | 订单=sales_order_014 | 工序=silencer_fitting_assy_route.thread | 类型=allocation_failed_daily | 窗口=08-03 08:00~06-12 23:59 | 到料= | 截止= | 资源=mt_threading@machining_ws(m=3,e=14,dur=1,cap=1.0000pcs)
+2026-04-16 10:16:56.030 | INFO    | 订单完成 | 订单=sales_order_014 | 结果=failed | 延迟=0.0m | 任务=6366 | 合并=0 | 耗时=0.0m
+2026-04-16 10:16:56.031 | INFO    | 订单开始 | 序号=25/50 | 订单=sales_order_040 | 优先级=20 | 数量=15000 | 交期=06-12 00:00
+2026-04-16 10:16:56.076 | WARNING | 失败定位 | 订单=sales_order_040 | 工序=brass_pressure_regulator_route_v1.core_turning | 类型=allocation_failed_daily | 窗口=04-20 08:00~06-12 23:59 | 到料= | 截止= | 资源=mt_turning_kg@utility_ws(m=5,e=14,dur=10,cap=1.0000kg)
+2026-04-16 10:16:56.077 | INFO    | 订单完成 | 订单=sales_order_040 | 结果=failed | 延迟=0.0m | 任务=6386 | 合并=0 | 耗时=0.0m
+2026-04-16 10:16:56.078 | INFO    | 订单开始 | 序号=26/50 | 订单=sales_order_024 | 优先级=20 | 数量=15000 | 交期=06-13 00:00
+2026-04-16 10:16:56.111 | WARNING | 失败定位 | 订单=sales_order_024 | 工序=silencer_fitting_assy_route.thread | 类型=allocation_failed_daily | 窗口=08-06 08:00~06-13 23:59 | 到料= | 截止= | 资源=mt_threading@machining_ws(m=3,e=14,dur=1,cap=1.0000pcs)
+2026-04-16 10:16:56.112 | INFO    | 订单完成 | 订单=sales_order_024 | 结果=failed | 延迟=0.0m | 任务=6453 | 合并=0 | 耗时=0.0m
+2026-04-16 10:16:56.113 | INFO    | 订单开始 | 序号=27/50 | 订单=sales_order_017 | 优先级=20 | 数量=48000 | 交期=06-15 00:00
+2026-04-16 10:16:56.158 | WARNING | 失败定位 | 订单=sales_order_017 | 工序=silencer_fitting_assy_route.turn_od | 类型=allocation_failed_daily | 窗口=06-25 08:00~06-15 23:59 | 到料= | 截止= | 资源=mt_turning_pcs@utility_ws(m=4,e=14,dur=1,cap=1.0000pcs)
+2026-04-16 10:16:56.158 | INFO    | 订单完成 | 订单=sales_order_017 | 结果=failed | 延迟=0.0m | 任务=6559 | 合并=0 | 耗时=0.0m
+2026-04-16 10:16:56.158 | INFO    | 订单开始 | 序号=28/50 | 订单=sales_order_010 | 优先级=20 | 数量=27000 | 交期=06-16 00:00
+2026-04-16 10:16:56.244 | WARNING | 失败定位 | 订单=sales_order_010 | 工序=brass_check_valve_route.core_turning | 类型=allocation_failed_daily | 窗口=04-20 08:00~06-16 23:59 | 到料= | 截止= | 资源=mt_turning_kg@utility_ws(m=5,e=14,dur=10,cap=1.0000kg)
+2026-04-16 10:16:56.244 | INFO    | 订单完成 | 订单=sales_order_010 | 结果=failed | 延迟=0.0m | 任务=6589 | 合并=0 | 耗时=0.0m
+2026-04-16 10:16:56.245 | INFO    | 订单开始 | 序号=29/50 | 订单=sales_order_015 | 优先级=20 | 数量=15000 | 交期=06-16 00:00
+2026-04-16 10:16:56.264 | WARNING | 失败定位 | 订单=sales_order_015 | 工序=brass_pressure_regulator_route_v1.core_turning | 类型=allocation_failed_daily | 窗口=04-20 08:00~06-16 23:59 | 到料= | 截止= | 资源=mt_turning_kg@utility_ws(m=5,e=14,dur=10,cap=1.0000kg)
+2026-04-16 10:16:56.265 | INFO    | 订单完成 | 订单=sales_order_015 | 结果=failed | 延迟=0.0m | 任务=6609 | 合并=0 | 耗时=0.0m
+2026-04-16 10:16:56.265 | INFO    | 订单开始 | 序号=30/50 | 订单=sales_order_006 | 优先级=20 | 数量=27000 | 交期=06-19 00:00
+2026-04-16 10:16:56.327 | WARNING | 失败定位 | 订单=sales_order_006 | 工序=brass_male_pushin_fitting_route_v1.turn_od | 类型=allocation_failed_daily | 窗口=06-29 08:00~06-19 23:59 | 到料= | 截止= | 资源=mt_turning_pcs@utility_ws(m=4,e=14,dur=1,cap=1.0000pcs)
+2026-04-16 10:16:56.327 | INFO    | 订单完成 | 订单=sales_order_006 | 结果=failed | 延迟=0.0m | 任务=6634 | 合并=0 | 耗时=0.0m
+2026-04-16 10:16:56.327 | INFO    | 订单开始 | 序号=31/50 | 订单=sales_order_025 | 优先级=20 | 数量=42000 | 交期=06-19 00:00
+2026-04-16 10:16:56.448 | WARNING | 失败定位 | 订单=sales_order_025 | 工序=welded_mounting_bracket_assy_route.spot | 类型=allocation_failed_daily | 窗口=08-19 08:00~06-19 23:59 | 到料= | 截止= | 资源=mt_utility@utility_ws(m=8,e=14,dur=2,cap=1.0000pcs)
+2026-04-16 10:16:56.449 | INFO    | 订单完成 | 订单=sales_order_025 | 结果=failed | 延迟=0.0m | 任务=6807 | 合并=0 | 耗时=0.0m
+2026-04-16 10:16:56.449 | INFO    | 订单开始 | 序号=32/50 | 订单=sales_order_011 | 优先级=20 | 数量=18000 | 交期=06-22 00:00
+2026-04-16 10:16:56.488 | WARNING | 失败定位 | 订单=sales_order_011 | 工序=al_throttle_valve_route.spool_turn | 类型=allocation_failed_daily | 窗口=04-20 08:00~06-22 23:59 | 到料= | 截止= | 资源=mt_turning_kg@utility_ws(m=5,e=14,dur=10,cap=1.0000kg)
+2026-04-16 10:16:56.489 | INFO    | 订单完成 | 订单=sales_order_011 | 结果=failed | 延迟=0.0m | 任务=6828 | 合并=0 | 耗时=0.0m
+2026-04-16 10:16:56.489 | INFO    | 订单开始 | 序号=33/50 | 订单=sales_order_035 | 优先级=20 | 数量=54000 | 交期=06-22 00:00
+2026-04-16 10:16:56.524 | WARNING | 失败定位 | 订单=sales_order_035 | 工序=brass_straight_ball_valve_route.wax_injection | 类型=allocation_failed_daily | 窗口=04-20 08:00~06-22 23:59 | 到料= | 截止= | 资源=mt_assembly_auto_kg@utility_ws(m=5,e=14,dur=60,cap=5.0000kg)
+2026-04-16 10:16:56.525 | INFO    | 订单完成 | 订单=sales_order_035 | 结果=failed | 延迟=0.0m | 任务=6828 | 合并=0 | 耗时=0.0m
+2026-04-16 10:16:56.525 | INFO    | 订单开始 | 序号=34/50 | 订单=sales_order_009 | 优先级=20 | 数量=30000 | 交期=06-25 00:00
+2026-04-16 10:16:56.571 | WARNING | 失败定位 | 订单=sales_order_009 | 工序=brass_female_elbow_pushin_route.turn_od | 类型=allocation_failed_daily | 窗口=07-16 08:00~06-25 23:59 | 到料= | 截止= | 资源=mt_turning_pcs@utility_ws(m=4,e=14,dur=1,cap=1.0000pcs)
+2026-04-16 10:16:56.572 | INFO    | 订单完成 | 订单=sales_order_009 | 结果=failed | 延迟=0.0m | 任务=6862 | 合并=0 | 耗时=0.0m
+2026-04-16 10:16:56.573 | INFO    | 订单开始 | 序号=35/50 | 订单=sales_order_043 | 优先级=20 | 数量=54000 | 交期=06-28 00:00
+2026-04-16 10:16:56.615 | WARNING | 失败定位 | 订单=sales_order_043 | 工序=brass_male_pushin_fitting_route_v1.turn_od | 类型=allocation_failed_daily | 窗口=07-23 08:00~06-28 23:59 | 到料= | 截止= | 资源=mt_turning_pcs@utility_ws(m=4,e=14,dur=1,cap=1.0000pcs)
+2026-04-16 10:16:56.616 | INFO    | 订单完成 | 订单=sales_order_043 | 结果=failed | 延迟=0.0m | 任务=6912 | 合并=0 | 耗时=0.0m
+2026-04-16 10:16:56.616 | INFO    | 订单开始 | 序号=36/50 | 订单=sales_order_041 | 优先级=20 | 数量=63000 | 交期=06-30 00:00
+2026-04-16 10:16:56.682 | WARNING | 失败定位 | 订单=sales_order_041 | 工序=al_3_2_solenoid_valve_route.spool_turn | 类型=allocation_failed_daily | 窗口=04-20 08:00~06-30 23:59 | 到料= | 截止= | 资源=mt_turning_kg@utility_ws(m=5,e=14,dur=10,cap=1.0000kg)
+2026-04-16 10:16:56.684 | INFO    | 订单完成 | 订单=sales_order_041 | 结果=failed | 延迟=0.0m | 任务=6970 | 合并=0 | 耗时=0.0m
+2026-04-16 10:16:56.685 | INFO    | 订单开始 | 序号=37/50 | 订单=sales_order_029 | 优先级=20 | 数量=54000 | 交期=07-01 00:00
+2026-04-16 10:16:56.728 | WARNING | 失败定位 | 订单=sales_order_029 | 工序=brass_female_elbow_pushin_route.turn_od | 类型=allocation_failed_daily | 窗口=08-03 08:00~07-01 23:59 | 到料= | 截止= | 资源=mt_turning_pcs@utility_ws(m=4,e=14,dur=1,cap=1.0000pcs)
+2026-04-16 10:16:56.729 | INFO    | 订单完成 | 订单=sales_order_029 | 结果=failed | 延迟=0.0m | 任务=7030 | 合并=0 | 耗时=0.0m
+2026-04-16 10:16:56.730 | INFO    | 订单开始 | 序号=38/50 | 订单=sales_order_022 | 优先级=20 | 数量=36000 | 交期=07-04 00:00
+2026-04-16 10:16:56.931 | WARNING | 失败定位 | 订单=sales_order_022 | 工序=frl_duo_unit_route.trim_gate | 类型=allocation_failed_daily | 窗口=07-23 08:00~07-04 23:59 | 到料= | 截止= | 资源=mt_deburr@cleaning_deburr_ws(m=4,e=20,dur=1,cap=1.0000pcs)
+2026-04-16 10:16:56.932 | INFO    | 订单完成 | 订单=sales_order_022 | 结果=failed | 延迟=0.0m | 任务=7224 | 合并=0 | 耗时=0.0m
+2026-04-16 10:16:56.933 | INFO    | 订单开始 | 序号=39/50 | 订单=sales_order_003 | 优先级=20 | 数量=90000 | 交期=07-12 00:00
+2026-04-16 10:16:57.119 | WARNING | 失败定位 | 订单=sales_order_003 | 工序=al_throttle_valve_route.spool_turn | 类型=allocation_failed_daily | 窗口=04-20 08:00~07-12 23:59 | 到料= | 截止= | 资源=mt_turning_kg@utility_ws(m=5,e=14,dur=10,cap=1.0000kg)
+2026-04-16 10:16:57.119 | INFO    | 订单完成 | 订单=sales_order_003 | 结果=failed | 延迟=0.0m | 任务=7324 | 合并=0 | 耗时=0.0m
+2026-04-16 10:16:57.120 | INFO    | 订单开始 | 序号=40/50 | 订单=sales_order_032 | 优先级=20 | 数量=42000 | 交期=07-13 00:00
+2026-04-16 10:16:57.135 | WARNING | 失败定位 | 订单=sales_order_032 | 工序=brass_pressure_regulator_route_v1.wax_injection | 类型=allocation_failed_daily | 窗口=04-20 08:00~07-13 23:59 | 到料= | 截止= | 资源=mt_assembly_auto_kg@utility_ws(m=5,e=14,dur=60,cap=5.0000kg)
+2026-04-16 10:16:57.136 | INFO    | 订单完成 | 订单=sales_order_032 | 结果=failed | 延迟=0.0m | 任务=7324 | 合并=0 | 耗时=0.0m
+2026-04-16 10:16:57.137 | INFO    | 订单开始 | 序号=41/50 | 订单=sales_order_028 | 优先级=20 | 数量=48000 | 交期=07-15 00:00
+2026-04-16 10:16:57.203 | WARNING | 失败定位 | 订单=sales_order_028 | 工序=brass_female_elbow_pushin_route.turn_od | 类型=allocation_failed_daily | 窗口=08-17 08:00~07-15 23:59 | 到料= | 截止= | 资源=mt_turning_pcs@utility_ws(m=4,e=14,dur=1,cap=1.0000pcs)
+2026-04-16 10:16:57.204 | INFO    | 订单完成 | 订单=sales_order_028 | 结果=failed | 延迟=0.0m | 任务=7378 | 合并=0 | 耗时=0.0m
+2026-04-16 10:16:57.206 | INFO    | 订单开始 | 序号=42/50 | 订单=sales_order_048 | 优先级=20 | 数量=15000 | 交期=07-15 00:00
+2026-04-16 10:16:57.278 | WARNING | 失败定位 | 订单=sales_order_048 | 工序=brass_air_release_valve_route.wax_injection | 类型=allocation_failed_daily | 窗口=04-20 08:00~07-15 23:59 | 到料= | 截止= | 资源=mt_assembly_auto_kg@utility_ws(m=5,e=14,dur=60,cap=5.0000kg)
+2026-04-16 10:16:57.279 | INFO    | 订单完成 | 订单=sales_order_048 | 结果=failed | 延迟=0.0m | 任务=7378 | 合并=0 | 耗时=0.0m
+2026-04-16 10:16:57.279 | INFO    | 订单开始 | 序号=43/50 | 订单=sales_order_039 | 优先级=30 | 数量=18000 | 交期=06-01 00:00
+2026-04-16 10:16:57.326 | WARNING | 失败定位 | 订单=sales_order_039 | 工序=frl_trio_unit_route_v1.melt_refine | 类型=allocation_failed_daily | 窗口=04-20 08:00~06-01 23:59 | 到料= | 截止= | 资源=mt_melting@smelting_casting_ws(m=5,e=32,dur=45,cap=5.0000kg)
+2026-04-16 10:16:57.327 | INFO    | 订单完成 | 订单=sales_order_039 | 结果=failed | 延迟=0.0m | 任务=7387 | 合并=0 | 耗时=0.0m
+2026-04-16 10:16:57.328 | INFO    | 订单开始 | 序号=44/50 | 订单=sales_order_012 | 优先级=30 | 数量=15000 | 交期=06-11 00:00
+2026-04-16 10:16:57.338 | WARNING | 失败定位 | 订单=sales_order_012 | 工序=brass_air_release_valve_route.wax_injection | 类型=allocation_failed_daily | 窗口=04-20 08:00~06-11 23:59 | 到料= | 截止= | 资源=mt_assembly_auto_kg@utility_ws(m=5,e=14,dur=60,cap=5.0000kg)
+2026-04-16 10:16:57.339 | INFO    | 订单完成 | 订单=sales_order_012 | 结果=failed | 延迟=0.0m | 任务=7387 | 合并=0 | 耗时=0.0m
+2026-04-16 10:16:57.339 | INFO    | 订单开始 | 序号=45/50 | 订单=sales_order_004 | 优先级=30 | 数量=60000 | 交期=07-03 00:00
+2026-04-16 10:16:57.400 | WARNING | 失败定位 | 订单=sales_order_004 | 工序=brass_female_elbow_pushin_route.turn_od | 类型=allocation_failed_daily | 窗口=08-27 08:00~07-03 23:59 | 到料= | 截止= | 资源=mt_turning_pcs@utility_ws(m=4,e=14,dur=1,cap=1.0000pcs)
+2026-04-16 10:16:57.402 | INFO    | 订单完成 | 订单=sales_order_004 | 结果=failed | 延迟=0.0m | 任务=7454 | 合并=0 | 耗时=0.0m
+2026-04-16 10:16:57.402 | INFO    | 订单开始 | 序号=46/50 | 订单=sales_order_033 | 优先级=30 | 数量=48000 | 交期=07-05 00:00
+2026-04-16 10:16:57.447 | WARNING | 失败定位 | 订单=sales_order_033 | 工序=air_filter_regulator_route.melt_refine | 类型=allocation_failed_daily | 窗口=04-20 08:00~07-05 23:59 | 到料= | 截止= | 资源=mt_melting@smelting_casting_ws(m=5,e=32,dur=45,cap=5.0000kg)
+2026-04-16 10:16:57.448 | INFO    | 订单完成 | 订单=sales_order_033 | 结果=failed | 延迟=0.0m | 任务=7454 | 合并=0 | 耗时=0.0m
+2026-04-16 10:16:57.449 | INFO    | 订单开始 | 序号=47/50 | 订单=sales_order_037 | 优先级=30 | 数量=18000 | 交期=07-07 00:00
+2026-04-16 10:16:57.474 | WARNING | 失败定位 | 订单=sales_order_037 | 工序=frl_duo_unit_route.melt_refine | 类型=allocation_failed_daily | 窗口=04-20 08:00~07-07 23:59 | 到料= | 截止= | 资源=mt_melting@smelting_casting_ws(m=5,e=32,dur=45,cap=5.0000kg)
+2026-04-16 10:16:57.475 | INFO    | 订单完成 | 订单=sales_order_037 | 结果=failed | 延迟=0.0m | 任务=7454 | 合并=0 | 耗时=0.0m
+2026-04-16 10:16:57.475 | INFO    | 订单开始 | 序号=48/50 | 订单=sales_order_019 | 优先级=30 | 数量=48000 | 交期=07-15 00:00
+2026-04-16 10:16:57.553 | WARNING | 失败定位 | 订单=sales_order_019 | 工序=al_quick_exhaust_valve_route.melt_refine | 类型=allocation_failed_daily | 窗口=04-20 08:00~07-15 23:59 | 到料= | 截止= | 资源=mt_melting@smelting_casting_ws(m=5,e=32,dur=45,cap=5.0000kg)
+2026-04-16 10:16:57.554 | INFO    | 订单完成 | 订单=sales_order_019 | 结果=failed | 延迟=0.0m | 任务=7454 | 合并=0 | 耗时=0.0m
+2026-04-16 10:16:57.555 | INFO    | 订单开始 | 序号=49/50 | 订单=sales_order_034 | 优先级=30 | 数量=54000 | 交期=07-16 00:00
+2026-04-16 10:16:57.565 | WARNING | 失败定位 | 订单=sales_order_034 | 工序=brass_air_release_valve_route.wax_injection | 类型=allocation_failed_daily | 窗口=04-20 08:00~07-16 23:59 | 到料= | 截止= | 资源=mt_assembly_auto_kg@utility_ws(m=5,e=14,dur=60,cap=5.0000kg)
+2026-04-16 10:16:57.566 | INFO    | 订单完成 | 订单=sales_order_034 | 结果=failed | 延迟=0.0m | 任务=7454 | 合并=0 | 耗时=0.0m
+2026-04-16 10:16:57.566 | INFO    | 订单开始 | 序号=50/50 | 订单=sales_order_050 | 优先级=30 | 数量=27000 | 交期=07-17 00:00
+2026-04-16 10:16:57.606 | WARNING | 失败定位 | 订单=sales_order_050 | 工序=brass_female_elbow_pushin_route.turn_od | 类型=allocation_failed_daily | 窗口=09-01 08:00~07-17 23:59 | 到料= | 截止= | 资源=mt_turning_pcs@utility_ws(m=4,e=14,dur=1,cap=1.0000pcs)
+2026-04-16 10:16:57.607 | INFO    | 订单完成 | 订单=sales_order_050 | 结果=failed | 延迟=0.0m | 任务=7484 | 合并=0 | 耗时=0.0m
+2026-04-16 10:16:57.625 | SUCCESS | 阶段完成 | 2/6 | 名称=solve daily | 阶段耗时=0.1m | 累计=0.1m | 说明=outcomes=50 tasks=7484
+2026-04-16 10:16:57.626 | INFO    | 阶段开始 | 3/6 | 名称=build blocks
+2026-04-16 10:16:59.025 | SUCCESS | 阶段完成 | 3/6 | 名称=build blocks | 阶段耗时=0.0m | 累计=0.1m | 说明=execution_blocks=7484
+2026-04-16 10:16:59.025 | INFO    | 阶段开始 | 4/6 | 名称=sync db
+2026-04-16 10:16:59.951 | SUCCESS | 阶段完成 | 4/6 | 名称=sync db | 阶段耗时=0.0m | 累计=0.1m | 说明=rows=7484
+2026-04-16 10:16:59.951 | INFO    | 阶段开始 | 5/6 | 名称=write html
+2026-04-16 10:16:59.951 | SUCCESS | [daily] db sync done | rows=7484
+2026-04-16 10:17:06.098 | SUCCESS | 阶段完成 | 5/6 | 名称=write html | 阶段耗时=0.1m | 累计=0.2m
+2026-04-16 10:17:06.098 | SUCCESS | [daily] done | output=D:\A_sch\reports\schedule_daily | orders=50 | tasks=7484
+2026-04-16 10:17:06.098 | SUCCESS | [daily] summary | problems=47 | score=3.00 | purchases=27 | failed=47
+2026-04-16 10:39:24.407 | INFO    | script start | output=D:\A_sch\reports\schedule | log_dir=D:\A_sch\logs | verbose=False
+2026-04-16 10:39:24.407 | INFO    | 阶段开始 | 1/6 | 名称=read db
+2026-04-16 10:39:24.434 | SUCCESS | 阶段完成 | 1/6 | 名称=read db | 阶段耗时=0.0m | 累计=0.0m | 说明=orders=50
+2026-04-16 10:39:24.435 | INFO    | 阶段开始 | 2/6 | 名称=solve
+2026-04-16 10:39:24.435 | INFO    | 订单开始 | 序号=1/50 | 订单=sales_order_026 | 优先级=10 | 数量=54000 | 交期=06-03 00:00
+2026-04-16 10:41:30.621 | WARNING | 失败定位 | 订单=sales_order_026 | 工序=silencer_fitting_assy_route.pack | 类型=allocation_failed | 窗口=04-19 08:00~06-03 00:00 | 到料=04-19 08:00 | 截止=06-03 00:00 | 资源=mt_pack_small@packaging_ws(m=1,e=4,dur=2,cap=1.0000pcs)
+2026-04-16 10:41:30.623 | INFO    | 订单完成 | 订单=sales_order_026 | 结果=failed | 延迟=0.0m | 任务=286 | 合并=0 | 耗时=2.1m
+2026-04-16 10:41:30.623 | INFO    | 订单开始 | 序号=2/50 | 订单=sales_order_013 | 优先级=20 | 数量=21000 | 交期=06-02 00:00
+2026-04-16 10:48:04.437 | WARNING | 失败定位 | 订单=sales_order_013 | 工序=welded_mounting_bracket_assy_route.grind | 类型=allocation_failed | 窗口=04-16 10:39~04-16 11:20 | 到料=04-16 10:39 | 截止=06-02 00:00 | 资源=mt_grinding_cap1_pcs@utility_ws(m=1,e=4,dur=2,cap=1.0000pcs)
+2026-04-16 10:48:04.502 | INFO    | 订单完成 | 订单=sales_order_013 | 结果=failed | 延迟=0.0m | 任务=978 | 合并=551 | 耗时=6.6m
+2026-04-16 10:48:04.503 | INFO    | 订单开始 | 序号=3/50 | 订单=sales_order_039 | 优先级=30 | 数量=18000 | 交期=06-01 00:00
+2026-04-16 10:48:58.855 | WARNING | 失败定位 | 订单=sales_order_039 | 工序=frl_trio_unit_route_v1.pack | 类型=allocation_failed | 窗口=04-19 08:00~06-01 00:00 | 到料=04-19 08:00 | 截止=06-01 00:00 | 资源=mt_pack_heavy@packaging_ws(m=1,e=4,dur=2,cap=1.0000pcs)
+2026-04-16 10:48:58.859 | INFO    | 订单完成 | 订单=sales_order_039 | 结果=failed | 延迟=0.0m | 任务=1030 | 合并=0 | 耗时=0.9m
+2026-04-16 10:48:58.859 | INFO    | 订单开始 | 序号=4/50 | 订单=sales_order_007 | 优先级=10 | 数量=18000 | 交期=06-06 00:00
+2026-04-16 10:49:15.223 | WARNING | 失败定位 | 订单=sales_order_007 | 工序=oil_mist_lubricator_route.pack | 类型=allocation_failed | 窗口=04-19 08:00~06-06 00:00 | 到料=04-19 08:00 | 截止=06-06 00:00 | 资源=mt_pack_heavy@packaging_ws(m=1,e=4,dur=2,cap=1.0000pcs)
+2026-04-16 10:49:15.226 | INFO    | 订单完成 | 订单=sales_order_007 | 结果=failed | 延迟=0.0m | 任务=1042 | 合并=0 | 耗时=0.3m
+2026-04-16 10:49:15.226 | INFO    | 订单开始 | 序号=5/50 | 订单=sales_order_044 | 优先级=10 | 数量=81000 | 交期=06-06 00:00
+2026-04-16 10:49:27.503 | WARNING | 失败定位 | 订单=sales_order_044 | 工序=al_3_2_solenoid_valve_route.pack | 类型=allocation_failed | 窗口=04-19 08:00~06-06 00:00 | 到料=04-19 08:00 | 截止=06-06 00:00 | 资源=mt_pack_small@packaging_ws(m=1,e=4,dur=2,cap=1.0000pcs)
+2026-04-16 10:49:27.505 | INFO    | 订单完成 | 订单=sales_order_044 | 结果=failed | 延迟=0.0m | 任务=1051 | 合并=0 | 耗时=0.2m
+2026-04-16 10:49:27.506 | INFO    | 订单开始 | 序号=6/50 | 订单=sales_order_008 | 优先级=20 | 数量=24000 | 交期=06-05 00:00
+2026-04-16 10:49:28.819 | WARNING | 失败定位 | 订单=sales_order_008 | 工序=frl_duo_unit_route.pack | 类型=allocation_failed | 窗口=04-19 08:00~06-05 00:00 | 到料=04-19 08:00 | 截止=06-05 00:00 | 资源=mt_pack_heavy@packaging_ws(m=1,e=4,dur=2,cap=1.0000pcs)
+2026-04-16 10:49:28.822 | INFO    | 订单完成 | 订单=sales_order_008 | 结果=failed | 延迟=0.0m | 任务=1051 | 合并=0 | 耗时=0.0m
+2026-04-16 10:49:28.823 | INFO    | 订单开始 | 序号=7/50 | 订单=sales_order_049 | 优先级=10 | 数量=21000 | 交期=06-10 00:00
+2026-04-16 10:49:37.797 | WARNING | 失败定位 | 订单=sales_order_049 | 工序=brass_pressure_regulator_route_v1.packing | 类型=allocation_failed | 窗口=04-19 08:00~06-10 00:00 | 到料=04-19 08:00 | 截止=06-10 00:00 | 资源=mt_pack_heavy@packaging_ws(m=1,e=4,dur=2,cap=1.0000pcs)
+2026-04-16 10:49:37.800 | INFO    | 订单完成 | 订单=sales_order_049 | 结果=failed | 延迟=0.0m | 任务=1057 | 合并=0 | 耗时=0.1m
+2026-04-16 10:49:37.801 | INFO    | 订单开始 | 序号=8/50 | 订单=sales_order_016 | 优先级=20 | 数量=18000 | 交期=06-07 00:00
+2026-04-16 10:49:39.108 | WARNING | 失败定位 | 订单=sales_order_016 | 工序=frl_trio_unit_route_v1.pack | 类型=allocation_failed | 窗口=04-19 08:00~06-07 00:00 | 到料=04-19 08:00 | 截止=06-07 00:00 | 资源=mt_pack_heavy@packaging_ws(m=1,e=4,dur=2,cap=1.0000pcs)
+2026-04-16 10:49:39.111 | INFO    | 订单完成 | 订单=sales_order_016 | 结果=failed | 延迟=0.0m | 任务=1057 | 合并=0 | 耗时=0.0m
+2026-04-16 10:49:39.112 | INFO    | 订单开始 | 序号=9/50 | 订单=sales_order_027 | 优先级=20 | 数量=15000 | 交期=06-07 00:00
+2026-04-16 10:49:44.126 | WARNING | 失败定位 | 订单=sales_order_027 | 工序=al_manual_directional_valve_route.pack | 类型=allocation_failed | 窗口=04-19 08:00~06-07 00:00 | 到料=04-19 08:00 | 截止=06-07 00:00 | 资源=mt_pack_small@packaging_ws(m=1,e=4,dur=2,cap=1.0000pcs)
+2026-04-16 10:49:44.130 | INFO    | 订单完成 | 订单=sales_order_027 | 结果=failed | 延迟=0.0m | 任务=1060 | 合并=0 | 耗时=0.1m
+2026-04-16 10:49:44.131 | INFO    | 订单开始 | 序号=10/50 | 订单=sales_order_001 | 优先级=20 | 数量=21000 | 交期=06-11 00:00
+2026-04-16 10:49:53.173 | WARNING | 失败定位 | 订单=sales_order_001 | 工序=al_5_2_solenoid_valve_route_v1.pack | 类型=allocation_failed | 窗口=04-19 08:00~06-11 00:00 | 到料=04-19 08:00 | 截止=06-11 00:00 | 资源=mt_pack_small@packaging_ws(m=1,e=4,dur=2,cap=1.0000pcs)
+2026-04-16 10:49:53.176 | INFO    | 订单完成 | 订单=sales_order_001 | 结果=failed | 延迟=0.0m | 任务=1066 | 合并=0 | 耗时=0.2m
+2026-04-16 10:49:53.176 | INFO    | 订单开始 | 序号=11/50 | 订单=sales_order_014 | 优先级=20 | 数量=15000 | 交期=06-12 00:00
+2026-04-16 10:49:58.320 | WARNING | 失败定位 | 订单=sales_order_014 | 工序=silencer_fitting_assy_route.pack | 类型=allocation_failed | 窗口=04-19 08:00~06-12 00:00 | 到料=04-19 08:00 | 截止=06-12 00:00 | 资源=mt_pack_small@packaging_ws(m=1,e=4,dur=2,cap=1.0000pcs)
+2026-04-16 10:49:58.322 | INFO    | 订单完成 | 订单=sales_order_014 | 结果=failed | 延迟=0.0m | 任务=1069 | 合并=0 | 耗时=0.1m
+2026-04-16 10:49:58.323 | INFO    | 订单开始 | 序号=12/50 | 订单=sales_order_040 | 优先级=20 | 数量=15000 | 交期=06-12 00:00
+2026-04-16 10:50:07.362 | WARNING | 失败定位 | 订单=sales_order_040 | 工序=brass_pressure_regulator_route_v1.packing | 类型=allocation_failed | 窗口=04-19 08:00~06-12 00:00 | 到料=04-19 08:00 | 截止=06-12 00:00 | 资源=mt_pack_heavy@packaging_ws(m=1,e=4,dur=2,cap=1.0000pcs)
+2026-04-16 10:50:07.364 | INFO    | 订单完成 | 订单=sales_order_040 | 结果=failed | 延迟=0.0m | 任务=1075 | 合并=0 | 耗时=0.2m
+2026-04-16 10:50:07.366 | INFO    | 订单开始 | 序号=13/50 | 订单=sales_order_012 | 优先级=30 | 数量=15000 | 交期=06-11 00:00
+2026-04-16 10:50:08.645 | WARNING | 失败定位 | 订单=sales_order_012 | 工序=brass_air_release_valve_route.packing | 类型=allocation_failed | 窗口=04-19 08:00~06-11 00:00 | 到料=04-19 08:00 | 截止=06-11 00:00 | 资源=mt_pack_small@packaging_ws(m=1,e=4,dur=2,cap=1.0000pcs)
+2026-04-16 10:50:08.649 | INFO    | 订单完成 | 订单=sales_order_012 | 结果=failed | 延迟=0.0m | 任务=1075 | 合并=0 | 耗时=0.0m
+2026-04-16 10:50:08.650 | INFO    | 订单开始 | 序号=14/50 | 订单=sales_order_024 | 优先级=20 | 数量=15000 | 交期=06-13 00:00
+2026-04-16 10:50:14.034 | WARNING | 失败定位 | 订单=sales_order_024 | 工序=silencer_fitting_assy_route.pack | 类型=allocation_failed | 窗口=04-19 08:00~06-13 00:00 | 到料=04-19 08:00 | 截止=06-13 00:00 | 资源=mt_pack_small@packaging_ws(m=1,e=4,dur=2,cap=1.0000pcs)
+2026-04-16 10:50:14.036 | INFO    | 订单完成 | 订单=sales_order_024 | 结果=failed | 延迟=0.0m | 任务=1078 | 合并=0 | 耗时=0.1m
+2026-04-16 10:50:14.037 | INFO    | 订单开始 | 序号=15/50 | 订单=sales_order_017 | 优先级=20 | 数量=48000 | 交期=06-15 00:00
+2026-04-16 10:50:17.949 | WARNING | 失败定位 | 订单=sales_order_017 | 工序=silencer_fitting_assy_route.pack | 类型=allocation_failed | 窗口=04-19 08:00~06-15 00:00 | 到料=04-19 08:00 | 截止=06-15 00:00 | 资源=mt_pack_small@packaging_ws(m=1,e=4,dur=2,cap=1.0000pcs)
+2026-04-16 10:50:17.952 | INFO    | 订单完成 | 订单=sales_order_017 | 结果=failed | 延迟=0.0m | 任务=1081 | 合并=0 | 耗时=0.1m
+2026-04-16 10:50:17.952 | INFO    | 订单开始 | 序号=16/50 | 订单=sales_order_002 | 优先级=10 | 数量=54000 | 交期=06-17 00:00
+2026-04-16 10:50:22.488 | WARNING | 失败定位 | 订单=sales_order_002 | 工序=brass_tee_ball_valve_route.packing | 类型=allocation_failed | 窗口=04-19 08:00~06-17 00:00 | 到料=04-19 08:00 | 截止=06-17 00:00 | 资源=mt_pack_small@packaging_ws(m=1,e=4,dur=2,cap=1.0000pcs)
+2026-04-16 10:50:22.490 | INFO    | 订单完成 | 订单=sales_order_002 | 结果=failed | 延迟=0.0m | 任务=1084 | 合并=0 | 耗时=0.1m
+2026-04-16 10:50:22.491 | INFO    | 订单开始 | 序号=17/50 | 订单=sales_order_010 | 优先级=20 | 数量=27000 | 交期=06-16 00:00
+2026-04-16 10:50:23.591 | WARNING | 失败定位 | 订单=sales_order_010 | 工序=brass_check_valve_route.packing | 类型=allocation_failed | 窗口=04-19 08:00~06-16 00:00 | 到料=04-19 08:00 | 截止=06-16 00:00 | 资源=mt_pack_small@packaging_ws(m=1,e=4,dur=2,cap=1.0000pcs)
+2026-04-16 10:50:23.593 | INFO    | 订单完成 | 订单=sales_order_010 | 结果=failed | 延迟=0.0m | 任务=1084 | 合并=0 | 耗时=0.0m
+2026-04-16 10:50:23.593 | INFO    | 订单开始 | 序号=18/50 | 订单=sales_order_015 | 优先级=20 | 数量=15000 | 交期=06-16 00:00
+2026-04-16 10:50:32.127 | WARNING | 失败定位 | 订单=sales_order_015 | 工序=brass_pressure_regulator_route_v1.packing | 类型=allocation_failed | 窗口=04-19 08:00~06-16 00:00 | 到料=04-19 08:00 | 截止=06-16 00:00 | 资源=mt_pack_heavy@packaging_ws(m=1,e=4,dur=2,cap=1.0000pcs)
+2026-04-16 10:50:32.131 | INFO    | 订单完成 | 订单=sales_order_015 | 结果=failed | 延迟=0.0m | 任务=1090 | 合并=0 | 耗时=0.1m
+2026-04-16 10:50:32.131 | INFO    | 订单开始 | 序号=19/50 | 订单=sales_order_021 | 优先级=10 | 数量=15000 | 交期=06-19 00:00
+2026-04-16 10:50:47.542 | WARNING | 失败定位 | 订单=sales_order_021 | 工序=brass_pressure_regulator_route_v1.packing | 类型=allocation_failed | 窗口=04-19 08:00~06-19 00:00 | 到料=04-19 08:00 | 截止=06-19 00:00 | 资源=mt_pack_heavy@packaging_ws(m=1,e=4,dur=2,cap=1.0000pcs)
+2026-04-16 10:50:47.547 | INFO    | 订单完成 | 订单=sales_order_021 | 结果=failed | 延迟=0.0m | 任务=1099 | 合并=0 | 耗时=0.3m
+2026-04-16 10:50:47.548 | INFO    | 订单开始 | 序号=20/50 | 订单=sales_order_047 | 优先级=10 | 数量=21000 | 交期=06-20 00:00
+2026-04-16 10:50:52.659 | WARNING | 失败定位 | 订单=sales_order_047 | 工序=air_filter_regulator_route.pack | 类型=allocation_failed | 窗口=04-19 08:00~06-20 00:00 | 到料=04-19 08:00 | 截止=06-20 00:00 | 资源=mt_pack_heavy@packaging_ws(m=1,e=4,dur=2,cap=1.0000pcs)
+2026-04-16 10:50:52.663 | INFO    | 订单完成 | 订单=sales_order_047 | 结果=failed | 延迟=0.0m | 任务=1102 | 合并=0 | 耗时=0.1m
+2026-04-16 10:50:52.663 | INFO    | 订单开始 | 序号=21/50 | 订单=sales_order_006 | 优先级=20 | 数量=27000 | 交期=06-19 00:00
+2026-04-16 10:51:01.794 | WARNING | 失败定位 | 订单=sales_order_006 | 工序=brass_male_pushin_fitting_route_v1.pack | 类型=allocation_failed | 窗口=04-19 08:00~06-19 00:00 | 到料=04-19 08:00 | 截止=06-19 00:00 | 资源=mt_pack_small@packaging_ws(m=1,e=4,dur=2,cap=1.0000pcs)
+2026-04-16 10:51:01.797 | INFO    | 订单完成 | 订单=sales_order_006 | 结果=failed | 延迟=0.0m | 任务=1108 | 合并=0 | 耗时=0.2m
+2026-04-16 10:51:01.798 | INFO    | 订单开始 | 序号=22/50 | 订单=sales_order_025 | 优先级=20 | 数量=42000 | 交期=06-19 00:00
+2026-04-16 10:51:04.262 | WARNING | 失败定位 | 订单=sales_order_025 | 工序=welded_mounting_bracket_assy_route.pack | 类型=allocation_failed | 窗口=04-19 08:00~06-19 00:00 | 到料=04-19 08:00 | 截止=06-19 00:00 | 资源=mt_pack_heavy@packaging_ws(m=1,e=4,dur=2,cap=1.0000pcs)
+2026-04-16 10:51:04.265 | INFO    | 订单完成 | 订单=sales_order_025 | 结果=failed | 延迟=0.0m | 任务=1108 | 合并=0 | 耗时=0.0m
+2026-04-16 10:51:04.265 | INFO    | 订单开始 | 序号=23/50 | 订单=sales_order_038 | 优先级=10 | 数量=90000 | 交期=06-21 00:00
+2026-04-16 10:51:15.483 | WARNING | 失败定位 | 订单=sales_order_038 | 工序=al_3_2_solenoid_valve_route.pack | 类型=allocation_failed | 窗口=04-19 08:00~06-21 00:00 | 到料=04-19 08:00 | 截止=06-21 00:00 | 资源=mt_pack_small@packaging_ws(m=1,e=4,dur=2,cap=1.0000pcs)
+2026-04-16 10:51:15.487 | INFO    | 订单完成 | 订单=sales_order_038 | 结果=failed | 延迟=0.0m | 任务=1114 | 合并=0 | 耗时=0.2m
+2026-04-16 10:51:15.487 | INFO    | 订单开始 | 序号=24/50 | 订单=sales_order_011 | 优先级=20 | 数量=18000 | 交期=06-22 00:00
+2026-04-16 10:51:17.072 | WARNING | 失败定位 | 订单=sales_order_011 | 工序=al_throttle_valve_route.pack | 类型=allocation_failed | 窗口=04-19 08:00~06-22 00:00 | 到料=04-19 08:00 | 截止=06-22 00:00 | 资源=mt_pack_small@packaging_ws(m=1,e=4,dur=2,cap=1.0000pcs)
+2026-04-16 10:51:17.076 | INFO    | 订单完成 | 订单=sales_order_011 | 结果=failed | 延迟=0.0m | 任务=1114 | 合并=0 | 耗时=0.0m
+2026-04-16 10:51:17.077 | INFO    | 订单开始 | 序号=25/50 | 订单=sales_order_035 | 优先级=20 | 数量=54000 | 交期=06-22 00:00
+2026-04-16 10:51:18.641 | WARNING | 失败定位 | 订单=sales_order_035 | 工序=brass_straight_ball_valve_route.packing | 类型=allocation_failed | 窗口=04-19 08:00~06-22 00:00 | 到料=04-19 08:00 | 截止=06-22 00:00 | 资源=mt_pack_small@packaging_ws(m=1,e=4,dur=2,cap=1.0000pcs)
+2026-04-16 10:51:18.645 | INFO    | 订单完成 | 订单=sales_order_035 | 结果=failed | 延迟=0.0m | 任务=1114 | 合并=0 | 耗时=0.0m
+2026-04-16 10:51:18.645 | INFO    | 订单开始 | 序号=26/50 | 订单=sales_order_020 | 优先级=10 | 数量=30000 | 交期=06-26 00:00
+2026-04-16 10:51:34.280 | WARNING | 失败定位 | 订单=sales_order_020 | 工序=stainless_pushin_straight_route.pack | 类型=allocation_failed | 窗口=04-19 08:00~06-26 00:00 | 到料=04-19 08:00 | 截止=06-26 00:00 | 资源=mt_pack_small@packaging_ws(m=1,e=4,dur=2,cap=1.0000pcs)
+2026-04-16 10:51:34.284 | INFO    | 订单完成 | 订单=sales_order_020 | 结果=failed | 延迟=0.0m | 任务=1123 | 合并=0 | 耗时=0.3m
+2026-04-16 10:51:34.284 | INFO    | 订单开始 | 序号=27/50 | 订单=sales_order_009 | 优先级=20 | 数量=30000 | 交期=06-25 00:00
+2026-04-16 10:51:35.938 | WARNING | 失败定位 | 订单=sales_order_009 | 工序=brass_female_elbow_pushin_route.pack | 类型=allocation_failed | 窗口=04-19 08:00~06-25 00:00 | 到料=04-19 08:00 | 截止=06-25 00:00 | 资源=mt_pack_small@packaging_ws(m=1,e=4,dur=2,cap=1.0000pcs)
+2026-04-16 10:51:35.941 | INFO    | 订单完成 | 订单=sales_order_009 | 结果=failed | 延迟=0.0m | 任务=1123 | 合并=0 | 耗时=0.0m
+2026-04-16 10:51:35.941 | INFO    | 订单开始 | 序号=28/50 | 订单=sales_order_018 | 优先级=10 | 数量=42000 | 交期=06-27 00:00
+2026-04-16 10:51:42.458 | WARNING | 失败定位 | 订单=sales_order_018 | 工序=brass_tee_ball_valve_route.packing | 类型=allocation_failed | 窗口=04-19 08:00~06-27 00:00 | 到料=04-19 08:00 | 截止=06-27 00:00 | 资源=mt_pack_small@packaging_ws(m=1,e=4,dur=2,cap=1.0000pcs)
+2026-04-16 10:51:42.462 | INFO    | 订单完成 | 订单=sales_order_018 | 结果=failed | 延迟=0.0m | 任务=1126 | 合并=0 | 耗时=0.1m
+2026-04-16 10:51:42.462 | INFO    | 订单开始 | 序号=29/50 | 订单=sales_order_043 | 优先级=20 | 数量=54000 | 交期=06-28 00:00
+2026-04-16 10:51:49.082 | WARNING | 失败定位 | 订单=sales_order_043 | 工序=brass_male_pushin_fitting_route_v1.pack | 类型=allocation_failed | 窗口=04-19 08:00~06-28 00:00 | 到料=04-19 08:00 | 截止=06-28 00:00 | 资源=mt_pack_small@packaging_ws(m=1,e=4,dur=2,cap=1.0000pcs)
+2026-04-16 10:51:49.086 | INFO    | 订单完成 | 订单=sales_order_043 | 结果=failed | 延迟=0.0m | 任务=1129 | 合并=0 | 耗时=0.1m
+2026-04-16 10:51:49.087 | INFO    | 订单开始 | 序号=30/50 | 订单=sales_order_042 | 优先级=10 | 数量=60000 | 交期=07-01 00:00
+2026-04-16 10:51:55.927 | WARNING | 失败定位 | 订单=sales_order_042 | 工序=al_throttle_valve_route.pack | 类型=allocation_failed | 窗口=04-19 08:00~07-01 00:00 | 到料=04-19 08:00 | 截止=07-01 00:00 | 资源=mt_pack_small@packaging_ws(m=1,e=4,dur=2,cap=1.0000pcs)
+2026-04-16 10:51:55.931 | INFO    | 订单完成 | 订单=sales_order_042 | 结果=failed | 延迟=0.0m | 任务=1132 | 合并=0 | 耗时=0.1m
+2026-04-16 10:51:55.932 | INFO    | 订单开始 | 序号=31/50 | 订单=sales_order_041 | 优先级=20 | 数量=63000 | 交期=06-30 00:00
+2026-04-16 10:51:57.705 | WARNING | 失败定位 | 订单=sales_order_041 | 工序=al_3_2_solenoid_valve_route.pack | 类型=allocation_failed | 窗口=04-19 08:00~06-30 00:00 | 到料=04-19 08:00 | 截止=06-30 00:00 | 资源=mt_pack_small@packaging_ws(m=1,e=4,dur=2,cap=1.0000pcs)
+2026-04-16 10:51:57.707 | INFO    | 订单完成 | 订单=sales_order_041 | 结果=failed | 延迟=0.0m | 任务=1132 | 合并=0 | 耗时=0.0m
+2026-04-16 10:51:57.708 | INFO    | 订单开始 | 序号=32/50 | 订单=sales_order_029 | 优先级=20 | 数量=54000 | 交期=07-01 00:00
+2026-04-16 10:51:59.397 | WARNING | 失败定位 | 订单=sales_order_029 | 工序=brass_female_elbow_pushin_route.pack | 类型=allocation_failed | 窗口=04-19 08:00~07-01 00:00 | 到料=04-19 08:00 | 截止=07-01 00:00 | 资源=mt_pack_small@packaging_ws(m=1,e=4,dur=2,cap=1.0000pcs)
+2026-04-16 10:51:59.401 | INFO    | 订单完成 | 订单=sales_order_029 | 结果=failed | 延迟=0.0m | 任务=1132 | 合并=0 | 耗时=0.0m
+2026-04-16 10:51:59.402 | INFO    | 订单开始 | 序号=33/50 | 订单=sales_order_030 | 优先级=10 | 数量=30000 | 交期=07-04 00:00
+2026-04-16 10:52:16.738 | WARNING | 失败定位 | 订单=sales_order_030 | 工序=al_3_2_solenoid_valve_route.pack | 类型=allocation_failed | 窗口=04-19 08:00~07-04 00:00 | 到料=04-19 08:00 | 截止=07-04 00:00 | 资源=mt_pack_small@packaging_ws(m=1,e=4,dur=2,cap=1.0000pcs)
+2026-04-16 10:52:16.741 | INFO    | 订单完成 | 订单=sales_order_030 | 结果=failed | 延迟=0.0m | 任务=1141 | 合并=0 | 耗时=0.3m
+2026-04-16 10:52:16.741 | INFO    | 订单开始 | 序号=34/50 | 订单=sales_order_022 | 优先级=20 | 数量=36000 | 交期=07-04 00:00
+2026-04-16 10:53:14.789 | WARNING | 失败定位 | 订单=sales_order_022 | 工序=frl_duo_unit_route.pack | 类型=allocation_failed | 窗口=04-19 08:00~07-04 00:00 | 到料=04-19 08:00 | 截止=07-04 00:00 | 资源=mt_pack_heavy@packaging_ws(m=1,e=4,dur=2,cap=1.0000pcs)
+2026-04-16 10:53:14.792 | INFO    | 订单完成 | 订单=sales_order_022 | 结果=failed | 延迟=0.0m | 任务=1171 | 合并=0 | 耗时=1.0m
+2026-04-16 10:53:14.792 | INFO    | 订单开始 | 序号=35/50 | 订单=sales_order_046 | 优先级=10 | 数量=21000 | 交期=07-06 00:00
+2026-04-16 10:53:21.554 | WARNING | 失败定位 | 订单=sales_order_046 | 工序=stainless_pushin_straight_route.pack | 类型=allocation_failed | 窗口=04-19 08:00~07-06 00:00 | 到料=04-19 08:00 | 截止=07-06 00:00 | 资源=mt_pack_small@packaging_ws(m=1,e=4,dur=2,cap=1.0000pcs)
+2026-04-16 10:53:21.557 | INFO    | 订单完成 | 订单=sales_order_046 | 结果=failed | 延迟=0.0m | 任务=1174 | 合并=0 | 耗时=0.1m
+2026-04-16 10:53:21.557 | INFO    | 订单开始 | 序号=36/50 | 订单=sales_order_004 | 优先级=30 | 数量=60000 | 交期=07-03 00:00
+2026-04-16 10:53:23.105 | WARNING | 失败定位 | 订单=sales_order_004 | 工序=brass_female_elbow_pushin_route.pack | 类型=allocation_failed | 窗口=04-19 08:00~07-03 00:00 | 到料=04-19 08:00 | 截止=07-03 00:00 | 资源=mt_pack_small@packaging_ws(m=1,e=4,dur=2,cap=1.0000pcs)
+2026-04-16 10:53:23.114 | INFO    | 订单完成 | 订单=sales_order_004 | 结果=failed | 延迟=0.0m | 任务=1174 | 合并=0 | 耗时=0.0m
+2026-04-16 10:53:23.115 | INFO    | 订单开始 | 序号=37/50 | 订单=sales_order_023 | 优先级=10 | 数量=81000 | 交期=07-07 00:00
+2026-04-16 10:53:24.607 | WARNING | 失败定位 | 订单=sales_order_023 | 工序=al_3_2_solenoid_valve_route.pack | 类型=allocation_failed | 窗口=04-19 08:00~07-07 00:00 | 到料=04-19 08:00 | 截止=07-07 00:00 | 资源=mt_pack_small@packaging_ws(m=1,e=4,dur=2,cap=1.0000pcs)
+2026-04-16 10:53:24.609 | INFO    | 订单完成 | 订单=sales_order_023 | 结果=failed | 延迟=0.0m | 任务=1174 | 合并=0 | 耗时=0.0m
+2026-04-16 10:53:24.610 | INFO    | 订单开始 | 序号=38/50 | 订单=sales_order_033 | 优先级=30 | 数量=48000 | 交期=07-05 00:00
+2026-04-16 10:53:30.390 | WARNING | 失败定位 | 订单=sales_order_033 | 工序=air_filter_regulator_route.pack | 类型=allocation_failed | 窗口=04-19 08:00~07-05 00:00 | 到料=04-19 08:00 | 截止=07-05 00:00 | 资源=mt_pack_heavy@packaging_ws(m=1,e=4,dur=2,cap=1.0000pcs)
+2026-04-16 10:53:30.393 | INFO    | 订单完成 | 订单=sales_order_033 | 结果=failed | 延迟=0.0m | 任务=1177 | 合并=0 | 耗时=0.1m
+2026-04-16 10:53:30.394 | INFO    | 订单开始 | 序号=39/50 | 订单=sales_order_005 | 优先级=10 | 数量=27000 | 交期=07-09 00:00
+2026-04-16 10:53:46.101 | WARNING | 失败定位 | 订单=sales_order_005 | 工序=frl_trio_unit_route_v1.pack | 类型=allocation_failed | 窗口=04-19 08:00~07-09 00:00 | 到料=04-19 08:00 | 截止=07-09 00:00 | 资源=mt_pack_heavy@packaging_ws(m=1,e=4,dur=2,cap=1.0000pcs)
+2026-04-16 10:53:46.105 | INFO    | 订单完成 | 订单=sales_order_005 | 结果=failed | 延迟=0.0m | 任务=1183 | 合并=0 | 耗时=0.3m
+2026-04-16 10:53:46.106 | INFO    | 订单开始 | 序号=40/50 | 订单=sales_order_045 | 优先级=10 | 数量=18000 | 交期=07-13 00:00
+2026-04-16 11:03:51.553 | INFO    | 脚本启动 | 输出目录=D:\A_sch\reports\schedule | 日志目录=D:\A_sch\logs | verbose=False
+2026-04-16 11:03:51.554 | INFO    | 阶段开始 | 阶段=1/6 | 名称=数据库读取
+2026-04-16 11:03:51.579 | SUCCESS | 阶段完成 | 阶段=1/6 | 名称=数据库读取 | 阶段耗时=0.0m | 累计=0.0m | 说明=orders=50
+2026-04-16 11:03:51.579 | INFO    | 阶段开始 | 阶段=2/6 | 名称=订单求解
+2026-04-16 11:03:51.579 | INFO    | 订单开始 | 序号=1/50 | 订单=sales_order_026 | 优先级=10 | 数量=54000 | 交期=06-03 00:00
+2026-04-16 13:19:13.791 | INFO    | 脚本启动 | 输出目录=D:\A_sch\reports\schedule | 日志目录=D:\A_sch\logs | verbose=False
+2026-04-16 13:19:13.791 | INFO    | 阶段开始 | 阶段=1/6 | 名称=数据库读取
+2026-04-16 13:19:13.827 | SUCCESS | 阶段完成 | 阶段=1/6 | 名称=数据库读取 | 阶段耗时=0.0m | 累计=0.0m | 说明=orders=25
+2026-04-16 13:19:13.827 | INFO    | 阶段开始 | 阶段=2/6 | 名称=订单求解
+2026-04-16 13:19:13.827 | INFO    | 订单开始 | 序号=1/25 | 订单=sales_order_013 | 优先级=20 | 数量=21000 | 交期=06-02 00:00
+2026-04-16 13:21:45.459 | INFO    | 脚本启动 | 输出目录=D:\A_sch\reports\schedule | 日志目录=D:\A_sch\logs | verbose=False
+2026-04-16 13:21:45.459 | INFO    | 阶段开始 | 阶段=1/6 | 名称=数据库读取
+2026-04-16 13:21:45.480 | SUCCESS | 阶段完成 | 阶段=1/6 | 名称=数据库读取 | 阶段耗时=0.0m | 累计=0.0m | 说明=orders=25
+2026-04-16 13:21:45.480 | INFO    | 阶段开始 | 阶段=2/6 | 名称=订单求解
+2026-04-16 13:21:45.481 | INFO    | 订单开始 | 序号=1/25 | 订单=sales_order_013 | 优先级=20 | 数量=400 | 交期=06-02 00:00
+2026-04-16 13:21:45.575 | INFO    | 订单完成 | 订单=sales_order_013 | 结果=planned | 延迟=0.0m | 任务=34 | 合并=52 | 耗时=0.0m
+2026-04-16 13:21:45.576 | INFO    | 订单开始 | 序号=2/25 | 订单=sales_order_007 | 优先级=10 | 数量=800 | 交期=06-06 00:00
+2026-04-16 13:21:47.182 | INFO    | 订单完成 | 订单=sales_order_007 | 结果=planned | 延迟=0.0m | 任务=134 | 合并=130 | 耗时=0.0m
+2026-04-16 13:21:47.183 | INFO    | 订单开始 | 序号=3/25 | 订单=sales_order_008 | 优先级=20 | 数量=300 | 交期=06-05 00:00
+2026-04-16 13:21:47.415 | INFO    | 订单完成 | 订单=sales_order_008 | 结果=planned | 延迟=0.0m | 任务=175 | 合并=41 | 耗时=0.0m
+2026-04-16 13:21:47.416 | INFO    | 订单开始 | 序号=4/25 | 订单=sales_order_016 | 优先级=20 | 数量=400 | 交期=06-07 00:00
+2026-04-16 13:21:47.598 | INFO    | 订单完成 | 订单=sales_order_016 | 结果=planned | 延迟=0.0m | 任务=230 | 合并=58 | 耗时=0.0m
+2026-04-16 13:21:47.598 | INFO    | 订单开始 | 序号=5/25 | 订单=sales_order_001 | 优先级=20 | 数量=500 | 交期=06-11 00:00
+2026-04-16 13:21:48.048 | INFO    | 订单完成 | 订单=sales_order_001 | 结果=planned | 延迟=0.0m | 任务=277 | 合并=97 | 耗时=0.0m
+2026-04-16 13:21:48.049 | INFO    | 订单开始 | 序号=6/25 | 订单=sales_order_014 | 优先级=20 | 数量=400 | 交期=06-12 00:00
+2026-04-16 13:21:48.120 | INFO    | 订单完成 | 订单=sales_order_014 | 结果=planned | 延迟=0.0m | 任务=309 | 合并=30 | 耗时=0.0m
+2026-04-16 13:21:48.120 | INFO    | 订单开始 | 序号=7/25 | 订单=sales_order_012 | 优先级=30 | 数量=500 | 交期=06-11 00:00
+2026-04-16 13:21:48.880 | INFO    | 订单完成 | 订单=sales_order_012 | 结果=planned | 延迟=0.0m | 任务=402 | 合并=140 | 耗时=0.0m
+2026-04-16 13:21:48.880 | INFO    | 订单开始 | 序号=8/25 | 订单=sales_order_024 | 优先级=20 | 数量=300 | 交期=06-13 00:00
+2026-04-16 13:21:48.921 | INFO    | 订单完成 | 订单=sales_order_024 | 结果=planned | 延迟=0.0m | 任务=425 | 合并=22 | 耗时=0.0m
+2026-04-16 13:21:48.922 | INFO    | 订单开始 | 序号=9/25 | 订单=sales_order_017 | 优先级=20 | 数量=900 | 交期=06-15 00:00
+2026-04-16 13:21:49.326 | INFO    | 订单完成 | 订单=sales_order_017 | 结果=planned | 延迟=0.0m | 任务=483 | 合并=67 | 耗时=0.0m
+2026-04-16 13:21:49.327 | INFO    | 订单开始 | 序号=10/25 | 订单=sales_order_002 | 优先级=10 | 数量=600 | 交期=06-17 00:00
+2026-04-16 13:21:50.901 | INFO    | 订单完成 | 订单=sales_order_002 | 结果=planned | 延迟=0.0m | 任务=597 | 合并=159 | 耗时=0.0m
+2026-04-16 13:21:50.901 | INFO    | 订单开始 | 序号=11/25 | 订单=sales_order_010 | 优先级=20 | 数量=500 | 交期=06-16 00:00
+2026-04-16 13:21:53.003 | INFO    | 订单完成 | 订单=sales_order_010 | 结果=planned | 延迟=0.0m | 任务=684 | 合并=131 | 耗时=0.0m
+2026-04-16 13:21:53.003 | INFO    | 订单开始 | 序号=12/25 | 订单=sales_order_015 | 优先级=20 | 数量=500 | 交期=06-16 00:00
+2026-04-16 13:21:56.490 | INFO    | 订单完成 | 订单=sales_order_015 | 结果=planned | 延迟=0.0m | 任务=782 | 合并=132 | 耗时=0.1m
+2026-04-16 13:21:56.490 | INFO    | 订单开始 | 序号=13/25 | 订单=sales_order_021 | 优先级=10 | 数量=800 | 交期=06-19 00:00
+2026-04-16 13:22:04.129 | INFO    | 订单完成 | 订单=sales_order_021 | 结果=planned | 延迟=0.0m | 任务=925 | 合并=222 | 耗时=0.1m
+2026-04-16 13:22:04.129 | INFO    | 订单开始 | 序号=14/25 | 订单=sales_order_006 | 优先级=20 | 数量=900 | 交期=06-19 00:00
+2026-04-16 13:22:05.350 | INFO    | 订单完成 | 订单=sales_order_006 | 结果=planned | 延迟=0.0m | 任务=981 | 合并=59 | 耗时=0.0m
+2026-04-16 13:22:05.351 | INFO    | 订单开始 | 序号=15/25 | 订单=sales_order_025 | 优先级=20 | 数量=900 | 交期=06-19 00:00
+2026-04-16 13:22:09.368 | INFO    | 订单完成 | 订单=sales_order_025 | 结果=planned | 延迟=0.0m | 任务=1045 | 合并=116 | 耗时=0.1m
+2026-04-16 13:22:09.369 | INFO    | 订单开始 | 序号=16/25 | 订单=sales_order_011 | 优先级=20 | 数量=600 | 交期=06-22 00:00
+2026-04-16 13:22:13.727 | INFO    | 订单完成 | 订单=sales_order_011 | 结果=planned | 延迟=0.0m | 任务=1106 | 合并=132 | 耗时=0.1m
+2026-04-16 13:22:13.727 | INFO    | 订单开始 | 序号=17/25 | 订单=sales_order_020 | 优先级=10 | 数量=700 | 交期=06-26 00:00
+2026-04-16 13:22:14.073 | INFO    | 订单完成 | 订单=sales_order_020 | 结果=planned | 延迟=0.0m | 任务=1152 | 合并=65 | 耗时=0.0m
+2026-04-16 13:22:14.074 | INFO    | 订单开始 | 序号=18/25 | 订单=sales_order_009 | 优先级=20 | 数量=900 | 交期=06-25 00:00
+2026-04-16 13:22:16.651 | INFO    | 订单完成 | 订单=sales_order_009 | 结果=planned | 延迟=0.0m | 任务=1209 | 合并=68 | 耗时=0.0m
+2026-04-16 13:22:16.652 | INFO    | 订单开始 | 序号=19/25 | 订单=sales_order_018 | 优先级=10 | 数量=700 | 交期=06-27 00:00
+2026-04-16 13:22:31.939 | INFO    | 订单完成 | 订单=sales_order_018 | 结果=planned | 延迟=0.0m | 任务=1336 | 合并=188 | 耗时=0.3m
+2026-04-16 13:22:31.939 | INFO    | 订单开始 | 序号=20/25 | 订单=sales_order_023 | 优先级=10 | 数量=600 | 交期=07-07 00:00
+2026-04-16 13:22:32.698 | INFO    | 订单完成 | 订单=sales_order_023 | 结果=planned | 延迟=0.0m | 任务=1393 | 合并=109 | 耗时=0.0m
+2026-04-16 13:22:32.698 | INFO    | 订单开始 | 序号=21/25 | 订单=sales_order_022 | 优先级=20 | 数量=500 | 交期=07-04 00:00
+2026-04-16 13:22:33.273 | INFO    | 订单完成 | 订单=sales_order_022 | 结果=planned | 延迟=0.0m | 任务=1457 | 合并=73 | 耗时=0.0m
+2026-04-16 13:22:33.273 | INFO    | 订单开始 | 序号=22/25 | 订单=sales_order_004 | 优先级=30 | 数量=800 | 交期=07-03 00:00
+2026-04-16 13:22:36.035 | INFO    | 订单完成 | 订单=sales_order_004 | 结果=planned | 延迟=0.0m | 任务=1512 | 合并=61 | 耗时=0.0m
+2026-04-16 13:22:36.035 | INFO    | 订单开始 | 序号=23/25 | 订单=sales_order_005 | 优先级=10 | 数量=900 | 交期=07-09 00:00
+2026-04-16 13:22:47.937 | INFO    | 订单完成 | 订单=sales_order_005 | 结果=planned | 延迟=0.0m | 任务=1618 | 合并=129 | 耗时=0.2m
+2026-04-16 13:22:47.937 | INFO    | 订单开始 | 序号=24/25 | 订单=sales_order_003 | 优先级=20 | 数量=700 | 交期=07-12 00:00
+2026-04-16 13:23:01.722 | INFO    | 订单完成 | 订单=sales_order_003 | 结果=planned | 延迟=0.0m | 任务=1682 | 合并=159 | 耗时=0.2m
+2026-04-16 13:23:01.723 | INFO    | 订单开始 | 序号=25/25 | 订单=sales_order_019 | 优先级=30 | 数量=500 | 交期=07-15 00:00
+2026-04-16 13:23:03.105 | INFO    | 订单完成 | 订单=sales_order_019 | 结果=planned | 延迟=0.0m | 任务=1730 | 合并=93 | 耗时=0.0m
+2026-04-16 13:23:03.106 | SUCCESS | 阶段完成 | 阶段=2/6 | 名称=订单求解 | 阶段耗时=1.3m | 累计=1.3m | 说明=outcomes=25 tasks=1730
+2026-04-16 13:23:03.106 | INFO    | 阶段开始 | 阶段=3/6 | 名称=准备输出目录 | 说明=清理旧结果
+2026-04-16 13:23:03.106 | SUCCESS | 阶段完成 | 阶段=3/6 | 名称=准备输出目录 | 阶段耗时=0.0m | 累计=1.3m
+2026-04-16 13:23:03.107 | INFO    | 阶段开始 | 阶段=4/6 | 名称=后处理与执行块
+2026-04-16 13:23:03.250 | SUCCESS | 阶段完成 | 阶段=4/6 | 名称=后处理与执行块 | 阶段耗时=0.0m | 累计=1.3m | 说明=merged_rows=2533 execution_blocks=1091
+2026-04-16 13:23:03.250 | INFO    | 阶段开始 | 阶段=5/6 | 名称=回写数据库 | 说明=同步 schedule_tasks
+2026-04-16 13:23:03.383 | SUCCESS | 阶段完成 | 阶段=5/6 | 名称=回写数据库 | 阶段耗时=0.0m | 累计=1.3m | 说明=rows=1730
+2026-04-16 13:23:03.384 | INFO    | 阶段开始 | 阶段=6/6 | 名称=生成HTML
+2026-04-16 13:23:03.385 | SUCCESS | 数据库同步完成 | rows=1730
+2026-04-16 13:23:03.385 | INFO    | 执行块整理 | merged_rows=2533 | execution_blocks=1091
+2026-04-16 13:23:03.803 | SUCCESS | 阶段完成 | 阶段=6/6 | 名称=生成HTML | 阶段耗时=0.0m | 累计=1.3m
+2026-04-16 13:23:03.803 | SUCCESS | 排产完成 | 输出目录=D:\A_sch\reports\schedule | 订单=25 | 任务=1730
+2026-04-16 13:23:03.804 | SUCCESS | 结果汇总 | 问题=0 | 评分=86.09 | 采购=28 | 失败=0
+2026-04-16 13:32:21.520 | INFO    | 脚本启动 | 输出目录=D:\A_sch\reports\schedule | 日志目录=D:\A_sch\logs | verbose=False
+2026-04-16 13:32:21.520 | INFO    | 阶段开始 | 阶段=1/6 | 名称=数据库读取
+2026-04-16 13:32:21.542 | SUCCESS | 阶段完成 | 阶段=1/6 | 名称=数据库读取 | 阶段耗时=0.0m | 累计=0.0m | 说明=orders=25
+2026-04-16 13:32:21.543 | INFO    | 阶段开始 | 阶段=2/6 | 名称=订单求解
+2026-04-16 13:32:21.543 | INFO    | 订单开始 | 序号=1/25 | 订单=sales_order_013 | 优先级=20 | 数量=400 | 交期=06-02 00:00
+2026-04-16 13:32:21.650 | INFO    | 订单完成 | 订单=sales_order_013 | 结果=planned | 延迟=0.0m | 任务=34 | 合并=52 | 耗时=0.0m
+2026-04-16 13:32:21.651 | INFO    | 订单开始 | 序号=2/25 | 订单=sales_order_007 | 优先级=10 | 数量=800 | 交期=06-06 00:00
+2026-04-16 13:32:24.192 | INFO    | 订单完成 | 订单=sales_order_007 | 结果=planned | 延迟=0.0m | 任务=134 | 合并=130 | 耗时=0.0m
+2026-04-16 13:32:24.192 | INFO    | 订单开始 | 序号=3/25 | 订单=sales_order_008 | 优先级=20 | 数量=300 | 交期=06-05 00:00
+2026-04-16 13:32:24.394 | INFO    | 订单完成 | 订单=sales_order_008 | 结果=planned | 延迟=0.0m | 任务=175 | 合并=41 | 耗时=0.0m
+2026-04-16 13:32:24.394 | INFO    | 订单开始 | 序号=4/25 | 订单=sales_order_016 | 优先级=20 | 数量=400 | 交期=06-07 00:00
+2026-04-16 13:32:24.603 | INFO    | 订单完成 | 订单=sales_order_016 | 结果=planned | 延迟=0.0m | 任务=230 | 合并=58 | 耗时=0.0m
+2026-04-16 13:32:24.603 | INFO    | 订单开始 | 序号=5/25 | 订单=sales_order_001 | 优先级=20 | 数量=500 | 交期=06-11 00:00
+2026-04-16 13:32:25.054 | INFO    | 订单完成 | 订单=sales_order_001 | 结果=planned | 延迟=0.0m | 任务=277 | 合并=97 | 耗时=0.0m
+2026-04-16 13:32:25.054 | INFO    | 订单开始 | 序号=6/25 | 订单=sales_order_014 | 优先级=20 | 数量=400 | 交期=06-12 00:00
+2026-04-16 13:32:25.129 | INFO    | 订单完成 | 订单=sales_order_014 | 结果=planned | 延迟=0.0m | 任务=309 | 合并=30 | 耗时=0.0m
+2026-04-16 13:32:25.129 | INFO    | 订单开始 | 序号=7/25 | 订单=sales_order_012 | 优先级=30 | 数量=500 | 交期=06-11 00:00
+2026-04-16 13:32:25.910 | INFO    | 订单完成 | 订单=sales_order_012 | 结果=planned | 延迟=0.0m | 任务=402 | 合并=140 | 耗时=0.0m
+2026-04-16 13:32:25.910 | INFO    | 订单开始 | 序号=8/25 | 订单=sales_order_024 | 优先级=20 | 数量=300 | 交期=06-13 00:00
+2026-04-16 13:32:25.956 | INFO    | 订单完成 | 订单=sales_order_024 | 结果=planned | 延迟=0.0m | 任务=425 | 合并=22 | 耗时=0.0m
+2026-04-16 13:32:25.956 | INFO    | 订单开始 | 序号=9/25 | 订单=sales_order_017 | 优先级=20 | 数量=900 | 交期=06-15 00:00
+2026-04-16 13:32:26.354 | INFO    | 订单完成 | 订单=sales_order_017 | 结果=planned | 延迟=0.0m | 任务=483 | 合并=67 | 耗时=0.0m
+2026-04-16 13:32:26.355 | INFO    | 订单开始 | 序号=10/25 | 订单=sales_order_002 | 优先级=10 | 数量=600 | 交期=06-17 00:00
+2026-04-16 13:32:27.910 | INFO    | 订单完成 | 订单=sales_order_002 | 结果=planned | 延迟=0.0m | 任务=597 | 合并=159 | 耗时=0.0m
+2026-04-16 13:32:27.910 | INFO    | 订单开始 | 序号=11/25 | 订单=sales_order_010 | 优先级=20 | 数量=500 | 交期=06-16 00:00
+2026-04-16 13:32:29.950 | INFO    | 订单完成 | 订单=sales_order_010 | 结果=planned | 延迟=0.0m | 任务=684 | 合并=131 | 耗时=0.0m
+2026-04-16 13:32:29.951 | INFO    | 订单开始 | 序号=12/25 | 订单=sales_order_015 | 优先级=20 | 数量=500 | 交期=06-16 00:00
+2026-04-16 13:32:33.325 | INFO    | 订单完成 | 订单=sales_order_015 | 结果=planned | 延迟=0.0m | 任务=782 | 合并=132 | 耗时=0.1m
+2026-04-16 13:32:33.325 | INFO    | 订单开始 | 序号=13/25 | 订单=sales_order_021 | 优先级=10 | 数量=800 | 交期=06-19 00:00
+2026-04-16 13:32:41.061 | INFO    | 订单完成 | 订单=sales_order_021 | 结果=planned | 延迟=0.0m | 任务=925 | 合并=222 | 耗时=0.1m
+2026-04-16 13:32:41.061 | INFO    | 订单开始 | 序号=14/25 | 订单=sales_order_006 | 优先级=20 | 数量=900 | 交期=06-19 00:00
+2026-04-16 13:32:42.283 | INFO    | 订单完成 | 订单=sales_order_006 | 结果=planned | 延迟=0.0m | 任务=981 | 合并=59 | 耗时=0.0m
+2026-04-16 13:32:42.284 | INFO    | 订单开始 | 序号=15/25 | 订单=sales_order_025 | 优先级=20 | 数量=900 | 交期=06-19 00:00
+2026-04-16 13:32:46.317 | INFO    | 订单完成 | 订单=sales_order_025 | 结果=planned | 延迟=0.0m | 任务=1045 | 合并=116 | 耗时=0.1m
+2026-04-16 13:32:46.317 | INFO    | 订单开始 | 序号=16/25 | 订单=sales_order_011 | 优先级=20 | 数量=600 | 交期=06-22 00:00
+2026-04-16 13:32:50.780 | INFO    | 订单完成 | 订单=sales_order_011 | 结果=planned | 延迟=0.0m | 任务=1106 | 合并=132 | 耗时=0.1m
+2026-04-16 13:32:50.780 | INFO    | 订单开始 | 序号=17/25 | 订单=sales_order_020 | 优先级=10 | 数量=700 | 交期=06-26 00:00
+2026-04-16 13:32:51.130 | INFO    | 订单完成 | 订单=sales_order_020 | 结果=planned | 延迟=0.0m | 任务=1152 | 合并=65 | 耗时=0.0m
+2026-04-16 13:32:51.131 | INFO    | 订单开始 | 序号=18/25 | 订单=sales_order_009 | 优先级=20 | 数量=900 | 交期=06-25 00:00
+2026-04-16 13:32:53.732 | INFO    | 订单完成 | 订单=sales_order_009 | 结果=planned | 延迟=0.0m | 任务=1209 | 合并=68 | 耗时=0.0m
+2026-04-16 13:32:53.732 | INFO    | 订单开始 | 序号=19/25 | 订单=sales_order_018 | 优先级=10 | 数量=700 | 交期=06-27 00:00
+2026-04-16 13:33:09.797 | INFO    | 订单完成 | 订单=sales_order_018 | 结果=planned | 延迟=0.0m | 任务=1336 | 合并=188 | 耗时=0.3m
+2026-04-16 13:33:09.797 | INFO    | 订单开始 | 序号=20/25 | 订单=sales_order_023 | 优先级=10 | 数量=600 | 交期=07-07 00:00
+2026-04-16 13:33:10.647 | INFO    | 订单完成 | 订单=sales_order_023 | 结果=planned | 延迟=0.0m | 任务=1393 | 合并=109 | 耗时=0.0m
+2026-04-16 13:33:10.648 | INFO    | 订单开始 | 序号=21/25 | 订单=sales_order_022 | 优先级=20 | 数量=500 | 交期=07-04 00:00
+2026-04-16 13:33:11.263 | INFO    | 订单完成 | 订单=sales_order_022 | 结果=planned | 延迟=0.0m | 任务=1457 | 合并=73 | 耗时=0.0m
+2026-04-16 13:33:11.263 | INFO    | 订单开始 | 序号=22/25 | 订单=sales_order_004 | 优先级=30 | 数量=800 | 交期=07-03 00:00
+2026-04-16 13:33:14.224 | INFO    | 订单完成 | 订单=sales_order_004 | 结果=planned | 延迟=0.0m | 任务=1512 | 合并=61 | 耗时=0.0m
+2026-04-16 13:33:14.225 | INFO    | 订单开始 | 序号=23/25 | 订单=sales_order_005 | 优先级=10 | 数量=900 | 交期=07-09 00:00
+2026-04-16 13:33:25.267 | INFO    | 订单完成 | 订单=sales_order_005 | 结果=planned | 延迟=0.0m | 任务=1618 | 合并=129 | 耗时=0.2m
+2026-04-16 13:33:25.267 | INFO    | 订单开始 | 序号=24/25 | 订单=sales_order_003 | 优先级=20 | 数量=700 | 交期=07-12 00:00
+2026-04-16 13:33:36.700 | INFO    | 订单完成 | 订单=sales_order_003 | 结果=planned | 延迟=0.0m | 任务=1682 | 合并=159 | 耗时=0.2m
+2026-04-16 13:33:36.700 | INFO    | 订单开始 | 序号=25/25 | 订单=sales_order_019 | 优先级=30 | 数量=500 | 交期=07-15 00:00
+2026-04-16 13:33:37.755 | INFO    | 订单完成 | 订单=sales_order_019 | 结果=planned | 延迟=0.0m | 任务=1730 | 合并=93 | 耗时=0.0m
+2026-04-16 13:33:37.755 | SUCCESS | 阶段完成 | 阶段=2/6 | 名称=订单求解 | 阶段耗时=1.3m | 累计=1.3m | 说明=outcomes=25 tasks=1730
+2026-04-16 13:33:37.756 | INFO    | 阶段开始 | 阶段=3/6 | 名称=准备输出目录 | 说明=清理旧结果
+2026-04-16 13:33:37.756 | SUCCESS | 阶段完成 | 阶段=3/6 | 名称=准备输出目录 | 阶段耗时=0.0m | 累计=1.3m
+2026-04-16 13:33:37.756 | INFO    | 阶段开始 | 阶段=4/6 | 名称=后处理与执行块
+2026-04-16 13:33:37.870 | SUCCESS | 阶段完成 | 阶段=4/6 | 名称=后处理与执行块 | 阶段耗时=0.0m | 累计=1.3m | 说明=merged_rows=2533 execution_blocks=1092
+2026-04-16 13:33:37.871 | INFO    | 阶段开始 | 阶段=5/6 | 名称=回写数据库 | 说明=同步 schedule_tasks
+2026-04-16 13:33:38.030 | SUCCESS | 阶段完成 | 阶段=5/6 | 名称=回写数据库 | 阶段耗时=0.0m | 累计=1.3m | 说明=rows=1730
+2026-04-16 13:33:38.030 | INFO    | 阶段开始 | 阶段=6/6 | 名称=生成HTML
+2026-04-16 13:33:38.030 | SUCCESS | 数据库同步完成 | rows=1730
+2026-04-16 13:33:38.031 | INFO    | 执行块整理 | merged_rows=2533 | execution_blocks=1092
+2026-04-16 13:33:38.329 | SUCCESS | 阶段完成 | 阶段=6/6 | 名称=生成HTML | 阶段耗时=0.0m | 累计=1.3m
+2026-04-16 13:33:38.329 | SUCCESS | 排产完成 | 输出目录=D:\A_sch\reports\schedule | 订单=25 | 任务=1730
+2026-04-16 13:33:38.330 | SUCCESS | 结果汇总 | 问题=0 | 评分=86.09 | 采购=28 | 失败=0
+2026-04-16 13:39:57.602 | INFO    | 脚本启动 | 输出目录=D:\A_sch\reports\schedule | 日志目录=D:\A_sch\logs | verbose=False
+2026-04-16 13:39:57.602 | INFO    | 阶段开始 | 阶段=1/6 | 名称=数据库读取
+2026-04-16 13:39:57.651 | SUCCESS | 阶段完成 | 阶段=1/6 | 名称=数据库读取 | 阶段耗时=0.0m | 累计=0.0m | 说明=orders=25
+2026-04-16 13:39:57.730 | INFO    | 阶段开始 | 阶段=2/6 | 名称=订单求解
+2026-04-16 13:39:57.731 | INFO    | 订单开始 | 序号=1/25 | 订单=sales_order_013 | 优先级=20 | 数量=400 | 交期=06-02 00:00
+2026-04-16 13:39:58.368 | INFO    | 订单完成 | 订单=sales_order_013 | 结果=planned | 延迟=0.0m | 任务=34 | 合并=52 | 耗时=0.0m
+2026-04-16 13:39:58.368 | INFO    | 订单开始 | 序号=2/25 | 订单=sales_order_007 | 优先级=10 | 数量=800 | 交期=06-06 00:00
+2026-04-16 13:39:59.705 | INFO    | 订单完成 | 订单=sales_order_007 | 结果=planned | 延迟=0.0m | 任务=134 | 合并=130 | 耗时=0.0m
+2026-04-16 13:39:59.705 | INFO    | 订单开始 | 序号=3/25 | 订单=sales_order_008 | 优先级=20 | 数量=300 | 交期=06-05 00:00
+2026-04-16 13:40:00.110 | INFO    | 订单完成 | 订单=sales_order_008 | 结果=planned | 延迟=0.0m | 任务=175 | 合并=41 | 耗时=0.0m
+2026-04-16 13:40:00.110 | INFO    | 订单开始 | 序号=4/25 | 订单=sales_order_016 | 优先级=20 | 数量=400 | 交期=06-07 00:00
+2026-04-16 13:40:00.418 | INFO    | 订单完成 | 订单=sales_order_016 | 结果=planned | 延迟=0.0m | 任务=230 | 合并=58 | 耗时=0.0m
+2026-04-16 13:40:00.418 | INFO    | 订单开始 | 序号=5/25 | 订单=sales_order_001 | 优先级=20 | 数量=500 | 交期=06-11 00:00
+2026-04-16 13:40:01.358 | INFO    | 订单完成 | 订单=sales_order_001 | 结果=planned | 延迟=0.0m | 任务=277 | 合并=97 | 耗时=0.0m
+2026-04-16 13:40:01.358 | INFO    | 订单开始 | 序号=6/25 | 订单=sales_order_014 | 优先级=20 | 数量=400 | 交期=06-12 00:00
+2026-04-16 13:40:01.493 | INFO    | 订单完成 | 订单=sales_order_014 | 结果=planned | 延迟=0.0m | 任务=309 | 合并=30 | 耗时=0.0m
+2026-04-16 13:40:01.493 | INFO    | 订单开始 | 序号=7/25 | 订单=sales_order_012 | 优先级=30 | 数量=500 | 交期=06-11 00:00
+2026-04-16 13:40:02.863 | INFO    | 订单完成 | 订单=sales_order_012 | 结果=planned | 延迟=0.0m | 任务=402 | 合并=140 | 耗时=0.0m
+2026-04-16 13:40:02.863 | INFO    | 订单开始 | 序号=8/25 | 订单=sales_order_024 | 优先级=20 | 数量=300 | 交期=06-13 00:00
+2026-04-16 13:40:02.937 | INFO    | 订单完成 | 订单=sales_order_024 | 结果=planned | 延迟=0.0m | 任务=425 | 合并=22 | 耗时=0.0m
+2026-04-16 13:40:02.938 | INFO    | 订单开始 | 序号=9/25 | 订单=sales_order_017 | 优先级=20 | 数量=900 | 交期=06-15 00:00
+2026-04-16 13:40:03.612 | INFO    | 订单完成 | 订单=sales_order_017 | 结果=planned | 延迟=0.0m | 任务=483 | 合并=67 | 耗时=0.0m
+2026-04-16 13:40:03.613 | INFO    | 订单开始 | 序号=10/25 | 订单=sales_order_002 | 优先级=10 | 数量=600 | 交期=06-17 00:00
+2026-04-16 13:40:06.443 | INFO    | 订单完成 | 订单=sales_order_002 | 结果=planned | 延迟=0.0m | 任务=597 | 合并=159 | 耗时=0.0m
+2026-04-16 13:40:06.444 | INFO    | 订单开始 | 序号=11/25 | 订单=sales_order_010 | 优先级=20 | 数量=500 | 交期=06-16 00:00
+2026-04-16 13:40:09.757 | INFO    | 订单完成 | 订单=sales_order_010 | 结果=planned | 延迟=0.0m | 任务=687 | 合并=128 | 耗时=0.1m
+2026-04-16 13:40:09.757 | INFO    | 订单开始 | 序号=12/25 | 订单=sales_order_015 | 优先级=20 | 数量=500 | 交期=06-16 00:00
+2026-04-16 13:40:15.247 | INFO    | 订单完成 | 订单=sales_order_015 | 结果=planned | 延迟=0.0m | 任务=784 | 合并=133 | 耗时=0.1m
+2026-04-16 13:40:15.248 | INFO    | 订单开始 | 序号=13/25 | 订单=sales_order_021 | 优先级=10 | 数量=800 | 交期=06-19 00:00
+2026-04-16 13:40:28.223 | INFO    | 订单完成 | 订单=sales_order_021 | 结果=planned | 延迟=0.0m | 任务=926 | 合并=223 | 耗时=0.2m
+2026-04-16 13:40:28.223 | INFO    | 订单开始 | 序号=14/25 | 订单=sales_order_006 | 优先级=20 | 数量=900 | 交期=06-19 00:00
+2026-04-16 13:40:30.198 | INFO    | 订单完成 | 订单=sales_order_006 | 结果=planned | 延迟=0.0m | 任务=984 | 合并=57 | 耗时=0.0m
+2026-04-16 13:40:30.199 | INFO    | 订单开始 | 序号=15/25 | 订单=sales_order_025 | 优先级=20 | 数量=900 | 交期=06-19 00:00
+2026-04-16 13:40:36.787 | INFO    | 订单完成 | 订单=sales_order_025 | 结果=planned | 延迟=0.0m | 任务=1048 | 合并=116 | 耗时=0.1m
+2026-04-16 13:40:36.787 | INFO    | 订单开始 | 序号=16/25 | 订单=sales_order_011 | 优先级=20 | 数量=600 | 交期=06-22 00:00
+2026-04-16 13:40:43.740 | INFO    | 订单完成 | 订单=sales_order_011 | 结果=planned | 延迟=0.0m | 任务=1110 | 合并=131 | 耗时=0.1m
+2026-04-16 13:40:43.740 | INFO    | 订单开始 | 序号=17/25 | 订单=sales_order_020 | 优先级=10 | 数量=700 | 交期=06-26 00:00
+2026-04-16 13:40:44.307 | INFO    | 订单完成 | 订单=sales_order_020 | 结果=planned | 延迟=0.0m | 任务=1156 | 合并=65 | 耗时=0.0m
+2026-04-16 13:40:44.307 | INFO    | 订单开始 | 序号=18/25 | 订单=sales_order_009 | 优先级=20 | 数量=900 | 交期=06-25 00:00
+2026-04-16 13:40:48.818 | INFO    | 订单完成 | 订单=sales_order_009 | 结果=planned | 延迟=0.0m | 任务=1214 | 合并=67 | 耗时=0.1m
+2026-04-16 13:40:48.818 | INFO    | 订单开始 | 序号=19/25 | 订单=sales_order_018 | 优先级=10 | 数量=700 | 交期=06-27 00:00
+2026-04-16 13:41:12.925 | INFO    | 订单完成 | 订单=sales_order_018 | 结果=planned | 延迟=0.0m | 任务=1339 | 合并=190 | 耗时=0.4m
+2026-04-16 13:41:12.925 | INFO    | 订单开始 | 序号=20/25 | 订单=sales_order_023 | 优先级=10 | 数量=600 | 交期=07-07 00:00
+2026-04-16 13:41:13.667 | INFO    | 订单完成 | 订单=sales_order_023 | 结果=planned | 延迟=0.0m | 任务=1396 | 合并=109 | 耗时=0.0m
+2026-04-16 13:41:13.667 | INFO    | 订单开始 | 序号=21/25 | 订单=sales_order_022 | 优先级=20 | 数量=500 | 交期=07-04 00:00
+2026-04-16 13:41:14.223 | INFO    | 订单完成 | 订单=sales_order_022 | 结果=planned | 延迟=0.0m | 任务=1460 | 合并=73 | 耗时=0.0m
+2026-04-16 13:41:14.223 | INFO    | 订单开始 | 序号=22/25 | 订单=sales_order_004 | 优先级=30 | 数量=800 | 交期=07-03 00:00
+2026-04-16 13:41:16.764 | INFO    | 订单完成 | 订单=sales_order_004 | 结果=planned | 延迟=0.0m | 任务=1516 | 合并=60 | 耗时=0.0m
+2026-04-16 13:41:16.765 | INFO    | 订单开始 | 序号=23/25 | 订单=sales_order_005 | 优先级=10 | 数量=900 | 交期=07-09 00:00
+2026-04-16 13:41:27.166 | INFO    | 订单完成 | 订单=sales_order_005 | 结果=planned | 延迟=0.0m | 任务=1622 | 合并=129 | 耗时=0.2m
+2026-04-16 13:41:27.166 | INFO    | 订单开始 | 序号=24/25 | 订单=sales_order_003 | 优先级=20 | 数量=700 | 交期=07-12 00:00
+2026-04-16 13:41:37.841 | INFO    | 订单完成 | 订单=sales_order_003 | 结果=planned | 延迟=0.0m | 任务=1687 | 合并=158 | 耗时=0.2m
+2026-04-16 13:41:37.841 | INFO    | 订单开始 | 序号=25/25 | 订单=sales_order_019 | 优先级=30 | 数量=500 | 交期=07-15 00:00
+2026-04-16 13:41:38.877 | INFO    | 订单完成 | 订单=sales_order_019 | 结果=planned | 延迟=0.0m | 任务=1735 | 合并=93 | 耗时=0.0m
+2026-04-16 13:41:38.877 | SUCCESS | 阶段完成 | 阶段=2/6 | 名称=订单求解 | 阶段耗时=1.7m | 累计=1.7m | 说明=outcomes=25 tasks=1735
+2026-04-16 13:41:38.877 | INFO    | 阶段开始 | 阶段=3/6 | 名称=准备输出目录 | 说明=清理旧结果
+2026-04-16 13:41:38.878 | SUCCESS | 阶段完成 | 阶段=3/6 | 名称=准备输出目录 | 阶段耗时=0.0m | 累计=1.7m
+2026-04-16 13:41:38.879 | INFO    | 阶段开始 | 阶段=4/6 | 名称=后处理与执行块
+2026-04-16 13:41:38.994 | SUCCESS | 阶段完成 | 阶段=4/6 | 名称=后处理与执行块 | 阶段耗时=0.0m | 累计=1.7m | 说明=merged_rows=2528 execution_blocks=1108
+2026-04-16 13:41:38.994 | INFO    | 阶段开始 | 阶段=5/6 | 名称=回写数据库 | 说明=同步 schedule_tasks
+2026-04-16 13:41:39.100 | SUCCESS | 阶段完成 | 阶段=5/6 | 名称=回写数据库 | 阶段耗时=0.0m | 累计=1.7m | 说明=rows=1735
+2026-04-16 13:41:39.100 | INFO    | 阶段开始 | 阶段=6/6 | 名称=生成HTML
+2026-04-16 13:41:39.100 | SUCCESS | 数据库同步完成 | rows=1735
+2026-04-16 13:41:39.100 | INFO    | 执行块整理 | merged_rows=2528 | execution_blocks=1108
+2026-04-16 13:41:39.403 | SUCCESS | 阶段完成 | 阶段=6/6 | 名称=生成HTML | 阶段耗时=0.0m | 累计=1.7m
+2026-04-16 13:41:39.403 | SUCCESS | 排产完成 | 输出目录=D:\A_sch\reports\schedule | 订单=25 | 任务=1735
+2026-04-16 13:41:39.403 | SUCCESS | 结果汇总 | 问题=0 | 评分=86.09 | 采购=28 | 失败=0

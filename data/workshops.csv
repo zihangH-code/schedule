@@ -1,0 +1,10 @@
+﻿code,name,note
+smelting_casting_ws,Smelting & Casting,category=continuous
+heat_treat_ws,Heat Treat,category=continuous
+machining_ws,Machining,category=normal
+forming_cutting_ws,Forming & Cutting,category=normal
+cleaning_deburr_ws,Cleaning & Deburr,category=normal
+quality_marking_ws,Quality & Marking,category=normal
+assembly_ws,Assembly,category=normal
+packaging_ws,Packaging,category=aux
+utility_ws,Utility,category=aux
