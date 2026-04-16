@@ -27,7 +27,7 @@
   - `loguru`
 
 ## 4. 运行步骤
-### 4.1 分钟级基线链路（原链路）
+### 4.1 当前主链路（分钟级排产）
 1. 重建资源数据并导入数据库
 ```powershell
 C:\Users\11941\AppData\Local\Programs\Python\Python310\python.exe D:\A_sch\src\validate_and_import_data_v1_1.py
@@ -53,35 +53,8 @@ C:\Users\11941\AppData\Local\Programs\Python\Python310\python.exe D:\A_sch\src\g
 
 3. 生成主数据路线图
 ```powershell
-C:\Users\11941\AppData\Local\Programs\Python\Python310\python.exe D:\A_sch\src\original\visualize.py
+C:\Users\11941\AppData\Local\Programs\Python\Python310\python.exe D:\A_sch\src\visualize_planning_data.py
 ```
-
-### 4.2 Daily 独立链路（按车间按天）
-说明：
-- 产物隔离在 `data_daily/`、`db/planning_demo_daily.sqlite`、`reports/schedule_daily/`，不会覆盖原链路输出。
-
-1. 生成扩容数据（设备/员工按随机倍率放大）
-```powershell
-C:\Users\11941\AppData\Local\Programs\Python\Python310\python.exe D:\A_sch\src\generate_data_daily.py
-```
-
-2. 校验并导入 daily 数据
-```powershell
-C:\Users\11941\AppData\Local\Programs\Python\Python310\python.exe D:\A_sch\src\daily\validate_and_import.py
-```
-
-3. 运行日级排产并生成 daily 报告
-```powershell
-C:\Users\11941\AppData\Local\Programs\Python\Python310\python.exe D:\A_sch\src\daily\generate_schedule.py
-```
-
-4. 生成 daily 主数据路线图（可选）
-```powershell
-C:\Users\11941\AppData\Local\Programs\Python\Python310\python.exe D:\A_sch\src\daily\visualize.py
-```
-
-4. 查看 daily 报告首页
-- `reports/schedule_daily/index.html`
 
 ## 5. data 目录关键表
 ### 5.1 物料与库存
@@ -196,13 +169,6 @@ C:\Users\11941\AppData\Local\Programs\Python\Python310\python.exe D:\A_sch\src\d
 - `orders.html` 新增展示列：需求产品、需求数量、实际产量（终工序口径）、订单开始时间（最早任务开始）
 - 订单详情页新增链接：可跳转到 `reports/planning_viz/route_<id>.html` 查看基础工艺路线页面
 
-### 8.1.1 `reports/schedule_daily/`
-- 说明：本目录由 `src/daily/generate_schedule.py` 生成，复用原页面框架但使用日级结果。
-- 页面清单与 `reports/schedule/` 基本一致，核心入口为：
-  - `index.html`
-  - `daily_tasks.html`（按日期/车间筛选，展示设备+人员+当天计划量）
-- 产量口径为日级计划量（`planned_qty` 聚合），用于和真实“按车间按天”排程结构对齐。
-
 ### 8.2 `reports/planning_viz/`
 - 界面：与 `reports/schedule/` 统一工业蓝图风样式与导航信息层级（中文优先，参数编码保留英文）。
 - `index.html`（主页面）
@@ -215,10 +181,6 @@ C:\Users\11941\AppData\Local\Programs\Python\Python310\python.exe D:\A_sch\src\d
 - `materials.html`（物料摘要 + 原材料/辅料/成品库存明细）
 - `orders.html`（订单明细：截止日期、优先级、需求产品、需求数量）
 - `process_audit.html`（工序输入/容纳/输出/处理类型审计页，统一在 HTML 中查看，含分类与明细筛选工具条）
-
-### 8.2.1 `reports/planning_viz_daily/`
-- 说明：本目录由 `src/daily/visualize.py` 生成，展示 `data_daily` + `planning_demo_daily.sqlite` 的主数据可视化。
-- 页面结构与 `reports/planning_viz/` 基本一致，便于基线与 daily 链路并行比对。
 
 ### 8.3 `reports/data_audit/`
 - `machine_capacity_audit.csv`（设备负载能力核查明细，含单位时间能力与审计标记）
@@ -240,7 +202,10 @@ C:\Users\11941\AppData\Local\Programs\Python\Python310\python.exe D:\A_sch\src\d
 
 ## 10. 当前兼容性说明
 - 本阶段已完成数量语义重构（模型与数据层）。
-- 原链路执行入口迁移至 `src/original/`（根目录旧脚本保留为兼容转发入口）。
-- 新增 daily 独立链路：
-  - `data_daily -> planning_demo_daily.sqlite -> src/daily/generate_schedule.py -> reports/schedule_daily`
-  - 不修改 `route_step_machine_types` 能力参数，增量来自资源扩容与日级分配。
+- 当前执行入口统一位于 `src/` 根目录：
+  - `validate_and_import_data_v1_1.py`
+  - `generate_schedule.py`
+  - `visualize_planning_data.py`
+- `daily_tasks.html` 是主链路排产结果中的“按日期/车间聚合视图”页面，不是独立的 daily 脚本链路。
+- 日志按天写入 `logs/YYYY-MM-DD.log`，自动保留最近 14 天。
+
