@@ -161,6 +161,7 @@ C:\Users\11941\AppData\Local\Programs\Python\Python310\python.exe D:\A_sch\src\v
 - `gantt.html`（Frepple-Lite：资源泳道 + 双层时间轴 + 关键词高亮 + hover 提示）
 - `scheduling_process.html`
 - `daily_tasks.html`（按日期与车间查看设备+人员安排与当天计划量，支持单日/车间筛选）
+- `workshop_daily_plan.html`（按“日期+车间”筛选，日期使用日历控件；默认首日+首车间；明细下钻到工作中心+员工+零件号+工序+计划产量）
 - `orders.html` / `routes.html` / `machines.html` / `purchases.html` / `problems.html` / `trace.html`
 - `failed_orders.html`（失败订单定位与原因分析）
 - `order_<code>.html`（订单对应路线详情页：竖向 DAG + 采购记录 + 父子任务明细）
@@ -207,5 +208,6 @@ C:\Users\11941\AppData\Local\Programs\Python\Python310\python.exe D:\A_sch\src\v
   - `generate_schedule.py`
   - `visualize_planning_data.py`
 - `daily_tasks.html` 是主链路排产结果中的“按日期/车间聚合视图”页面，不是独立的 daily 脚本链路。
+- `workshop_daily_plan.html` 为车间每日计划明细页，仅输出 HTML，不新增 CSV 导出；不提供“全部日期/全部车间”，默认定位首日+首车间。
 - 日志按天写入 `logs/YYYY-MM-DD.log`，自动保留最近 14 天。
 

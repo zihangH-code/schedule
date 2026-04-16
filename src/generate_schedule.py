@@ -1402,6 +1402,7 @@ def _schedule_nav(include_index: bool = False) -> str:
             ("./problems.html", "问题诊断"),
             ("./trace.html", "事件追踪"),
             ("./gantt.html", "甘特图"),
+            ("./workshop_daily_plan.html", "车间日报"),
             ("./scheduling_process.html", "排产过程"),
         ]
     )
@@ -1813,6 +1814,7 @@ def write_html(d,tasks,outcomes,purchases,problems,trace,scores,sync_error: str=
          "<div class='navcard'><a href='./routes.html'>路线索引</a><div class='muted'>按路线查看任务规模、关联订单与基础 DAG 跳转。</div></div>"
          "<div class='navcard'><a href='./failed_orders.html'>失败诊断</a><div class='muted'>定位失败窗口、根因分析与建议动作。</div></div>"
          "<div class='navcard'><a href='./gantt.html'>甘特分析</a><div class='muted'>Frepple-Lite 资源泳道 + 双层时间轴 + 搜索高亮。</div></div>"
+         "<div class='navcard'><a href='./workshop_daily_plan.html'>车间日报</a><div class='muted'>按日期与车间查看每日计划明细（工作中心/操作工/零件号/工序）。</div></div>"
          "<div class='navcard'><a href='./scheduling_process.html'>排产过程</a><div class='muted'>评分构成与关键事件（前 400 条）。</div></div>"
          "<div class='navcard'><a href='../planning_viz/index.html' target='_blank'>基础主数据</a><div class='muted'>跳转到 planning_viz 总览和基础工艺路线 DAG。</div></div>"
          "</div></div>"
@@ -2130,6 +2132,213 @@ def _build_gantt_card(tasks, outcomes, nav: str) -> str:
         f"{nav}{tools}{table}</div>"
     )
 
+def _build_workshop_daily_plan_page(d, tasks):
+    mats=d.get('mats',{})
+    order_part={}
+    for o in d.get('orders',[]):
+        oc=str(o.get('code',''))
+        part='-'
+        try:
+            part=mats.get(int(o.get('mat')),{}).get('code','-') or '-'
+        except Exception:
+            part='-'
+        order_part[oc]=part
+
+    machine_ws={}
+    for info in d.get('mac_info',{}).values():
+        mc=str(info.get('code','')).strip()
+        if not mc:
+            continue
+        ws_name=str(info.get('ws_name','')).strip()
+        ws_code=str(info.get('ws_code','')).strip()
+        machine_ws[mc]=ws_name or ws_code or '-'
+
+    step_meta={}
+    routes=d.get('routes',{})
+    for sid,st in d.get('steps',{}).items():
+        rc=str(routes.get(st.get('route'),{}).get('code','')).strip()
+        sc=str(st.get('code','')).strip()
+        if not rc or not sc:
+            continue
+        step_meta[(rc,sc)]={
+            'name': str(st.get('name','')).strip() or sc,
+            'uom': str(st.get('out_uom','')).strip().upper() or '-',
+        }
+
+    rows=[]
+    for t in tasks:
+        try:
+            st=pdt(t.get('planned_start',''))
+            en=pdt(t.get('planned_end',''))
+        except Exception:
+            continue
+        order_code=str(t.get('order_code',''))
+        route_code=str(t.get('route_code',''))
+        step_code=str(t.get('step_code',''))
+        machine_code=str(t.get('machine_code','') or '-')
+        employee_code=str(t.get('employee_code','') or '-')
+        workshop=str(machine_ws.get(machine_code,'-') or '-')
+        sm=step_meta.get((route_code,step_code),{})
+        process_name=str(sm.get('name',step_code)).strip() or step_code
+        qty=dec(t.get('planned_qty','0') or '0')
+        row={
+            'plan_date': st.strftime('%Y-%m-%d'),
+            'workshop': workshop,
+            'workcenter': machine_code,
+            'operator': employee_code,
+            'part_no': order_part.get(order_code,'-'),
+            'process': process_name,
+            'qty': qty,
+            'unit': str(sm.get('uom','-') or '-'),
+            'start': fdt(st),
+            'end': fdt(en),
+            'remark': '',
+        }
+        row['search_text']=' '.join([
+            row['workcenter'],
+            row['operator'],
+            row['part_no'],
+            row['process'],
+        ]).lower()
+        rows.append(row)
+    rows=sorted(rows,key=lambda x:(x['plan_date'],x['workshop'],x['start'],x['workcenter'],x['operator'],x['part_no'],x['process']))
+
+    summary={}
+    for r in rows:
+        key=(r['plan_date'],r['workshop'])
+        cur=summary.get(key)
+        if cur is None:
+            cur={'plan_date':r['plan_date'],'workshop':r['workshop'],'qty':Decimal('0'),'record_count':0}
+            summary[key]=cur
+        cur['qty']=q(cur['qty']+r['qty'])
+        cur['record_count']+=1
+    summary_rows=[summary[k] for k in sorted(summary.keys(), key=lambda x:(x[0],x[1]))]
+
+    date_opts=sorted({r['plan_date'] for r in rows})
+    ws_opts=sorted({r['workshop'] for r in rows})
+    default_date=rows[0]['plan_date'] if rows else ''
+    default_workshop=''
+    if default_date:
+        default_workshop=next((r['workshop'] for r in rows if r['plan_date']==default_date), '')
+    if not default_workshop and ws_opts:
+        default_workshop=ws_opts[0]
+    date_min=date_opts[0] if date_opts else ''
+    date_max=date_opts[-1] if date_opts else ''
+    ws_options=[f"<option value='{_attr(v)}'{' selected' if v==default_workshop else ''}>{escape(v)}</option>" for v in ws_opts]
+    ws_select_html=(
+        f"<select class='field-input' data-workshop style='min-width:200px;max-width:260px'>{''.join(ws_options)}</select>"
+        if ws_options else
+        "<select class='field-input' data-workshop style='min-width:200px;max-width:260px' disabled><option value=''>-</option></select>"
+    )
+
+    sum_body=[]
+    for r in summary_rows:
+        sum_body.append(
+            f"<tr data-plan-date='{_attr(r['plan_date'])}' data-workshop='{_attr(r['workshop'])}'>"
+            f"<td>{escape(r['plan_date'])}</td>"
+            f"<td>{escape(r['workshop'])}</td>"
+            f"<td>{_fmt_qty(r['qty'])}</td>"
+            f"<td>{r['record_count']}</td></tr>"
+        )
+    summary_table=(
+        "<table class='table' id='workshop-daily-summary'>"
+        "<thead><tr><th>排程日期</th><th>车间</th><th>计划产量合计</th><th>记录数</th></tr></thead>"
+        f"<tbody>{''.join(sum_body) if sum_body else '<tr><td colspan=4>无数据</td></tr>'}</tbody></table>"
+    )
+
+    detail_body=[]
+    for r in rows:
+        qty_attr=format(r['qty'], '.4f')
+        detail_body.append(
+            f"<tr data-plan-date='{_attr(r['plan_date'])}' data-workshop='{_attr(r['workshop'])}' "
+            f"data-search='{_attr(r['search_text'])}' data-qty='{_attr(qty_attr)}'>"
+            f"<td>{escape(r['plan_date'])}</td>"
+            f"<td>{escape(r['workshop'])}</td>"
+            f"<td>{escape(r['workcenter'])}</td>"
+            f"<td>{escape(r['operator'])}</td>"
+            f"<td>{escape(r['part_no'])}</td>"
+            f"<td>{escape(r['process'])}</td>"
+            f"<td>{_fmt_qty(r['qty'])}</td>"
+            f"<td>{escape(r['unit'])}</td>"
+            f"<td>{escape(r['start'])}</td>"
+            f"<td>{escape(r['end'])}</td>"
+            f"<td>{escape(r['remark'])}</td></tr>"
+        )
+    detail_table=(
+        "<table class='table' id='workshop-daily-detail'>"
+        "<thead><tr><th>排程日期</th><th>车间</th><th>工作中心</th><th>操作工</th><th>零件号</th>"
+        "<th>加工工序</th><th>计划产量</th><th>单位</th><th>计划开工</th><th>计划完工</th><th>备注</th></tr></thead>"
+        f"<tbody>{''.join(detail_body) if detail_body else '<tr><td colspan=11>无数据</td></tr>'}</tbody></table>"
+    )
+
+    filter_tools=(
+        f"<div class='table-tools' data-workshop-daily-plan data-default-date='{_attr(default_date)}' data-default-workshop='{_attr(default_workshop)}'>"
+        "<label class='muted'>日期</label>"
+        f"<input class='field-input' type='date' data-plan-date style='min-width:180px;max-width:220px' value='{_attr(default_date)}' min='{_attr(date_min)}' max='{_attr(date_max)}'/>"
+        "<label class='muted'>车间</label>"
+        f"{ws_select_html}"
+        "<input class='field-input' type='search' data-keyword placeholder='筛选工作中心/操作工/零件号/加工工序'/>"
+        "<button type='button' class='btn btn-soft' data-clear>重置</button>"
+        "<span class='muted table-count' data-visible-count>0 / 0</span>"
+        "</div>"
+    )
+    kpis=(
+        "<div class='grid4'>"
+        f"<div class='stat'><div class='k'>明细总记录</div><div class='v'>{len(rows)}</div></div>"
+        "<div class='stat'><div class='k'>当前可见记录</div><div class='v' data-kpi-visible-records>0</div></div>"
+        "<div class='stat'><div class='k'>当前可见计划产量</div><div class='v' data-kpi-visible-qty>0</div></div>"
+        "<div class='stat'><div class='k'>当前可见汇总条目</div><div class='v' data-kpi-visible-summary>0</div></div>"
+        "</div>"
+    )
+    script=(
+        "<script>(function(){"
+        "const root=document.querySelector('[data-workshop-daily-plan]'); if(!root) return;"
+        "const dateSel=root.querySelector('[data-plan-date]');"
+        "const wsSel=root.querySelector('[data-workshop]');"
+        "const kwInput=root.querySelector('[data-keyword]');"
+        "const clearBtn=root.querySelector('[data-clear]');"
+        "const countEl=root.querySelector('[data-visible-count]');"
+        "const defaultDate=String(root.dataset.defaultDate||'').trim();"
+        "const defaultWorkshop=String(root.dataset.defaultWorkshop||'').trim();"
+        "const kpiRec=document.querySelector('[data-kpi-visible-records]');"
+        "const kpiQty=document.querySelector('[data-kpi-visible-qty]');"
+        "const kpiSum=document.querySelector('[data-kpi-visible-summary]');"
+        "const detailRows=Array.from(document.querySelectorAll('#workshop-daily-detail tbody tr'));"
+        "const summaryRows=Array.from(document.querySelectorAll('#workshop-daily-summary tbody tr'));"
+        "const norm=(v)=>String(v||'').trim().toLowerCase();"
+        "const fmtQty=(n)=>{ const s=Number(n||0).toFixed(4); return s.replace(/\\.0+$/,'').replace(/(\\.\\d*?)0+$/,'$1').replace(/\\.$/,''); };"
+        "const apply=()=>{"
+        "const d=norm(dateSel?(dateSel.value||defaultDate):defaultDate); const w=norm(wsSel?(wsSel.value||defaultWorkshop):defaultWorkshop); const q=norm(kwInput?kwInput.value:'');"
+        "let vis=0; let qty=0; let sumVis=0;"
+        "detailRows.forEach((row)=>{"
+        "const rd=norm(row.dataset.planDate||''); const rw=norm(row.dataset.workshop||''); const text=norm(row.dataset.search||'');"
+        "const hitDW=(rd===d) && (rw===w); const hitQ=(!q || text.includes(q)); const show=hitDW && hitQ;"
+        "row.classList.toggle('row-hide',!show); if(show){ vis+=1; qty+=Number(row.dataset.qty||0); }"
+        "});"
+        "summaryRows.forEach((row)=>{"
+        "const rd=norm(row.dataset.planDate||''); const rw=norm(row.dataset.workshop||''); const show=(rd===d) && (rw===w);"
+        "row.classList.toggle('row-hide',!show); if(show) sumVis+=1;"
+        "});"
+        "if(countEl) countEl.textContent=vis+' / '+detailRows.length;"
+        "if(kpiRec) kpiRec.textContent=String(vis); if(kpiQty) kpiQty.textContent=fmtQty(qty); if(kpiSum) kpiSum.textContent=String(sumVis);"
+        "};"
+        "[dateSel,wsSel,kwInput].forEach((el)=>{ if(el) el.addEventListener('input',apply); });"
+        "if(clearBtn){ clearBtn.addEventListener('click',()=>{ if(dateSel) dateSel.value=defaultDate; if(wsSel) wsSel.value=defaultWorkshop; if(kwInput) kwInput.value=''; apply(); if(kwInput) kwInput.focus(); }); }"
+        "apply();"
+        "})();</script>"
+    )
+
+    nav=_schedule_nav(include_index=True)
+    body=(
+        "<div class='card'><h2>车间每日计划</h2>"
+        "<div class='muted'>数据来源为本次排产任务明细；按 planned_start 的自然日归档。</div>"
+        f"{nav}{filter_tools}{kpis}</div>"
+        f"<div class='card'><h2>按日期与车间汇总</h2>{_wrap_table(summary_table)}</div>"
+        f"<div class='card'><h2>车间日报明细</h2>{_wrap_table(detail_table)}</div>"
+        f"{script}"
+    )
+    return shell('车间每日计划', body)
+
 def write_more_html(d,tasks,outcomes,purchases,problems,trace,failed_rows,execution_blocks=None):
     for old in OUT.glob("order_*.html"):
         old.unlink(missing_ok=True)
@@ -2229,6 +2438,8 @@ def write_more_html(d,tasks,outcomes,purchases,problems,trace,failed_rows,execut
         shell('失败分析',f"<div class='card'><h2>失败订单分析</h2>{nav}{_wrap_table(failed_table, table_id='failed-orders-table', placeholder='筛选订单/报错位置/问题类型/原因')}</div>"),
         encoding='utf-8',
     )
+
+    (OUT/'workshop_daily_plan.html').write_text(_build_workshop_daily_plan_page(d,tasks),encoding='utf-8')
 
 def sync_schedule_tasks(tasks, execution_blocks):
     con=sqlite3.connect(str(DB))
