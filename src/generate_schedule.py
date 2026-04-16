@@ -1,5 +1,6 @@
 from __future__ import annotations
 import argparse
+import copy
 import math, re, sqlite3
 import sys
 from collections import defaultdict, Counter, deque
@@ -361,42 +362,135 @@ class Core:
     def route_for(self,o):
         if o['route'] in self.d['routes']: return o['route']
         lst=self.d['r_by_target'].get(o['mat'],[]); return lst[0] if lst else None
-    def reqs(self,rid,target_mat,target_qty):
+    def _snapshot_order_state(self):
+        return {
+            'tasks_len': len(self.tasks),
+            'trace_len': len(self.trace),
+            'mbook': copy.deepcopy(self.mbook),
+            'ebook': copy.deepcopy(self.ebook),
+            'mbusy': self.mbusy.copy(),
+        }
+    def _rollback_order_state(self,snap):
+        self.tasks=self.tasks[:int(snap.get('tasks_len',0))]
+        self.trace=self.trace[:int(snap.get('trace_len',0))]
+        self.mbook=copy.deepcopy(snap.get('mbook',defaultdict(list)))
+        self.ebook=copy.deepcopy(snap.get('ebook',defaultdict(list)))
+        self.mbusy=Counter(snap.get('mbusy',Counter()))
+    @staticmethod
+    def _consume_inventory(inv_map,mid,need):
+        need_q=q(Decimal(str(need)))
+        if need_q<=0:
+            return Decimal('0'),Decimal('0')
+        av=inv_map.get(mid,Decimal('0'))
+        use=min(av,need_q)
+        rem=q(need_q-use)
+        inv_map[mid]=q(av-use)
+        return q(use),rem
+    @staticmethod
+    def _calc_input_need(mode,planned_output_qty,output_qty_per_execution,exec_count,input_qty):
+        m=str(mode or '').strip().lower()
+        out_q=q(Decimal(str(planned_output_qty)))
+        step_out=q(Decimal(str(output_qty_per_execution)))
+        in_q=q(Decimal(str(input_qty)))
+        ex=max(1,int(exec_count or 1))
+        if m=='proportional_to_output':
+            if step_out<=0:
+                return Decimal('0')
+            return q(out_q*in_q/step_out)
+        if m=='packaging_per_pack':
+            return q(Decimal(ex)*in_q)
+        if m in {'fixed_per_execution','carrier_transfer'}:
+            return q(Decimal(ex)*in_q)
+        return q(Decimal(ex)*in_q)
+    def reqs(self,rid,target_mat,target_qty,available_inv_snapshot):
         topo=self.d['topo'][rid]; tix={s:i for i,s in enumerate(topo)}; sinks=[s for s in topo if self.d['steps'][s]['out_mat']==target_mat]
         if not sinks: return None
+        inv_trial={int(k):q(Decimal(str(v))) for k,v in available_inv_snapshot.items()}
         sink=max(sinks,key=lambda s:tix[s]); providers=defaultdict(list)
         for s in topo: providers[self.d['steps'][s]['out_mat']].append(s)
-        req_out=defaultdict(lambda:Decimal('0')); req_out[sink]=q(target_qty); prov_map={}
+        req_out=defaultdict(lambda:Decimal('0')); req_out[sink]=q(target_qty); reservation_plan={}
         for s in reversed(topo):
             out=req_out.get(s,Decimal('0'))
             if out<=0: continue
             st=self.d['steps'][s]; ex=ceildiv(out,st['out_qty'])
             for inp in self.d['inputs'].get(s,[]):
-                need=q(Decimal(ex)*inp['qty'])
+                mode=str(inp.get('mode','')).strip().lower()
+                need=self._calc_input_need(mode,out,st['out_qty'],ex,inp['qty'])
                 c=[p for p in providers.get(inp['mat'],[]) if tix[p]<tix[s]]
                 pv=max(c,key=lambda x:tix[x]) if c else None
-                prov_map[(s,inp['mat'])]=pv
-                if pv is not None: req_out[pv]=q(req_out.get(pv,Decimal('0'))+need)
+                stock_use=Decimal('0'); upstream=Decimal('0'); external=Decimal('0'); carrier_reserved=Decimal('0')
+                if mode=='carrier_transfer':
+                    carrier_reserved=need
+                    if need>0 and pv is not None:
+                        upstream=need
+                        req_out[pv]=q(req_out.get(pv,Decimal('0'))+upstream)
+                else:
+                    stock_use,rem=self._consume_inventory(inv_trial,inp['mat'],need)
+                    upstream=Decimal('0'); external=rem
+                    if rem>0 and pv is not None:
+                        upstream=rem; external=Decimal('0')
+                        req_out[pv]=q(req_out.get(pv,Decimal('0'))+upstream)
+                key=(s,inp['mat'])
+                row=reservation_plan.get(key)
+                if row is None:
+                    reservation_plan[key]={
+                        'need_qty':need,
+                        'mode':mode,
+                        'stock_reserved_qty':stock_use,
+                        'upstream_required_qty':q(upstream),
+                        'external_required_qty':q(external),
+                        'carrier_reserved_qty':q(carrier_reserved),
+                        'provider_step_id':pv,
+                    }
+                else:
+                    row['need_qty']=q(Decimal(str(row.get('need_qty',Decimal('0'))))+need)
+                    row['stock_reserved_qty']=q(Decimal(str(row.get('stock_reserved_qty',Decimal('0'))))+stock_use)
+                    row['upstream_required_qty']=q(Decimal(str(row.get('upstream_required_qty',Decimal('0'))))+upstream)
+                    row['external_required_qty']=q(Decimal(str(row.get('external_required_qty',Decimal('0'))))+external)
+                    row['carrier_reserved_qty']=q(Decimal(str(row.get('carrier_reserved_qty',Decimal('0'))))+carrier_reserved)
+                    if row.get('provider_step_id') is None:
+                        row['provider_step_id']=pv
         req={}
         for s in topo:
             out=req_out.get(s,Decimal('0'))
             if out<=0: continue
             req[s]={'out':out,'ex':ceildiv(out,self.d['steps'][s]['out_qty'])}
-        return req,prov_map
-    def ext_mat(self,o,route_code,step_code,mid,need):
-        mat=self.d['mats'][mid]; av=self.inv.get(mid,Decimal('0')); use=min(av,need); self.inv[mid]=q(av-use); rem=q(need-use)
-        self.add_trace(o['code'],route_code,step_code,'MATERIAL_CONSUME',mat['code'],'','',need,f'from_stock={use:.4f}')
-        if rem<=0: return self.start
+        return req,reservation_plan,inv_trial
+    def ext_mat(self,o,route_code,step_code,mid,need,order_purchase_plan):
+        mat=self.d['mats'][mid]; rem=q(Decimal(str(need)))
+        if rem<=0:
+            return self.start
         if not self.d['purch'].get(mid,False):
             self.add_prob('material',mat['code'],'material_unavailable','critical',f'need={rem:.4f} not purchasable')
             return None
         ld=int(self.d['lead'].get(mid,0)); ready=self.purchase_base+timedelta(days=ld)
-        b=self.pool.get(mid)
+        b=order_purchase_plan.get(mid)
         if b is None:
-            b={'mat':mat['code'],'qty':Decimal('0'),'lead':ld,'purchase_start':self.purchase_base,'ready':ready,'orders':set(),'routes':set(),'steps':set(),'cnt':0}; self.pool[mid]=b
+            b={'mat':mat['code'],'qty':Decimal('0'),'lead':ld,'purchase_start':self.purchase_base,'ready':ready,'orders':set(),'routes':set(),'steps':set(),'cnt':0}; order_purchase_plan[mid]=b
         b['qty']=q(Decimal(str(b['qty']))+rem); b['orders'].add(o['code']); b['routes'].add(route_code); b['steps'].add(step_code); b['cnt']=int(b['cnt'])+1
         self.add_trace(o['code'],route_code,step_code,'PURCHASE',mat['code'],'','',rem,f'purchase_start={self.purchase_base:%Y-%m-%d %H:%M:%S}; lead_days={ld}; ready={ready:%Y-%m-%d %H:%M:%S}')
         return ready
+    def merge_purchase_plan(self,order_purchase_plan):
+        for mid,b in order_purchase_plan.items():
+            cur=self.pool.get(mid)
+            if cur is None:
+                self.pool[mid]={
+                    'mat':str(b.get('mat','')),
+                    'qty':q(Decimal(str(b.get('qty',Decimal('0'))))),
+                    'lead':int(b.get('lead',0)),
+                    'purchase_start':b.get('purchase_start'),
+                    'ready':b.get('ready'),
+                    'orders':set(b.get('orders',set())),
+                    'routes':set(b.get('routes',set())),
+                    'steps':set(b.get('steps',set())),
+                    'cnt':int(b.get('cnt',0)),
+                }
+                continue
+            cur['qty']=q(Decimal(str(cur.get('qty',Decimal('0'))))+Decimal(str(b.get('qty',Decimal('0')))))
+            cur['orders'].update(b.get('orders',set()))
+            cur['routes'].update(b.get('routes',set()))
+            cur['steps'].update(b.get('steps',set()))
+            cur['cnt']=int(cur.get('cnt',0))+int(b.get('cnt',0))
     def missing_conversions(self,sid):
         st=self.d['steps'][sid]; miss=[]
         ins_by_uom=defaultdict(list)
@@ -556,21 +650,40 @@ class Core:
                         best_l=late; best={'mid':m['id'],'mcode':m['code'],'eid':e['id'],'ecode':e['code'],'st':st,'en':en,'dur':dur,'qty':lot_qty}
         return best
     def solve_order(self,seq,o):
+        order_snapshot=self._snapshot_order_state()
+        order_purchase_plan={}
+        inv_trial={int(k):q(Decimal(str(v))) for k,v in self.inv.items()}
+        req_mat_code=self.d['mats'].get(o['mat'],{}).get('code','')
+        target_stock_used,net_target_qty=self._consume_inventory(inv_trial,o['mat'],o['qty'])
+        if target_stock_used>0:
+            self.add_trace(
+                o['code'],'-','-','MATERIAL_CONSUME',req_mat_code,'','',target_stock_used,
+                f'required={o["qty"]:.4f}; from_stock={target_stock_used:.4f}; level=order_target'
+            )
+        if net_target_qty<=0:
+            msg='fulfilled_by_inventory'
+            self.inv=inv_trial
+            self.add_trace(o['code'],'-','-','DEMAND_DONE',req_mat_code,'','',o['qty'],msg)
+            self.outcomes.append({'seq':seq,'code':o['code'],'pri':o['pri'],'due':o['due'],'route':'-','result':'planned','finish':self.start,'delay':0.0,'msg':msg}); return
+
         rid=self.route_for(o)
         if rid is None:
             reason='missing route'; analysis='Order has no explicit route and no route matches requested material'; suggestion='Provide orders.route_code or add target-material mapping in process_routes'
             self.add_prob('demand',o['code'],'missing_route','critical',reason,None,o['due'],o['code'],'','',analysis,suggestion)
             self.add_failed(o,'-','-','missing_route','critical',None,o['due'],reason,analysis,suggestion)
+            self._rollback_order_state(order_snapshot)
             self._advance_step_bar('-', 'fail')
             self.outcomes.append({'seq':seq,'code':o['code'],'pri':o['pri'],'due':o['due'],'route':'-','result':'failed','finish':None,'delay':0.0,'msg':reason}); return
-        route=self.d['routes'][rid]; rq=self.reqs(rid,o['mat'],o['qty'])
+
+        route=self.d['routes'][rid]; rq=self.reqs(rid,o['mat'],net_target_qty,inv_trial)
         if rq is None:
             reason='missing sink step'; analysis='Route has no sink step producing the requested material'; suggestion='Check route_steps.output_material_code against order requested_material_code'
             self.add_prob('demand',o['code'],'missing_sink','critical',reason,None,o['due'],o['code'],route['code'],'',analysis,suggestion)
             self.add_failed(o,route['code'],'-','missing_sink','critical',None,o['due'],reason,analysis,suggestion)
+            self._rollback_order_state(order_snapshot)
             self._advance_step_bar('-', 'fail')
             self.outcomes.append({'seq':seq,'code':o['code'],'pri':o['pri'],'due':o['due'],'route':route['code'],'result':'failed','finish':None,'delay':0.0,'msg':reason}); return
-        req,prov=rq
+        req,reservation_plan,inv_after_trial=rq
         topo=self.d['topo'][rid]
         succ=defaultdict(list)
         for a,b in self.d['route_edges'].get(rid,[]): succ[a].append(b)
@@ -598,22 +711,47 @@ class Core:
                 ready=self.start
                 self._step_status(stp['code'], ready=ready, latest_end=latest_end, extra='检查物料')
                 for i in self.d['inputs'].get(sid,[]):
-                    need=q(Decimal(ex)*i['qty']); pv=prov.get((sid,i['mat']))
-                    if pv is None:
-                        rr=self.ext_mat(o,route['code'],stp['code'],i['mat'],need)
-                        if rr is None:
-                            reason=f'material shortage at {stp["code"]}'; analysis='Inventory is insufficient and material is not purchasable'; suggestion='Add stock or purchase rule in material_purchases'
-                            self.add_failed(o,route['code'],stp['code'],'material_unavailable','critical',ready,latest_end,reason,analysis,suggestion,deadline=o['due'],latest_end_target=latest_end,material_ready=ready,attempt_window=f"{fdt(ready)} ~ {fdt(latest_end)}")
-                            self._advance_step_bar(stp['code'], 'fail')
-                            self.outcomes.append({'seq':seq,'code':o['code'],'pri':o['pri'],'due':o['due'],'route':route['code'],'result':'failed','finish':None,'delay':0.0,'msg':reason}); return
-                        ready=max(ready,rr)
-                    else:
+                    f=reservation_plan.get((sid,i['mat'])) or {}
+                    mode=str(f.get('mode',i.get('mode',''))).strip().lower()
+                    need=q(Decimal(str(f.get('need_qty',self._calc_input_need(mode,req[sid]['out'],stp['out_qty'],ex,i['qty'])))))
+                    stock_used=q(Decimal(str(f.get('stock_reserved_qty',Decimal('0')))))
+                    upstream_required=q(Decimal(str(f.get('upstream_required_qty',Decimal('0')))))
+                    external_required=q(Decimal(str(f.get('external_required_qty',Decimal('0')))))
+                    carrier_reserved=q(Decimal(str(f.get('carrier_reserved_qty',Decimal('0')))))
+                    pv=f.get('provider_step_id')
+                    mat_code=self.d['mats'][i['mat']]['code']
+
+                    if stock_used>0:
+                        self.add_trace(
+                            o['code'],route['code'],stp['code'],'MATERIAL_CONSUME',
+                            mat_code,'','',stock_used,
+                            f'required={need:.4f}; from_stock={stock_used:.4f}; level=step_input'
+                        )
+                    if carrier_reserved>0 and pv is None:
+                        reason=f'carrier provider missing at {stp["code"]}'
+                        analysis='consumption_mode=carrier_transfer requires upstream provider; carrier reservation does not consume inventory or purchase'
+                        suggestion='Add predecessor step producing this carrier material, or fix route_step_dependencies/input mapping'
+                        self.add_prob('step',f"{route['code']}.{stp['code']}",'carrier_provider_missing','critical',reason,ready,latest_end,o['code'],route['code'],stp['code'],analysis,suggestion)
+                        self.add_failed(o,route['code'],stp['code'],'carrier_provider_missing','critical',ready,latest_end,reason,analysis,suggestion,deadline=o['due'],latest_end_target=latest_end,material_ready=ready,attempt_window=f"{fdt(ready)} ~ {fdt(latest_end)}")
+                        self._rollback_order_state(order_snapshot)
+                        self._advance_step_bar(stp['code'], 'fail')
+                        self.outcomes.append({'seq':seq,'code':o['code'],'pri':o['pri'],'due':o['due'],'route':route['code'],'result':'failed','finish':None,'delay':0.0,'msg':reason}); return
+                    if upstream_required>0 and pv is not None:
                         up_step=self.d['steps'].get(pv,{}).get('code','')
                         self.add_trace(
                             o['code'],route['code'],stp['code'],'MATERIAL_TRANSFER',
-                            self.d['mats'][i['mat']]['code'],'','',need,
-                            f'from_upstream_step={up_step}; required={need:.4f}'
+                            mat_code,'','',upstream_required,
+                            f'from_upstream_step={up_step}; required={need:.4f}; from_upstream={upstream_required:.4f}; mode={mode}'
                         )
+                    if external_required>0:
+                        rr=self.ext_mat(o,route['code'],stp['code'],i['mat'],external_required,order_purchase_plan)
+                        if rr is None:
+                            reason=f'material shortage at {stp["code"]}'; analysis='Inventory is insufficient and material is not purchasable'; suggestion='Add stock or purchase rule in material_purchases'
+                            self.add_failed(o,route['code'],stp['code'],'material_unavailable','critical',ready,latest_end,reason,analysis,suggestion,deadline=o['due'],latest_end_target=latest_end,material_ready=ready,attempt_window=f"{fdt(ready)} ~ {fdt(latest_end)}")
+                            self._rollback_order_state(order_snapshot)
+                            self._advance_step_bar(stp['code'], 'fail')
+                            self.outcomes.append({'seq':seq,'code':o['code'],'pri':o['pri'],'due':o['due'],'route':route['code'],'result':'failed','finish':None,'delay':0.0,'msg':reason}); return
+                        ready=max(ready,rr)
                 self._step_status(stp['code'], ready=ready, latest_end=latest_end, extra='分配资源')
                 miss=self.missing_conversions(sid)
                 if miss:
@@ -623,6 +761,7 @@ class Core:
                     suggestion='Add per-execution conversion rows in step_quantity_conversions.csv'
                     self.add_prob('step',f"{route['code']}.{stp['code']}",'conversion_missing','critical',reason,ready,latest_end,o['code'],route['code'],stp['code'],analysis,suggestion)
                     self.add_failed(o,route['code'],stp['code'],'conversion_missing','critical',ready,latest_end,reason,analysis,suggestion,miss_txt,deadline=o['due'],latest_end_target=latest_end,material_ready=ready,attempt_window=f"{fdt(ready)} ~ {fdt(latest_end)}")
+                    self._rollback_order_state(order_snapshot)
                     self._advance_step_bar(stp['code'], 'fail')
                     self.outcomes.append({'seq':seq,'code':o['code'],'pri':o['pri'],'due':o['due'],'route':route['code'],'result':'failed','finish':None,'delay':0.0,'msg':f"{reason}: {miss_txt}"}); return
                 segs=[]
@@ -636,6 +775,7 @@ class Core:
                             desc=f"{reason}; cause={cause}; ready={fdt(ready)}; latest_end={fdt(latest_end)}; deadline={fdt(o['due'])}; candidates={snap}"
                             self.add_prob('step',f"{route['code']}.{stp['code']}",'allocation_failed','critical',desc,ready,latest_end,o['code'],route['code'],stp['code'],analysis,suggestion)
                             self.add_failed(o,route['code'],stp['code'],'allocation_failed','critical',ready,latest_end,reason,analysis,suggestion,snap,deadline=o['due'],latest_end_target=latest_end,material_ready=ready,attempt_window=f"{fdt(ready)} ~ {fdt(latest_end)}")
+                            self._rollback_order_state(order_snapshot)
                             self._advance_step_bar(stp['code'], 'fail')
                             self.outcomes.append({'seq':seq,'code':o['code'],'pri':o['pri'],'due':o['due'],'route':route['code'],'result':'failed','finish':None,'delay':0.0,'msg':f"{reason} | {analysis}"}); return
                         self.mbook[al['mid']].append((al['st'],al['en'])); self.ebook[al['eid']].append((al['st'],al['en'])); self.mbusy[al['mid']]+=al['dur']
@@ -661,6 +801,7 @@ class Core:
                             desc=f"{reason}; cause={cause}; ready={fdt(ready)}; latest_end={fdt(latest_end)}; deadline={fdt(o['due'])}; candidates={snap}"
                             self.add_prob('step',f"{route['code']}.{stp['code']}",'allocation_failed','critical',desc,ready,latest_end,o['code'],route['code'],stp['code'],analysis,suggestion)
                             self.add_failed(o,route['code'],stp['code'],'allocation_failed','critical',ready,latest_end,reason,analysis,suggestion,snap,deadline=o['due'],latest_end_target=latest_end,material_ready=ready,attempt_window=f"{fdt(ready)} ~ {fdt(latest_end)}")
+                            self._rollback_order_state(order_snapshot)
                             self._advance_step_bar(stp['code'], 'fail')
                             self.outcomes.append({'seq':seq,'code':o['code'],'pri':o['pri'],'due':o['due'],'route':route['code'],'result':'failed','finish':None,'delay':0.0,'msg':f"{reason} | {analysis}"}); return
                         self.mbook[al['mid']].append((al['st'],al['en'])); self.ebook[al['eid']].append((al['st'],al['en'])); self.mbusy[al['mid']]+=al['dur']
@@ -676,6 +817,7 @@ class Core:
         finally:
             self._close_step_bar()
         if not step_end_max:
+            self._rollback_order_state(order_snapshot)
             self.outcomes.append({'seq':seq,'code':o['code'],'pri':o['pri'],'due':o['due'],'route':route['code'],'result':'failed','finish':None,'delay':0.0,'msg':'无可排产工序'}); return
         sink_steps=[s for s in topo if s in step_end_max and all((n not in req) for n in succ.get(s,[]))]
         fin=max(step_end_max[s] for s in (sink_steps or list(step_end_max.keys())))
@@ -692,6 +834,11 @@ class Core:
                 deadline=o['due'],latest_end_target=o['due'],material_ready=self.start,attempt_window=f"{fdt(self.start)} ~ {fdt(o['due'])}",
                 lateness_penalty=f"{penalty:.3f}",penalty_basis=penalty_basis
             )
+        self.inv=inv_after_trial
+        self.merge_purchase_plan(order_purchase_plan)
+        if target_stock_used>0:
+            balance_msg=f'order_target_stock_used={target_stock_used:.4f}; net_production_qty={net_target_qty:.4f}'
+            self.add_trace(o['code'],route['code'],'-','MATERIAL_BALANCE',req_mat_code,'','',o['qty'],balance_msg)
         self.add_trace(o['code'],route['code'],'-','DEMAND_DONE',self.d['mats'][o['mat']]['code'],'','',o['qty'],msg)
         self.outcomes.append({'seq':seq,'code':o['code'],'pri':o['pri'],'due':o['due'],'route':route['code'],'result':'planned','finish':fin,'delay':delay,'msg':msg})
     def purchase_rows(self):

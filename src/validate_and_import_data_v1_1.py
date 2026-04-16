@@ -580,10 +580,10 @@ def main() -> None:
     # for t, c in ctx.row_counts.items():
     #     logger.info(f"  - {t}: {c}")
     # 
-    # logger.info("INFO imported_row_counts:")
-    # for t, c in cnt.items():
-    #     if t != "db_path":
-    #         logger.info(f"  - {t}: {c}")
+    logger.info("INFO imported_row_counts:")
+    for t, c in cnt.items():
+        if t != "db_path":
+            logger.info(f"  - {t}: {c}")
 
     if not IMPORT_SCHEDULE_TASKS:
         logger.info("INFO schedule_tasks import is disabled by configuration (IMPORT_SCHEDULE_TASKS=False).")

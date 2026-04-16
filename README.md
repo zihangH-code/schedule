@@ -9,7 +9,7 @@
 - `src/`
   - `models_v1_1.py`：ORM 建模与建库实现
   - `validate_and_import_data_v1_1.py`：v1.1 数据校验与导入（重建 `db/planning_demo.sqlite`）
-  - `generate_schedule_from_db.py`：从数据库读取后执行排产并输出报告
+  - `generate_schedule.py`：从数据库读取后执行排产并输出报告
   - `visualize_planning_data.py`：主数据可视化与审计页生成
   - `choose_orders_from_csv.py`：从 `orders.csv` 截取子集订单文件
 - `data/`：输入 CSV（含 `orders.csv`、`orders_25.csv`、`schedule_tasks.csv` 样例）
@@ -39,16 +39,16 @@ C:\Users\11941\AppData\Local\Programs\Python\Python310\python.exe D:\A_sch\src\v
 
 2. 运行排产（一次生成多页 HTML）
 ```powershell
-C:\Users\11941\AppData\Local\Programs\Python\Python310\python.exe D:\A_sch\src\original\generate_schedule.py
+C:\Users\11941\AppData\Local\Programs\Python\Python310\python.exe D:\A_sch\src\generate_schedule.py
 ```
 说明：
 - 默认输出为低噪声实时进度（主进度 + 订单子进度）。
 - 如需查看详细里程碑日志，可加 `--verbose`：
 ```powershell
-C:\Users\11941\AppData\Local\Programs\Python\Python310\python.exe D:\A_sch\src\original\generate_schedule.py --verbose
+C:\Users\11941\AppData\Local\Programs\Python\Python310\python.exe D:\A_sch\src\generate_schedule.py --verbose
 ```
 - 终端输出统一为 `time | level | message` 的单行追加格式（无 `tqdm` 进度条）。
-- 运行日志写入 `logs/generate_schedule_from_db_YYYY-MM-DD.log`（按天滚动，保留 14 天）。
+- 运行日志写入 `logs/YYYY-MM-DD.log`（按天滚动，保留 14 天）。
 - `--verbose` 时文件日志级别提升为 `DEBUG`，终端仍保持主线平滑输出。
 
 3. 生成主数据路线图
@@ -130,7 +130,7 @@ C:\Users\11941\AppData\Local\Programs\Python\Python310\python.exe D:\A_sch\src\d
   - 主输入与输出统一按 `1:1` 表达（`input_qty_per_execution=1`, `output_qty_per_execution=1`）
 - `batch` 工序设备容量口径：
   - `route_step_machine_types.capacity_uom_code` 必须与该步骤主输入单位一致（主输入优先取内部 WIP，辅料不参与）
-- 当前排产执行语义（`generate_schedule_from_db.py`）：
+- 当前排产执行语义（`generate_schedule.py`）：
   - `due_date` 作为截止时间，采用 frePPLe 风格：先 backward（JIT）再 forward（ASAP兜底）
   - 槽位搜索基于真实时间边界（默认 90 天视窗），不再使用固定步数截断
   - `batch` 统一按“固定批次时长 + 按容量分批”执行
@@ -143,8 +143,16 @@ C:\Users\11941\AppData\Local\Programs\Python\Python310\python.exe D:\A_sch\src\d
     - 连续链搜索步长 `search_step = gcd(base_dur, 30)`（最小 1 分钟），避免 10/15 分钟工序被 30 分钟粒度误杀
     - 后置 `_batch_merge_tasks` 默认关闭（`ENABLE_POST_ORDER_MERGE=False`），仅作为可选兜底校验合并，不再承担主要压缩职责
   - 库存事务与净额冲抵：
-    - 每个订单以事务方式扣减库存（成功提交、失败回滚），避免“失败订单先扣库存”
+    - 每个订单先在本地库存快照上试算需求展开；只有订单成功后才提交库存与采购计划
     - 订单先用请求物料库存做净额冲抵，净额为 0 时直接记 `planned`（`msg=fulfilled_by_inventory`，零任务）
+    - 所有工序输入物料也执行“库存优先”：先扣库存，再将余量分配给上游工序或外采
+    - 库存按订单序贯扣减，不可重复利用；同物料被多个订单使用时仅能消耗当前剩余量
+    - 采购计划仅统计库存冲抵后的净额，且仅保留成功订单提交后的采购需求
+  - `consumption_mode` 需求口径：
+    - `fixed_per_execution`：`need = exec_count * input_qty_per_execution`
+    - `proportional_to_output`：`need = planned_output_qty * input_qty_per_execution / output_qty_per_execution`
+    - `packaging_per_pack`：`need = ceil(planned_output_qty / output_qty_per_execution) * input_qty_per_execution`
+    - `carrier_transfer`：记录载具占用（`reserve_qty`），不扣库存、不触发采购；若缺上游提供者直接失败
   - 上游匹配与分块口径：
     - 工序输入优先按 `route_step_dependencies` 前驱链路匹配提供者；无法唯一匹配时按 `ambiguous_provider` 失败
     - `single` 分块按候选设备真实时长在分配阶段计算，避免按首候选设备时长导致的分块偏差
@@ -170,7 +178,7 @@ C:\Users\11941\AppData\Local\Programs\Python\Python310\python.exe D:\A_sch\src\d
 
 ## 8. 主要输出
 ### 8.1 `reports/schedule/`
-- 说明：本目录由 `generate_schedule_from_db.py` 生成，当前只输出 HTML 页面，不输出 CSV 报告。
+- 说明：本目录由 `generate_schedule.py` 生成，当前只输出 HTML 页面，不输出 CSV 报告。
 - 界面：统一工业蓝图风样式（中文优先，参数编码保留英文），首页采用“统计卡片 + 导航卡片 + 快速导航”结构。
 - DAG 交互：
   - `order_<code>.html` 支持工序搜索联动高亮（节点 + 明细行）；

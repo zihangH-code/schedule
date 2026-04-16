@@ -73,3 +73,17 @@
   - `lateness_score`：30%
   - `resource_efficiency`：10%（设备利用+设备均衡+员工利用）
   - `continuity`：5%
+
+## 8. 库存试算与提交规则（2026-04）
+- 订单级库存策略：先库存后缺口，库存按订单顺序扣减，不可重复利用。
+- 两阶段语义：
+  - 阶段A（试算）：需求展开只在本地库存快照上计算，不直接改全局库存与采购池。
+  - 阶段B（提交）：仅当订单所有工序排产成功时，才一次性提交库存扣减与采购需求。
+- 失败策略：订单失败时只保留失败诊断，库存/采购/任务/资源预占都不得污染后续订单。
+- 成品库存净额：订单请求物料先做库存净额冲抵；净额为0时订单直接 planned，且不生成工序任务。
+- 工序输入库存净额：所有输入物料先抵库存，剩余缺口才转上游工序或外采。
+- `consumption_mode` 口径：
+  - `fixed_per_execution`：`need = exec_count * input_qty_per_execution`
+  - `proportional_to_output`：`need = planned_output_qty * input_qty_per_execution / output_qty_per_execution`
+  - `packaging_per_pack`：`need = ceil(planned_output_qty / output_qty_per_execution) * input_qty_per_execution`
+  - `carrier_transfer`：仅记录占用量（`carrier_reserved_qty`），不扣库存、不触发采购；无上游提供者时按失败处理（`carrier_provider_missing`）。
