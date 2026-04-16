@@ -2,7 +2,7 @@ from pathlib import Path
 import pandas as pd
 
 # ===== 可直接修改的参数 =====
-NUM = 1
+NUM = 5
 INPUT_CSV = Path("D:/A_sch/data/orders.csv")
 OUTPUT_CSV = Path(f"D:/A_sch/data/orders_{NUM}.csv")
 

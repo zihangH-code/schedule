@@ -2,6 +2,7 @@ from __future__ import annotations
 import argparse
 import copy
 import math, re, sqlite3
+import time as pytime
 import sys
 from collections import defaultdict, Counter, deque
 from datetime import datetime, date, time, timedelta
@@ -18,6 +19,7 @@ D4 = Decimal('0.0001')
 PRIORITY_WEIGHT = 0.6
 DUE_WEIGHT = 0.4
 PLANNING_HORIZON_DAYS = 90
+ORDER_SOLVE_TIMEOUT_SEC = 120.0
 VERBOSE = False
 
 def q(v: Decimal) -> Decimal: return v.quantize(D4, rounding=ROUND_HALF_UP)
@@ -76,6 +78,12 @@ def _fmt_dt_short(v: datetime | None) -> str:
 
 def _attr(v: object) -> str:
     return escape(str(v)).replace('"', "&quot;")
+
+
+class OrderSolveTimeout(RuntimeError):
+    def __init__(self, elapsed_sec: float):
+        self.elapsed_sec = float(elapsed_sec)
+        super().__init__(f"order solve timeout after {self.elapsed_sec:.3f}s")
 
 def read_db():
     con=sqlite3.connect(str(DB)); con.row_factory=sqlite3.Row
@@ -200,6 +208,9 @@ class Core:
         self._current_step_total = 0
         self._order_stats = Counter()
         self._failed_order_first_logged = set()
+        self._order_timeout_sec = float(ORDER_SOLVE_TIMEOUT_SEC)
+        self._order_deadline_perf = None
+        self._timeout_ctx = {}
     def add_trace(self,order,route,step,et,mat,m,e,qty,msg):
         self.trace.append({'event_time':fdt(datetime.now()),'order_code':order,'route_code':route,'step_code':step,'event_type':et,'material_code':mat,'machine_code':m,'employee_code':e,'qty':f"{q(qty):.4f}",'message':msg})
     def add_prob(self,et,ec,pt,sv,desc,st=None,en=None,order_code='',route_code='',step_code='',analysis='',suggestion=''):
@@ -324,6 +335,8 @@ class Core:
             order_start = datetime.now()
             self._log_order_start(idx, total, o)
             self.solve_order(idx,o)
+            self._order_deadline_perf = None
+            self._timeout_ctx = {}
             before = len(self.tasks)
             self.tasks, info = _batch_merge_tasks(self.tasks, self.d, show_progress=False)
             merged_now = int(info.get('merged_rows', 0))
@@ -376,6 +389,182 @@ class Core:
         self.mbook=copy.deepcopy(snap.get('mbook',defaultdict(list)))
         self.ebook=copy.deepcopy(snap.get('ebook',defaultdict(list)))
         self.mbusy=Counter(snap.get('mbusy',Counter()))
+
+    def _arm_order_timeout(self, order_code: str):
+        self._order_deadline_perf = pytime.perf_counter() + float(self._order_timeout_sec)
+        self._timeout_ctx = {
+            'order_code': str(order_code or ''),
+            'route_code': '-',
+            'step_code': '-',
+            'sid': None,
+            'phase': 'order_prepare',
+            'ready': None,
+            'latest_end': None,
+            'extra': '',
+        }
+
+    def _set_timeout_context(
+        self,
+        route_code: str,
+        step_code: str,
+        sid,
+        phase: str,
+        ready: datetime | None = None,
+        latest_end: datetime | None = None,
+        extra: str = '',
+    ):
+        order_code = str(self._current_order_code or self._timeout_ctx.get('order_code','') or '')
+        self._timeout_ctx = {
+            'order_code': order_code,
+            'route_code': str(route_code or '-'),
+            'step_code': str(step_code or '-'),
+            'sid': sid,
+            'phase': str(phase or 'unknown'),
+            'ready': ready,
+            'latest_end': latest_end,
+            'extra': str(extra or ''),
+        }
+
+    def _raise_if_order_timeout(self):
+        if self._order_deadline_perf is None:
+            return
+        now = pytime.perf_counter()
+        if now <= self._order_deadline_perf:
+            return
+        overtime = max(0.0, now - self._order_deadline_perf)
+        elapsed = float(self._order_timeout_sec) + overtime
+        raise OrderSolveTimeout(elapsed)
+
+    @staticmethod
+    def _timeout_fallback_diagnosis(phase: str, ready: datetime | None, latest_end: datetime | None, extra: str):
+        ph = str(phase or 'unknown').strip().lower()
+        if ph.startswith('slot_search'):
+            return (
+                'no slot in search window',
+                'Slot scanning exceeded timeout; candidate resources likely conflict with calendars/bookings in the current window',
+                'Increase available machines/employees or relax latest_end constraints to widen feasible windows',
+                extra or 'slot_search_window_conflict',
+            )
+        if ph.startswith('allocation'):
+            return (
+                'allocation search exhausted',
+                'Resource allocation exploration took too long over candidate machine/employee combinations',
+                'Narrow candidate space, increase resource availability, or reduce route complexity for this step',
+                extra or 'allocation_candidate_explosion',
+            )
+        if 'material' in ph:
+            return (
+                'material readiness unresolved',
+                'Material check/purchase readiness expansion exceeded timeout',
+                'Improve stock availability, supplier lead-time settings, or upstream mapping quality',
+                extra or 'material_readiness_uncertain',
+            )
+        return (
+            f'blocked in phase {ph or "unknown"}',
+            'Order solve exceeded timeout before finding a feasible completion path',
+            'Inspect route dependencies, calendars, and resource mappings around the blocked phase',
+            extra or 'timeout_without_step_snapshot',
+        )
+
+    def _fail_order_timeout(self, seq, o, route_code, order_snapshot, timeout_exc: OrderSolveTimeout):
+        ctx = dict(self._timeout_ctx or {})
+        rc = str(ctx.get('route_code') or route_code or '-')
+        sc = str(ctx.get('step_code') or '-')
+        sid = ctx.get('sid')
+        phase = str(ctx.get('phase') or 'unknown')
+        ready = ctx.get('ready')
+        latest_end = ctx.get('latest_end') or o.get('due')
+        extra = str(ctx.get('extra') or '')
+        if sid is not None:
+            cause, base_analysis, suggestion, snap = self.analyze_allocation_failure(
+                sid,
+                ready or self.start,
+                latest_end or o.get('due'),
+            )
+        else:
+            cause, base_analysis, suggestion, snap = self._timeout_fallback_diagnosis(phase, ready, latest_end, extra)
+        loc = f"{rc}.{sc}" if sc and sc != '-' else rc
+        reason = f"blocked at {loc}: {cause}"
+        analysis = (
+            f"phase={phase}; timeout_sec={self._order_timeout_sec:.1f}; elapsed_sec={timeout_exc.elapsed_sec:.3f}; "
+            f"ready={fdt(ready)}; latest_end={fdt(latest_end)}; detail={extra}; diagnosis={base_analysis}"
+        )
+        attempt_window = ''
+        if ready is not None and latest_end is not None:
+            attempt_window = f"{fdt(ready)} ~ {fdt(latest_end)}"
+        if sc and sc != '-':
+            self.add_prob(
+                'step',
+                f"{rc}.{sc}",
+                'order_timeout_blocked',
+                'critical',
+                reason,
+                ready,
+                latest_end,
+                o['code'],
+                rc,
+                sc,
+                analysis,
+                suggestion,
+            )
+        else:
+            self.add_prob(
+                'demand',
+                o['code'],
+                'order_timeout_blocked',
+                'critical',
+                reason,
+                ready,
+                latest_end,
+                o['code'],
+                rc if rc != '-' else '',
+                '',
+                analysis,
+                suggestion,
+            )
+        self.add_failed(
+            o,
+            rc,
+            sc,
+            'order_timeout_blocked',
+            'critical',
+            ready,
+            latest_end,
+            reason,
+            analysis,
+            suggestion,
+            snap,
+            deadline=o.get('due'),
+            latest_end_target=latest_end,
+            material_ready=ready,
+            attempt_window=attempt_window,
+        )
+        self._rollback_order_state(order_snapshot)
+        req_mat_code = self.d.get('mats', {}).get(o.get('mat'), {}).get('code', '')
+        self.add_trace(
+            o.get('code', ''),
+            rc if rc != '-' else '',
+            sc if sc != '-' else '',
+            'ORDER_TIMEOUT',
+            req_mat_code,
+            '',
+            '',
+            o.get('qty', 0),
+            f"{reason}; {analysis}",
+        )
+        if self._current_order_code == o.get('code', ''):
+            self._advance_step_bar(sc if sc and sc != '-' else '-', 'fail')
+        self.outcomes.append({
+            'seq': seq,
+            'code': o['code'],
+            'pri': o['pri'],
+            'due': o['due'],
+            'route': route_code if route_code else '-',
+            'result': 'failed',
+            'finish': None,
+            'delay': 0.0,
+            'msg': f"{reason} | {phase}",
+        })
     @staticmethod
     def _consume_inventory(inv_map,mid,need):
         need_q=q(Decimal(str(need)))
@@ -410,10 +599,15 @@ class Core:
         for s in topo: providers[self.d['steps'][s]['out_mat']].append(s)
         req_out=defaultdict(lambda:Decimal('0')); req_out[sink]=q(target_qty); reservation_plan={}
         for s in reversed(topo):
+            st_cur=self.d['steps'].get(s,{})
+            self._set_timeout_context(self.d['routes'].get(rid,{}).get('code',''), st_cur.get('code','-'), s, 'requirement_expand', self.start, None, f"target_mat={target_mat};target_qty={_fmt_qty(target_qty)}")
+            self._raise_if_order_timeout()
             out=req_out.get(s,Decimal('0'))
             if out<=0: continue
             st=self.d['steps'][s]; ex=ceildiv(out,st['out_qty'])
             for inp in self.d['inputs'].get(s,[]):
+                self._set_timeout_context(self.d['routes'].get(rid,{}).get('code',''), st.get('code','-'), s, 'material_check', self.start, None, f"input_mat={inp['mat']};out={_fmt_qty(out)}")
+                self._raise_if_order_timeout()
                 mode=str(inp.get('mode','')).strip().lower()
                 need=self._calc_input_need(mode,out,st['out_qty'],ex,inp['qty'])
                 c=[p for p in providers.get(inp['mat'],[]) if tix[p]<tix[s]]
@@ -610,22 +804,28 @@ class Core:
         for a,b,on in self.d['eevt'].get(eid,[]):
             if (not on) and ov(st,en,a,b): return False
         return self.e_ok(eid,st,en)
-    def slot(self,mid,eid,dur,ready,due):
+    def slot(self,mid,eid,dur,ready,due,route_code='',step_code='',sid=None):
         step=timedelta(minutes=30); d=timedelta(minutes=dur)
         horizon=timedelta(days=self.planning_horizon_days)
         cur=due; lim=max(ready,due-horizon)
         while cur-d>=lim:
+            self._set_timeout_context(route_code, step_code, sid, 'slot_search_backward', ready, due, f"mid={mid};eid={eid};dur={dur};probe={fdt(cur)}")
+            self._raise_if_order_timeout()
             st, en = cur-d, cur
             if st>=ready and self.can(mid,eid,st,en): return st,en
             cur-=step
         cur=max(ready,due); lim2=cur+horizon
         while cur+d<=lim2:
+            self._set_timeout_context(route_code, step_code, sid, 'slot_search_forward', ready, due, f"mid={mid};eid={eid};dur={dur};probe={fdt(cur)}")
+            self._raise_if_order_timeout()
             st,en=cur,cur+d
             if self.can(mid,eid,st,en): return st,en
             cur+=step
         return None
     def alloc(self,o,route,step,sid,work_units,pqty,ready,due_target,mode):
         best=None; best_l=10**18
+        self._set_timeout_context(route.get('code',''), step.get('code',''), sid, 'allocation_prepare', ready, due_target, f"mode={mode};work_units={work_units};pqty={_fmt_qty(pqty)}")
+        self._raise_if_order_timeout()
         for c in self.d['cands'].get(sid,[]):
             ws=self.d['mt_ws'].get(c['mt']); macs=self.d['mac_by_type'].get(c['mt'],[]); emps=self.d['emp_by_ws'].get(ws,[])
             if not macs or not emps: continue
@@ -643,7 +843,17 @@ class Core:
                 dur=base_dur*max(1,work_units)
             for m in macs:
                 for e in emps:
-                    sl=self.slot(m['id'],e['id'],dur,ready,due_target)
+                    self._set_timeout_context(
+                        route.get('code',''),
+                        step.get('code',''),
+                        sid,
+                        'allocation_search',
+                        ready,
+                        due_target,
+                        f"mode={mode};mt={c.get('mt_code','')};machine={m['code']};employee={e['code']};dur={dur};lot_qty={_fmt_qty(lot_qty)}",
+                    )
+                    self._raise_if_order_timeout()
+                    sl=self.slot(m['id'],e['id'],dur,ready,due_target,route.get('code',''),step.get('code',''),sid)
                     if sl is None: continue
                     st,en=sl; late=max(0.0,(en-due_target).total_seconds()/60.0)
                     if late<best_l or (abs(late-best_l)<1e-6 and (best is None or en<best['en'])):
@@ -651,6 +861,8 @@ class Core:
         return best
     def solve_order(self,seq,o):
         order_snapshot=self._snapshot_order_state()
+        self._arm_order_timeout(o.get('code',''))
+        self._set_timeout_context('-', '-', None, 'order_prepare', self.start, o.get('due'), f"seq={seq}")
         order_purchase_plan={}
         inv_trial={int(k):q(Decimal(str(v))) for k,v in self.inv.items()}
         req_mat_code=self.d['mats'].get(o['mat'],{}).get('code','')
@@ -675,7 +887,14 @@ class Core:
             self._advance_step_bar('-', 'fail')
             self.outcomes.append({'seq':seq,'code':o['code'],'pri':o['pri'],'due':o['due'],'route':'-','result':'failed','finish':None,'delay':0.0,'msg':reason}); return
 
-        route=self.d['routes'][rid]; rq=self.reqs(rid,o['mat'],net_target_qty,inv_trial)
+        route=self.d['routes'][rid]
+        try:
+            self._set_timeout_context(route.get('code',''), '-', None, 'requirement_expand', self.start, o.get('due'), f"net_target_qty={_fmt_qty(net_target_qty)}")
+            self._raise_if_order_timeout()
+            rq=self.reqs(rid,o['mat'],net_target_qty,inv_trial)
+        except OrderSolveTimeout as timeout_exc:
+            self._fail_order_timeout(seq, o, route['code'], order_snapshot, timeout_exc)
+            return
         if rq is None:
             reason='missing sink step'; analysis='Route has no sink step producing the requested material'; suggestion='Check route_steps.output_material_code against order requested_material_code'
             self.add_prob('demand',o['code'],'missing_sink','critical',reason,None,o['due'],o['code'],route['code'],'',analysis,suggestion)
@@ -696,6 +915,8 @@ class Core:
             for sid in reversed(topo):
                 if sid not in req: continue
                 stp=self.d['steps'][sid]; ex=req[sid]['ex']
+                self._set_timeout_context(route['code'], stp['code'], sid, 'step_loop_enter', None, o['due'], f"step_idx={done_steps+1}/{total_req_steps}")
+                self._raise_if_order_timeout()
                 self._current_step_code = stp['code']
                 self._current_candidate_count = len(self.d['cands'].get(sid, []))
                 self._current_step_idx = done_steps
@@ -709,6 +930,8 @@ class Core:
                 else:
                     latest_end=o['due']
                 ready=self.start
+                self._set_timeout_context(route['code'], stp['code'], sid, 'material_check', ready, latest_end, f"inputs={len(self.d['inputs'].get(sid,[]))};executions={ex}")
+                self._raise_if_order_timeout()
                 self._step_status(stp['code'], ready=ready, latest_end=latest_end, extra='检查物料')
                 for i in self.d['inputs'].get(sid,[]):
                     f=reservation_plan.get((sid,i['mat'])) or {}
@@ -720,6 +943,8 @@ class Core:
                     carrier_reserved=q(Decimal(str(f.get('carrier_reserved_qty',Decimal('0')))))
                     pv=f.get('provider_step_id')
                     mat_code=self.d['mats'][i['mat']]['code']
+                    self._set_timeout_context(route['code'], stp['code'], sid, 'material_check', ready, latest_end, f"input={mat_code};mode={mode};need={_fmt_qty(need)}")
+                    self._raise_if_order_timeout()
 
                     if stock_used>0:
                         self.add_trace(
@@ -744,6 +969,8 @@ class Core:
                             f'from_upstream_step={up_step}; required={need:.4f}; from_upstream={upstream_required:.4f}; mode={mode}'
                         )
                     if external_required>0:
+                        self._set_timeout_context(route['code'], stp['code'], sid, 'material_purchase_check', ready, latest_end, f"input={mat_code};external_required={_fmt_qty(external_required)}")
+                        self._raise_if_order_timeout()
                         rr=self.ext_mat(o,route['code'],stp['code'],i['mat'],external_required,order_purchase_plan)
                         if rr is None:
                             reason=f'material shortage at {stp["code"]}'; analysis='Inventory is insufficient and material is not purchasable'; suggestion='Add stock or purchase rule in material_purchases'
@@ -768,6 +995,8 @@ class Core:
                 if stp['mode']=='batch':
                     remaining=q(req[sid]['out'])
                     while remaining>0:
+                        self._set_timeout_context(route['code'], stp['code'], sid, 'allocation_search', ready, latest_end, f"mode=batch;remaining={_fmt_qty(remaining)}")
+                        self._raise_if_order_timeout()
                         al=self.alloc(o,route,stp,sid,1,remaining,ready,latest_end,'batch')
                         if al is None:
                             cause,analysis,suggestion,snap=self.analyze_allocation_failure(sid,ready,latest_end)
@@ -788,6 +1017,8 @@ class Core:
                     chunk_exec=max(1, max_run_min//base_dur)
                     remain=ex
                     while remain>0:
+                        self._set_timeout_context(route['code'], stp['code'], sid, 'allocation_search', ready, latest_end, f"mode=single;remain_exec={remain}")
+                        self._raise_if_order_timeout()
                         run_exec=min(chunk_exec,remain)
                         remain-=run_exec
                         pqty=q(stp['out_qty']*Decimal(run_exec))
@@ -814,6 +1045,9 @@ class Core:
                 self.add_trace(o['code'],route['code'],stp['code'],'STEP_ALLOC',self.d['mats'][stp['out_mat']]['code'],'','',req[sid]['out'],f"mode={stp['mode']} executions={ex}; latest_end={fdt(latest_end)}")
                 done_steps += 1
                 self._advance_step_bar(stp['code'], 'ok', req[sid]['out'])
+        except OrderSolveTimeout as timeout_exc:
+            self._fail_order_timeout(seq, o, route['code'], order_snapshot, timeout_exc)
+            return
         finally:
             self._close_step_bar()
         if not step_end_max:

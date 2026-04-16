@@ -87,3 +87,9 @@
   - `proportional_to_output`：`need = planned_output_qty * input_qty_per_execution / output_qty_per_execution`
   - `packaging_per_pack`：`need = ceil(planned_output_qty / output_qty_per_execution) * input_qty_per_execution`
   - `carrier_transfer`：仅记录占用量（`carrier_reserved_qty`），不扣库存、不触发采购；无上游提供者时按失败处理（`carrier_provider_missing`）。
+
+## 9. 订单级超时失败规则（2026-04）
+- 超时口径：仅统计单订单 `solve_order` 求解时长，不包含该订单后置任务合并耗时。
+- 阈值：单订单超过 `120s` 直接失败，问题类型记为 `order_timeout_blocked`。
+- 失败诊断：必须落到“具体路线/工序 + 卡点阶段（如 `material_check` / `allocation_search` / `slot_search`）+ 根因推断”，不得只写“超时”。
+- 失败副作用：超时订单按订单失败事务回滚处理，不得保留部分任务、资源预占、库存/采购提交，避免影响后续订单。

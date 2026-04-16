@@ -129,6 +129,10 @@ C:\Users\11941\AppData\Local\Programs\Python\Python310\python.exe D:\A_sch\src\v
   - 上游匹配与分块口径：
     - 工序输入优先按 `route_step_dependencies` 前驱链路匹配提供者；无法唯一匹配时按 `ambiguous_provider` 失败
     - `single` 分块按候选设备真实时长在分配阶段计算，避免按首候选设备时长导致的分块偏差
+  - 订单级超时失败（`solve_order` 口径）：
+    - 单订单求解超过 `120s` 直接判失败（`problem_type=order_timeout_blocked`），不包含订单后置 merge 耗时
+    - 失败原因要求定位到“路线/工序 + 卡点阶段（material_check/allocation_search/slot_search）+ 根因推断”，而非仅记录超时
+    - 超时订单会回滚该订单已产生的任务、资源预占、库存/采购提交，避免污染后续订单
   - 代码职责拆分（脚本内组件）：
     - `DataLoader`：数据库读取与标准化
     - `RequirementPlanner`：需求展开与上游匹配
