@@ -19,7 +19,7 @@ D4 = Decimal('0.0001')
 PRIORITY_WEIGHT = 0.6
 DUE_WEIGHT = 0.4
 PLANNING_HORIZON_DAYS = 90
-ORDER_SOLVE_TIMEOUT_SEC = 120.0
+ORDER_SOLVE_TIMEOUT_SEC = 60.0
 VERBOSE = False
 
 def q(v: Decimal) -> Decimal: return v.quantize(D4, rounding=ROUND_HALF_UP)
